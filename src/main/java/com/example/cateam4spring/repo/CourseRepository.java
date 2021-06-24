@@ -1,4 +1,9 @@
 package com.example.cateam4spring.repo;
 
-public class CourseRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.cateam4spring.model.Course;
+
+public interface CourseRepository extends JpaRepository<Course, Integer> {
+
 }
