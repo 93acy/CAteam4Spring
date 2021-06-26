@@ -13,7 +13,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.example.cateam4spring.service.UserDetailsServiceImpl;
 
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -51,11 +50,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/", "/index").permitAll()
-//			.anyRequest()
-//			.authenticated()
-				.antMatchers("/admin_home/**").hasAuthority("ADMIN").antMatchers("/student_home/**")
-				.hasAuthority("STUDENT").antMatchers("/lecturer_home/**").hasAuthority("LECTURER").and().formLogin()
-				.loginPage("/login").successHandler(successHandler).permitAll().and().logout().permitAll();
+		http.authorizeRequests()
+				.antMatchers("/", "/index").permitAll()
+				.antMatchers("/admin_home/**").hasAuthority("ADMIN")
+				.antMatchers("/student_home/**").hasAuthority("STUDENT")
+				.antMatchers("/lecturer_home/**").hasAuthority("LECTURER")
+				.anyRequest().authenticated()
+				.and()
+				.formLogin().loginPage("/login").successHandler(successHandler).permitAll()
+				.and()
+				.logout().permitAll();
 	}
 }
