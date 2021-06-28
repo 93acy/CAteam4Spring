@@ -10,7 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @Entity
 public class Role {
 	@Id
@@ -29,7 +28,7 @@ public class Role {
 		super();
 		this.name = name;
 	}
-	
-	
-	
-}	
+
+
+
+}

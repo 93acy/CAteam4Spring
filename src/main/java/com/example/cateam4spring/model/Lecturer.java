@@ -16,11 +16,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-public class Lecturer {
+public class Lecturer extends User{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String FirstName;
 	private String LastName;
 		
@@ -29,40 +29,11 @@ public class Lecturer {
 	 joinColumns = @JoinColumn(name="lecturer_id"),
 	 inverseJoinColumns = @JoinColumn(name="course_id")) 
 	 private Collection<Course> courses;
-	 
-	
-	public Lecturer(String firstName, String lastName) {
-		super();
+
+	public Lecturer(String username, String password, boolean enabled, String firstName, String lastName) {
+		super(username, password, enabled);
 		FirstName = firstName;
 		LastName = lastName;
 	}
-
-
-	public Lecturer(String firstName, String lastName, Collection<Course> courses) {
-		super();
-		FirstName = firstName;
-		LastName = lastName;
-		this.courses = courses;
-	}
-
-
-	public Lecturer(int id, String firstName, String lastName, Collection<Course> courses) {
-		super();
-		this.id = id;
-		FirstName = firstName;
-		LastName = lastName;
-		this.courses = courses;
-	}
-	
-	
-
-	
-
-	 
-	
-	
-	
-	
-
 }
 

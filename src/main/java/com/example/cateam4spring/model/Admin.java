@@ -20,24 +20,21 @@ public class Admin extends User {
 	private Integer id;
 	private String FirstName;
 	private String LastName;
-	
+
 	public Admin(Integer id, String username, String password, boolean enabled, Set<Role> roles, Integer id2,
-			String firstName, String lastName) {
+				 String firstName, String lastName) {
 		super(id, username, password, enabled, roles);
 		id = id2;
 		FirstName = firstName;
 		LastName = lastName;
 	}
 
-	public Admin(Integer id, String username, String password, boolean enabled, Set<Role> roles, String firstName,
-			String lastName) {
-		super(id, username, password, enabled, roles);
+	public Admin(String username, String password, boolean enabled, String firstName, String lastName) {
+		super(username, password, enabled);
 		FirstName = firstName;
 		LastName = lastName;
 	}
-	
-	
-	
-
-
 }
+
+
+

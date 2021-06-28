@@ -54,15 +54,12 @@ public class User {
 	}
 
 
-
 	public User(String username, String password, boolean enabled) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
 	}
-	
-	
 	
 	public boolean hasRole(String roleName) {
         Iterator<Role> iterator = this.roles.iterator();
@@ -72,7 +69,7 @@ public class User {
                 return true;
             }
         }
-         
+
         return false;
     }
 
