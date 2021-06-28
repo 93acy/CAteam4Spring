@@ -1,10 +1,64 @@
 <!DOCTYPE html>
-<html>
+
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+ <link rel="stylesheet" type="text/css" media="all"
+       th:href="@{/css/style.css}" />
 </head>
+
 <body>
- <p>admin</p>
+<div th:replace="fragments/layout :: topnav">
+</div>
+<p>
+<h1>Courses Taught</h1>
+<table>
+ <tr>
+  <td>
+   <form>
+    <label for="semesters"><strong>Semester</strong></label>
+    <select name="semesters" id="semesters">
+     <option value="A17/18 Semester 1">A17/18 Semester 1</option>
+     <option value="saab">Saab</option>
+     <option value="opel">Opel</option>
+     <option value="audi">Audi</option>
+    </select>
+    <input type="submit" value="Submit">
+   </form>
+  </td>
+  <td>
+   <div class="search-container">
+    <form action="/action_page.php">
+     <input type="text" placeholder="Search by name/course ID" name="search">
+     <button type="submit">Submit</button>
+    </form>
+   </div>
+  </td>
+ </tr>
+</table>
+</p>
+
+<table id="ViewCourses" class="table table-striped">
+ <thead>
+ <tr>
+  <th style="width: 150px;">Course Name</th>
+  <th style="width: 200px;">Course Id</th>
+  <th>Course Start Date</th>
+  <th style="width: 120px">Capacity</th>
+  <th>Credit Units</th>
+ </tr>
+ </thead>
+ <!-- <tbody>
+ <tr th:each="owner : ${selections}">
+ <td>
+ <a th:href="@{/owners/__${owner.id}__}" th:text="${owner.firstName + ' ' + owner.lastName}"/></a>
+ </td>
+ <td th:text="${owner.address}"/>
+ <td th:text="${owner.city}"/>
+ <td th:text="${owner.telephone}"/>
+ <td><span th:each="pet : ${owner.pets}" th:text="${pet.name} "/></td>
+ </tr>
+ </tbody> -->
+</table>
+
 </body>
 </html>

@@ -75,7 +75,7 @@ public class CAteam4SpringApplication {
 
 			String rawPassword4 = "admin";
 			String encodedPassword4 = encoder.encode(rawPassword4);
-			Admin admin1 = new Admin("Admin", encodedPassword4, true, "forever", "admin");
+			Admin admin1 = new Admin("Admin", "admin", true, "forever", "admin");
 			admin1.getRoles().add(ADMIN);
 			arepo.save(admin1);
 
@@ -95,9 +95,9 @@ public class CAteam4SpringApplication {
 //
 //		    erms.add(e1);
 //		    s3.setEnrolments(erms);
-			
 
-			
+
+
 
 
 //
@@ -110,7 +110,7 @@ public class CAteam4SpringApplication {
 //			String encodedPassword3 = encoder.encode(rawPassword3);
 //			User lecturer = new User("lecturer", encodedPassword3,true);
 //			lecturer.getRoles().add(LECTURER);
-			
+
 //			urepo.save(admin);
 //			urepo.save(student);
 //			urepo.save(lecturer);
