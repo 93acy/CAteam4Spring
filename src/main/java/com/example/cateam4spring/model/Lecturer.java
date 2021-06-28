@@ -18,14 +18,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name="lecturer")
-public class Lecturer {
+public class Lecturer extends User{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name ="lecturer_id")
-	private int id;
-	private String FirstName;
-	private String LastName;
+	private Integer id;
+	private String firstName;
+	private String lastName;
 	
 	
 	 @ManyToMany
@@ -33,38 +33,10 @@ public class Lecturer {
 	 private Collection<Course> courses;
 	 
 	
-	public Lecturer(String firstName, String lastName) {
-		super();
-		FirstName = firstName;
-		LastName = lastName;
-	}
-
-
-	public Lecturer(String firstName, String lastName, Collection<Course> courses) {
-		super();
-		FirstName = firstName;
-		LastName = lastName;
-		this.courses = courses;
-	}
-
-
-	public Lecturer(int id, String firstName, String lastName, Collection<Course> courses) {
-		super();
-		this.id = id;
-		FirstName = firstName;
-		LastName = lastName;
-		this.courses = courses;
-	}
-	
-	
-
-	
-
-	 
-	
-	
-	
-	
-
+	 public Lecturer(String username, String password, boolean enabled, String firstName, String lastName) {
+		   super(username, password, enabled);
+		   this.firstName = firstName;
+		   this.lastName = lastName;
+	 }	
 }
 

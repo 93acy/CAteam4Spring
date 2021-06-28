@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.example.cateam4spring.model.Role;
+import com.example.cateam4spring.model.Student;
 import com.example.cateam4spring.model.User;
 import com.example.cateam4spring.repo.CourseRepository;
 import com.example.cateam4spring.repo.LecturerRepository;
@@ -57,26 +58,32 @@ public class CAteam4SpringApplication {
 			Role ADMIN = new Role("ADMIN");
 			Role STUDENT = new Role("STUDENT");
 			Role LECTURER = new Role("LECTURER");
-			
+//			
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-			String rawPassword1 = "admin";
-			String encodedPassword1 = encoder.encode(rawPassword1);
-			User admin = new User("admin", encodedPassword1, true);
-			admin.getRoles().add(ADMIN);
+//			String rawPassword1 = "admin";
+//			String encodedPassword1 = encoder.encode(rawPassword1);
+//			User admin = new User("admin", encodedPassword1, true);
+//			admin.getRoles().add(ADMIN);
+//			
+//			String rawPassword2 = "student";
+//			String encodedPassword2 = encoder.encode(rawPassword2);
+//			User student = new User("student", encodedPassword2, true);
+//			student.getRoles().add(STUDENT);
+//			
+//			String rawPassword3 = "lecturer";
+//			String encodedPassword3 = encoder.encode(rawPassword3);
+//			User lecturer = new User("lecturer", encodedPassword3,true);
+//			lecturer.getRoles().add(LECTURER);
+//			
+//			urepo.save(admin);
+//			urepo.save(student);
+//			urepo.save(lecturer);
 			
-			String rawPassword2 = "student";
-			String encodedPassword2 = encoder.encode(rawPassword2);
-			User student = new User("student", encodedPassword2, true);
-			student.getRoles().add(STUDENT);
-			
-			String rawPassword3 = "lecturer";
-			String encodedPassword3 = encoder.encode(rawPassword3);
-			User lecturer = new User("lecturer", encodedPassword3,true);
-			lecturer.getRoles().add(LECTURER);
-			
-			urepo.save(admin);
-			urepo.save(student);
-			urepo.save(lecturer);
+			String rawPassword4 ="student";
+			String encodedPassword4 = encoder.encode(rawPassword4);
+			Student student1 = new Student("joel", encodedPassword4, true, "Joel", "Yeo", 5.0, null);
+			student1.getRoles().add(STUDENT);
+			srepo.save(student1);
 
 		};
 	}

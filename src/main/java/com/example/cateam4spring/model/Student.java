@@ -19,12 +19,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name="student")
-public class Student {
+public class Student extends User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name ="student_id")
-	private int id;
+	private Integer id;
 	private String FirstName;
 	private String LastName;	
 	private double GPA;
@@ -34,34 +34,17 @@ public class Student {
 	 @ManyToMany
 	 @JoinColumn(name="Student_Course", referencedColumnName="course_id") 
 	 private Collection<Course> courses;
+
+
+	public Student(String username, String password, boolean enabled, String firstName, String lastName, double GPA, Date enrollmentDate) {
+		   super(username, password, enabled);
+		   FirstName = firstName;
+		   LastName = lastName;
+		   this.GPA = GPA;
+		   this.enrollmentDate = enrollmentDate;
+		} 
 	 
-	public Student(String firstName, String lastName, double gPA, Date enrollmentDate) {
-		super();
-		FirstName = firstName;
-		LastName = lastName;
-		GPA = gPA;
-		this.enrollmentDate = enrollmentDate;
-	}
-
-	public Student(int id, String firstName, String lastName, double gPA, Date enrollmentDate,
-			Collection<Course> courses) {
-		super();
-		this.id = id;
-		FirstName = firstName;
-		LastName = lastName;
-		GPA = gPA;
-		this.enrollmentDate = enrollmentDate;
-		this.courses = courses;
-	}
-
-	public Student(String firstName, String lastName, double gPA, Date enrollmentDate, Collection<Course> courses) {
-		super();
-		FirstName = firstName;
-		LastName = lastName;
-		GPA = gPA;
-		this.enrollmentDate = enrollmentDate;
-		this.courses = courses;
-	}
+	
 	
 	
 	
