@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="BIG5">
+<title>View Course</title>
+</head>
+<body>
+	<div th:text=" Hello + ${session.studentSession.firstName} + ${session.studentSession.lastName}"></div>
+	<div th:replace="Layout.html :: menu"></div>
+	<table>
+		<tr>
+			<th>CourseId</th>
+			<th>CourseName</th>
+			<th>Description</th>
+			<th>Capacity</th>
+			<th>Credit</th>
+		</tr>
+		<tr th:each="course:${allCourses}">
+			<td th:text="${course.id}"></td>
+			<td th:text="${course.name}"></td>
+			<td th:text="${course.description}"></td>
+			<td th:text="${course.capacity}"></td>
+			<td th:text="${course.credit}"></td>
+		</tr>
+	</table>
+</body>
+</html>

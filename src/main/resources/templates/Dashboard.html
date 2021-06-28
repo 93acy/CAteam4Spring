@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="BIG5">
+<title>DashBoard</title>
+</head>
+<body>
+	<div th:text=" Hello + ${session.studentSession.firstName} + ${session.studentSession.lastName}"></div>
+	<div th:replace="Layout.html :: menu"></div>
+	
+	<p>This is a DashBoard</p>
+
+</body>
+</html>
