@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name="lecturer")
-public class Lecturer extends User{
+public class Lecturer extends User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

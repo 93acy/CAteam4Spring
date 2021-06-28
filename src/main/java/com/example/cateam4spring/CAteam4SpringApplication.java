@@ -1,5 +1,11 @@
 package com.example.cateam4spring;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -7,11 +13,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.example.cateam4spring.model.Admin;
+import com.example.cateam4spring.model.Lecturer;
 import com.example.cateam4spring.model.Role;
 import com.example.cateam4spring.model.Student;
 import com.example.cateam4spring.model.User;
+import com.example.cateam4spring.repo.AdminRepository;
 import com.example.cateam4spring.repo.CourseRepository;
 import com.example.cateam4spring.repo.LecturerRepository;
+import com.example.cateam4spring.repo.RoleRepository;
 import com.example.cateam4spring.repo.StudentRepository;
 import com.example.cateam4spring.repo.UserRepository;
 
@@ -31,6 +41,12 @@ public class CAteam4SpringApplication {
 	
 	@Autowired
 	UserRepository urepo;
+	
+	@Autowired
+	RoleRepository rrepo;
+	
+	@Autowired
+	AdminRepository arepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CAteam4SpringApplication.class, args);
@@ -55,15 +71,16 @@ public class CAteam4SpringApplication {
 //			s1.setCourses(courses);
 //			l1.setCourses(courses);
 			
-			Role ADMIN = new Role("ADMIN");
-			Role STUDENT = new Role("STUDENT");
-			Role LECTURER = new Role("LECTURER");
+//			Role ADMIN = new Role("ADMIN");
+//			Role STUDENT = new Role("STUDENT");
+//			Role LECTURER = new Role("LECTURER");
 //			
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 //			String rawPassword1 = "admin";
 //			String encodedPassword1 = encoder.encode(rawPassword1);
-//			User admin = new User("admin", encodedPassword1, true);
+//			Admin admin = new Admin("admin", encodedPassword1, true);
 //			admin.getRoles().add(ADMIN);
+//			arepo.save(admin);
 //			
 //			String rawPassword2 = "student";
 //			String encodedPassword2 = encoder.encode(rawPassword2);
@@ -79,12 +96,34 @@ public class CAteam4SpringApplication {
 //			urepo.save(student);
 //			urepo.save(lecturer);
 			
+			rrepo.save(new Role("STUDENT"));
+			rrepo.save(new Role("LECTURER"));
+			
 			String rawPassword4 ="student";
 			String encodedPassword4 = encoder.encode(rawPassword4);
 			Student student1 = new Student("joel", encodedPassword4, true, "Joel", "Yeo", 5.0, null);
-			student1.getRoles().add(STUDENT);
 			srepo.save(student1);
-
+//			student1.getRoles().add(new Role("STUDENT"));
+			Role role1 = rrepo.findRoleByName("STUDENT");
+			student1.addRole(role1);
+			srepo.save(student1);
+			
+//			
+			String rawPassword5 ="student";
+			String encodedPassword5 = encoder.encode(rawPassword5);
+			Student student2 = new Student("joel1", encodedPassword5, true, "Joel", "Yeo", 5.0, null);
+			srepo.save(student2);
+//			Set<Role> roles = new HashSet<>();
+//			roles.add(role1);
+//			student2.setRoles(roles);
+			student2.addRole(role1);
+			srepo.save(student2);
+			
+			String rawPassword6 = "lecturer";
+			String encodedPassword6 = encoder.encode(rawPassword6);
+			Lecturer lecturer1 = new Lecturer("tin", encodedPassword6, true, "Nguyen", "Tri");
+			lecturer1.getRoles().add(new Role("LECTURER"));
+			lrepo.save(lecturer1);
 		};
 	}
 

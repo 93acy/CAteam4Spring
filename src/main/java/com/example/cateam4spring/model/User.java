@@ -1,4 +1,4 @@
-package com.example.cateam4spring.model;
+	package com.example.cateam4spring.model;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -13,7 +13,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -28,9 +30,12 @@ public class User {
 	private String password;
 	private boolean enabled;
 	
-	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(name = "USER_ROLES", joinColumns = 
+	@JoinColumn(name = "USER_ID"), inverseJoinColumns = 
+	@JoinColumn(name = "ROLE_ID"))
 	private Set<Role> roles = new HashSet<>();
-	
+
 	public User() {
 		super();
 	}
@@ -93,4 +98,8 @@ public class User {
          
         return false;
     }
+	
+	public void addRole(Role role) {
+	        this.roles.add(role);
+	}
 }

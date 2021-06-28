@@ -1,5 +1,6 @@
 package com.example.cateam4spring.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "Admin")
 public class Admin extends User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="admin_id")
 	private Integer id;
 
 	public Admin(String username, String password, boolean enabled) {
