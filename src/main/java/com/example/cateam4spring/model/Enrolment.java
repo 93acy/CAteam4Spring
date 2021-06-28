@@ -1,39 +1,61 @@
 package com.example.cateam4spring.model;
 
-import javax.persistence.*;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 @Entity
 public class Enrolment {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private boolean courseStatus;
+	private Date enrolmentDate;
+	private double grade;
+	
+	@ManyToOne
+	private Student student;
+	
+	@ManyToOne
+	private Course course;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Id;
+	public Enrolment(int id, boolean courseStatus, Date enrolmentDate, double grade, Student student, Course course) {
+		super();
+		this.id = id;
+		this.courseStatus = courseStatus;
+		this.enrolmentDate = enrolmentDate;
+		this.grade = grade;
+		this.student = student;
+		this.course = course;
+	}
 
-    @ManyToOne
-    private Course course;
+	public Enrolment(boolean courseStatus, Date enrolmentDate, double grade, Student student, Course course) {
+		super();
+		this.courseStatus = courseStatus;
+		this.enrolmentDate = enrolmentDate;
+		this.grade = grade;
+		this.student = student;
+		this.course = course;
+	}
 
-    @ManyToOne
-    private Student student;
+	public Enrolment(boolean courseStatus, Date enrolmentDate, double grade) {
+		super();
+		this.courseStatus = courseStatus;
+		this.enrolmentDate = enrolmentDate;
+		this.grade = grade;
+	}
+	
+	
 
-    private String courseStatus;
-    private Date startDate;
-
-    private String grade;
-
-    public Enrolment(Integer enrolId, Course courseId, Student studentId, String courseStatus, Date startDate, String grade) {
-        this.Id = enrolId;
-        this.course = courseId;
-        this.student = studentId;
-        this.courseStatus = courseStatus;
-        this.startDate = startDate;
-        this.grade = grade;
-    }
-
-    public Enrolment() {
-    }
-
-    //Student-course
-
-
+    
 }

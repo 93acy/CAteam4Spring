@@ -1,5 +1,7 @@
 package com.example.cateam4spring.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,14 +14,30 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "Admin")
 public class Admin extends User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
-	public Admin(String username, String password, boolean enabled) {
-		super(username, password, enabled);
-		// TODO Auto-generated constructor stub
+	private String FirstName;
+	private String LastName;
+	
+	public Admin(Integer id, String username, String password, boolean enabled, Set<Role> roles, Integer id2,
+			String firstName, String lastName) {
+		super(id, username, password, enabled, roles);
+		id = id2;
+		FirstName = firstName;
+		LastName = lastName;
 	}
+
+	public Admin(Integer id, String username, String password, boolean enabled, Set<Role> roles, String firstName,
+			String lastName) {
+		super(id, username, password, enabled, roles);
+		FirstName = firstName;
+		LastName = lastName;
+	}
+	
+	
+	
+
+
 }
