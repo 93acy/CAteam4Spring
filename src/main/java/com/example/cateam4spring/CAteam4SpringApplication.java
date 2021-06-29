@@ -2,6 +2,8 @@ package com.example.cateam4spring;
 
 import com.example.cateam4spring.model.*;
 import com.example.cateam4spring.repo.*;
+
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 
@@ -92,7 +95,8 @@ public class CAteam4SpringApplication {
 			Role student = rrepo.findRoleByName("STUDENT");
 			Role lecturer = rrepo.findRoleByName("LECTURER");
 			Role admin= rrepo.findRoleByName("ADMIN");
-
+			
+//1
 			String rawPassword1 ="admin";
 			String encodedPassword1 = encoder.encode(rawPassword1);
 			Admin admin1 = new Admin("Admin", encodedPassword1, true, "forever", "Admin");
@@ -107,13 +111,11 @@ public class CAteam4SpringApplication {
 			student1.getRoles().add(student);
 			srepo.save(student1);
 
-//
 			String rawPassword5 ="student";
 			String encodedPassword5 = encoder.encode(rawPassword5);
 			Student student2 = new Student("joel1", encodedPassword5, true, "Joel", "Yeo", 5.0, null);
 			srepo.save(student2);
 			student2.getRoles().add(student);
-//			student2.addRole(student);
 			srepo.save(student2);
 
 			String rawPassword6 = "lecturer";
@@ -122,6 +124,10 @@ public class CAteam4SpringApplication {
 			lrepo.save(lecturer1);
 			lecturer1.getRoles().add(lecturer);
 			lrepo.save(lecturer1);
+			
+//			User a = urepo.getById(1);
+//			a.setRoles(Set.of(lecturer, admin));
+//			urepo.save(a);
 		};
 	}
 
