@@ -1,5 +1,6 @@
 package com.example.cateam4spring.model;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -54,6 +55,11 @@ public class Enrolment {
 		this.enrolmentDate = enrolmentDate;
 		this.grade = grade;
 	}
+	
+	public int getCourseId() {
+		return course.getId();
+	}
+
 	
 	
 

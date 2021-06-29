@@ -20,8 +20,8 @@ public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String FirstName;
-	private String LastName;	
+	private String firstName;
+	private String lastName;	
 	private Double GPA;
 	@OneToMany(mappedBy="student") 
 	private Collection<Enrolment> enrolments;
@@ -29,24 +29,24 @@ public class Student {
 	public Student(int id, String firstName, String lastName, Double gPA, Collection<Enrolment> enrolments) {
 		super();
 		this.id = id;
-		FirstName = firstName;
-		LastName = lastName;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		GPA = gPA;
 		this.enrolments = enrolments;
 	}
 
 	public Student(String firstName, String lastName, Double gPA, Collection<Enrolment> enrolments) {
 		super();
-		FirstName = firstName;
-		LastName = lastName;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		GPA = gPA;
 		this.enrolments = enrolments;
 	}
 
 	public Student(String firstName, String lastName, Double gPA) {
 		super();
-		FirstName = firstName;
-		LastName = lastName;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		GPA = gPA;
 	}
 	
