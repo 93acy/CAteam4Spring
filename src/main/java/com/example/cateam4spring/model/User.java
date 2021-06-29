@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,10 +16,13 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+
+import org.hibernate.annotations.Proxy;
 @Data
 @NoArgsConstructor
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
+@Proxy(lazy=false)
 public class User{
 	
 	@Id
@@ -32,7 +34,7 @@ public class User{
 	private String password;
 	private boolean enabled;
 	
-	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER)
 	private Set<Role> roles = new HashSet<>();
 
 	public User(String username, String password, boolean enabled) {
@@ -46,7 +48,7 @@ public class User{
 		this.password = password;
 		this.enabled = enabled;
 		this.roles = roles;
-	}
+	}	
 
 	public boolean hasRole(String roleName) {
         Iterator<Role> iterator = this.roles.iterator();
@@ -63,15 +65,9 @@ public class User{
 	public Set<Role> getRoles() {
 		return roles;
 	}
-
+	
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
 
-	public void addRole(Role role){
-		this.roles.add(role);
-	}
-
-    public void setRoles() {
-    }
 }

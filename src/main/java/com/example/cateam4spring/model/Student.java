@@ -11,13 +11,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-public class Student extends User{
+public class Student extends User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String FirstName;
-	private String LastName;	
+	private String firstName;
+	private String lastName;	
 	private double GPA;
 	private Date enrollmentDate;
 
@@ -33,8 +33,8 @@ public class Student extends User{
 
 	public Student(String username, String password, boolean enabled, String firstName, String lastName, double GPA, Date enrollmentDate) {
 		super(username, password, enabled);
-		FirstName = firstName;
-		LastName = lastName;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.GPA = GPA;
 		this.enrollmentDate = enrollmentDate;
 	}
