@@ -9,17 +9,29 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "Admin")
 public class Admin extends User {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
 
-	public Admin(String username, String password, boolean enabled) {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String firstName;
+	private String lastName;
+
+
+	public Admin(String username, String password, boolean enabled, Set<Role> roles, String firstName, String lastName) {
+		super(username, password, enabled, roles);
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	public Admin(String username, String password, boolean enabled, String firstName, String lastName) {
 		super(username, password, enabled);
-		// TODO Auto-generated constructor stub
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 }

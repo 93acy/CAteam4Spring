@@ -3,13 +3,7 @@ package com.example.cateam4spring.model;
 import java.util.Collection;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,29 +11,26 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="course")
 public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="course_id")
-	private int id;
+	@Column(name="course_id")
+	private Integer id;
 	private String name;
 	private String description;
 	private int capacity;
 	private int credit;
-	
 	private Date startDate;
-	
-	
-	  @ManyToMany(mappedBy = "courses") 
+
+	  @ManyToMany(mappedBy = "courses")
 	  private Collection<Lecturer> lecturers;
 	  
-	  @ManyToMany(mappedBy = "courses") 
-	  private Collection<Student> students;
-	  	  
+	  @OneToMany(mappedBy = "course")
+	  private Collection<Enrolment> Enrolments;
+
+
 
 	public Course(String name, String description, int capacity, int credit, Date startDate) {
-		super();
 		this.name = name;
 		this.description = description;
 		this.capacity = capacity;
@@ -47,38 +38,13 @@ public class Course {
 		this.startDate = startDate;
 	}
 
-
-	public Course(int id, String name, String description, int capacity, int credit, Date startDate,
-			Collection<Lecturer> lecturers, Collection<Student> students) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.capacity = capacity;
-		this.credit = credit;
-		this.startDate = startDate;
-		this.lecturers = lecturers;
-		this.students = students;
-	}
-
-
-	public Course(String name, String description, int capacity, int credit, Date startDate,
-			Collection<Lecturer> lecturers, Collection<Student> students) {
-		super();
+	public Course(String name, String description, int capacity, int credit, Date startDate, Collection<Lecturer> lecturers, Collection<Enrolment> enrolments) {
 		this.name = name;
 		this.description = description;
 		this.capacity = capacity;
 		this.credit = credit;
 		this.startDate = startDate;
 		this.lecturers = lecturers;
-		this.students = students;
+		Enrolments = enrolments;
 	}
-
-	
-	
-	
-	
-	
-	
-
 }
