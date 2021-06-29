@@ -20,9 +20,15 @@ public class Student extends User{
 	private String LastName;	
 	private double GPA;
 	private Date enrollmentDate;
-	
-	
-	 @OneToMany(mappedBy="student")
+
+	public Student(String username, String password, boolean enabled, Integer id, String firstName, String lastName) {
+		super(username, password, enabled);
+		this.id = id;
+		FirstName = firstName;
+		LastName = lastName;
+	}
+
+	@OneToMany(mappedBy="student")
 	 private Collection<Enrolment> enrolments;
 
 	public Student(String username, String password, boolean enabled, String firstName, String lastName, double GPA, Date enrollmentDate) {
