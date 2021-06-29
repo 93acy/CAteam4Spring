@@ -24,8 +24,8 @@ public class Student extends User {
 	public Student(String username, String password, boolean enabled, Integer id, String firstName, String lastName) {
 		super(username, password, enabled);
 		this.id = id;
-		FirstName = firstName;
-		LastName = lastName;
+		firstName = firstName;
+		lastName = lastName;
 	}
 
 	@OneToMany(mappedBy="student")
