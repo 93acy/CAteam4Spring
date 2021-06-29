@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>View student enrolment</title>
+</head>
+<body>
+<div th:replace="lecturer_home :: topnav">
+  </div>
+<h1> Input Grade</h1>     
+
+<table border="1" >
+ <tr>
+   <th>COURSE ID</th>
+   <th>COURSE NAME</th>
+   <th>STUDENT NAME</th>
+   <th>STUDENT ID</th>
+   <th>GRADE</th>
+ </tr>
+ 
+ <tr th:each="record:${glist}">
+   <td th:text="${record.course.id}">ID</td> 
+   <td th:text="${record.course.name}">ID</td>
+   <td th:text="${record.student.firstName} + ${record.student.lastName}">ID</td>
+   <td th:text="${record.student.id}">ID</td>
+   <td th:text="${record.grade}" contenteditable = "true">0.0</td>
+
+ </tr>
+</table>
+
+
+
+</body>
+</html>
