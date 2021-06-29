@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="BIG5">
+<title>Enroll course</title>
+</head>
+<body>
+	<div th:text=" Hello + ${session.studentSession.firstName} + ${session.studentSession.lastName}"></div>
+	<div th:replace="Layout.html :: menu"></div>
+	
+	<table>
+		<tr>
+			<th>CourseId</th>
+			<th>CourseName</th>
+			<th>Credit</th>
+			<th>Enroll</th>
+		</tr>
+		<tr th:each="course:${unattendedCourses}">
+			<td th:text="${course.id}"></td>
+			<td th:text="${course.name}"></td>
+			<td th:text="${course.credit}"></td>
+			<td><a th:href="@{/student/enrollcourse/} + ${course.id}">Enroll</a></td> 
+		</tr>
+	</table>
+	
+	<!--  <table>
+		<tr>
+			<th>CourseId</th>
+			<th>CourseName</th>
+			<th>Credit</th>
+			<th>Enroll</th>
+		</tr>
+		<tr th:each="course:${unattendedCourses}">
+			<td th:text="${course.id}"></td>
+			<td th:text="${course.name}"></td>
+			<td th:text="${course.credit}"></td>
+			<td><a th:href="@{/student/enrollcourse/} + ${course.id}">Enroll</a></td> 
+		</tr>
+	</table>  -->
+</body>
+</html>

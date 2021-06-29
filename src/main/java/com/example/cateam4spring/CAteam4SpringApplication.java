@@ -3,7 +3,7 @@ package com.example.cateam4spring;
 import com.example.cateam4spring.model.*;
 import com.example.cateam4spring.repo.*;
 
-import org.hibernate.Hibernate;
+//import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,9 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+//import java.util.HashSet;
+//import java.util.Optional;
+//import java.util.Set;
 
 
 @SpringBootApplication

@@ -2,21 +2,26 @@ package com.example.cateam4spring.service;
 
 import com.example.cateam4spring.model.Course;
 import com.example.cateam4spring.model.Enrolment;
-import com.example.cateam4spring.model.Student;
+//import com.example.cateam4spring.model.Student;
 import com.example.cateam4spring.repo.CourseRepository;
 import com.example.cateam4spring.repo.EnrolmentRepository;
+
+//import com.example.cateam4spring.model.Enrolment;
+//import com.example.cateam4spring.repo.EnrolmentRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import javax.transaction.Transactional;
-import java.lang.reflect.Array;
+//import javax.annotation.Resource;
+//import javax.transaction.Transactional;
+//import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class EnrolmentServiceImpl implements EnrolmentService {
 
-    @Resource
+    /*@Resource
     private EnrolmentRepository erepo;
     @Resource
     private CourseRepository crepo;
@@ -52,15 +57,41 @@ public class EnrolmentServiceImpl implements EnrolmentService {
         return erepo.saveAndFlush(e);
     }
 
-    @Override
+    /*@Override
     public void enrolCourse(String studentId, String courseId) {
         erepo.enrolCourse(studentId, courseId);
-    }
+    }*/
 
-    @Override
+    /*@Override
     @Transactional
     public void deleteEnrolment(Enrolment e){
         erepo.delete(e);
-    }
+    }*/
+    
+    
+	@Autowired
+	private EnrolmentRepository erepo;
+	
+	@Autowired
+	private CourseRepository crepo;
+	
+	public List<Enrolment> findEnrollmentById(Integer Id){
+		return erepo.findEnrollmentById(Id);
+	}
+	
+	public List<Course> findCourseNotEnroll(Integer Id){
+		List<Integer> unattendedCoursesIds = erepo.findCourseNotEnroll(Id);
+		List<Course> unattendedCourses = new ArrayList<>();
+		for(Integer unattendedCoursesId : unattendedCoursesIds) {
+			Course course = crepo.findCourseById(unattendedCoursesId);
+			unattendedCourses.add(course);
+		}
+		return unattendedCourses;
+		
+	}
+	
+	public void enrollCourse(Integer studentId, Integer courseId) {
+		erepo.enrollCourse(studentId,courseId);
+	}
 
 }
