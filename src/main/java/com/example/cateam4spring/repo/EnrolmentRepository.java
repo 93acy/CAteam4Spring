@@ -17,12 +17,14 @@ public interface EnrolmentRepository extends JpaRepository<Enrolment, Integer> {
     //need to include conditions for course status
 
     @Query("SELECT e FROM Enrolment e WHERE e.student.id = :Id")
-    public List<Enrolment> findEnrolmentById(String Id);
+    public List<Enrolment> findEnrolmentsByStudentId(@Param("Id") Integer id);
 
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO Enrolment (student_id, course_id) VALUES ( :SId, :CId)", nativeQuery=true)
     public void enrolCourse(@Param("SId") String studentId, @Param("CId") String courseId);
 
+
+    
 
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Edit Grade</title>
+</head>
+<body>
+<header th:insert="fragments/layout.html :: header" ></header>
+
+<form action="#"
+		th:action="@{/lecturer/edit/}+${enrolment.id}"
+		th:object="${enrolment}" method="get">
+<table>
+		<tr>
+			Student Name: <td th:text =${enrolment.student.firstName}+${enrolment.student.lirstName}> </td>
+		</tr>
+		
+		<tr>
+			Student Id: <td th:text =${enrolment.student.id}> </td>
+		</tr>
+		
+		<tr>
+
+			Grade: <input type="text" th:field="*{grade}">
+		</tr>
+		
+		<fieldset>
+			<input type="submit" value="Save"/>
+			&nbsp; &nbsp; 	
+			<input type="reset" value="Reset"/>
+		</fieldset>
+		</table>
+	</form>
+
+</body>
+</html>

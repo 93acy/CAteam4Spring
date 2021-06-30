@@ -8,25 +8,34 @@
 <body>
 <div th:replace="lecturer_home :: topnav">
   </div>
-<h1> Input Grade</h1>     
-
-<table border="1" >
- <tr>
+<h1> Grade List</h1>     
+		
+<table>
+<tr>
    <th>COURSE ID</th>
    <th>COURSE NAME</th>
    <th>STUDENT NAME</th>
    <th>STUDENT ID</th>
    <th>GRADE</th>
- </tr>
+   <th>EDIT GRADE</th>
+</tr>
  
  <tr th:each="record:${glist}">
    <td th:text="${record.course.id}">ID</td> 
    <td th:text="${record.course.name}">ID</td>
    <td th:text="${record.student.firstName} + ${record.student.lastName}">ID</td>
    <td th:text="${record.student.id}">ID</td>
-   <td th:text="${record.grade}" contenteditable = "true">0.0</td>
+   <td th:text="${record.grade}" > 
+   <td><a th:href="@{/lecutrer/edit/}+${record.id}"
+					 class="btn btn-default">Edit</a></td>
+					 
+					 
+					
+	
+	
+</tr>
 
- </tr>
+
 </table>
 
 

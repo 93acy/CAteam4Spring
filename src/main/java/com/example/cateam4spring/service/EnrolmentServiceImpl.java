@@ -1,23 +1,26 @@
 package com.example.cateam4spring.service;
 
-import com.example.cateam4spring.model.Course;
-import com.example.cateam4spring.model.Enrolment;
-import com.example.cateam4spring.model.Student;
-import com.example.cateam4spring.repo.CourseRepository;
-import com.example.cateam4spring.repo.EnrolmentRepository;
-import org.springframework.stereotype.Service;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.cateam4spring.model.Enrolment;
+import com.example.cateam4spring.repo.CourseRepository;
+import com.example.cateam4spring.repo.EnrolmentRepository;
 
 @Service
 public class EnrolmentServiceImpl implements EnrolmentService {
 
     @Resource
+    @Autowired
     private EnrolmentRepository erepo;
+    
     @Resource
     private CourseRepository crepo;
 
@@ -28,12 +31,20 @@ public class EnrolmentServiceImpl implements EnrolmentService {
         ArrayList<Enrolment> e = (ArrayList<Enrolment>) erepo.findAll();
         return e;
     }
+    
+   @Override
+	public List<Enrolment> findEnrolmentsByStudentId(Integer id) {
 
-    @Override
-    @Transactional
-    public ArrayList<Enrolment> findEnrolmentById(String Id){
-        return (ArrayList<Enrolment>) erepo.findEnrolmentById(Id);
-    }
+		return erepo.findEnrolmentsByStudentId(id);
+	}
+    
+	@Override
+	public Optional<Enrolment> findEnrolmentById(Integer id) {
+    	
+		return erepo.findById(id);
+	}
+
+
 
 
 //    public List<Course> findCourseNotEnrol(String Id) {
@@ -62,5 +73,17 @@ public class EnrolmentServiceImpl implements EnrolmentService {
     public void deleteEnrolment(Enrolment e){
         erepo.delete(e);
     }
+
+	@Override
+	public Enrolment updateEnrolment(Enrolment enrolment) {
+		return erepo.saveAndFlush(enrolment);
+	}
+
+
+
+
+
+
+	
 
 }

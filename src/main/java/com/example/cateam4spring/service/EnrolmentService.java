@@ -5,12 +5,16 @@ import com.example.cateam4spring.model.Enrolment;
 import com.example.cateam4spring.model.Student;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public interface EnrolmentService {
 
     ArrayList<Enrolment> findAllEnrolments();
 
-    ArrayList<Enrolment> findEnrolmentById(String Id);
+    public List<Enrolment> findEnrolmentsByStudentId(Integer id);
+    
+    Optional<Enrolment> findEnrolmentById(Integer id);
 
 //  ArrayList<Enrolment> findAllEnrolmentsByCourse(String enrolId);
 
@@ -23,7 +27,16 @@ public interface EnrolmentService {
 
 
 
-//    Enrolment updateEnrolment(String enrolId);
+    Enrolment updateEnrolment(Enrolment enrolment);
     //for lecturer to grade and set courseStatus
+
+
+
+
+
+
+	
+
+
 
 }

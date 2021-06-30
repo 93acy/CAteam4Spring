@@ -1,9 +1,8 @@
 package com.example.cateam4spring;
 
-import com.example.cateam4spring.model.*;
-import com.example.cateam4spring.repo.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,9 +10,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import com.example.cateam4spring.model.Admin;
+import com.example.cateam4spring.model.Course;
+import com.example.cateam4spring.model.Enrolment;
+import com.example.cateam4spring.model.Lecturer;
+import com.example.cateam4spring.model.Role;
+import com.example.cateam4spring.model.Student;
+import com.example.cateam4spring.repo.AdminRepository;
+import com.example.cateam4spring.repo.CourseRepository;
+import com.example.cateam4spring.repo.EnrolmentRepository;
+import com.example.cateam4spring.repo.LecturerRepository;
+import com.example.cateam4spring.repo.RoleRepository;
+import com.example.cateam4spring.repo.StudentRepository;
+import com.example.cateam4spring.repo.UserRepository;
 
 
 @SpringBootApplication
@@ -124,6 +133,15 @@ public class CAteam4SpringApplication {
 			lrepo.save(lecturer1);
 			lecturer1.getRoles().add(lecturer);
 			lrepo.save(lecturer1);
+			
+			Course c1 = new Course("JAVA","coding", 50, 6, null);
+			Course c2 = new Course("C#","coding", 45, 8, null);
+			crepo.save(c1); crepo.save(c2);
+			Collection<Course> courses = new ArrayList<>();
+			courses.add(c1);courses.add(c2);
+			
+			
+			
 			
 //			User a = urepo.getById(1);
 //			a.setRoles(Set.of(lecturer, admin));
