@@ -18,8 +18,6 @@ public class AdminStudentController {
 //
 //    @Autowired
 //    private EnrolmentService enrolmentService;
-//
-
 
     @GetMapping("/enrol")
     public String enrolStudent(){
