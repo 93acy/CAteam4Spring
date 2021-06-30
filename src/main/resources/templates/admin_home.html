@@ -1,5 +1,7 @@
 <!doctype html>
-<html xmlns:th="https://www.thymeleaf.org" th:fragment="layout (template, menu)">
+<html xmlns:th="https://www.thymeleaf.org" 
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+th:fragment="layout (template, menu)">
 
 <head>
 
@@ -11,6 +13,10 @@
 </head>
 
 <body>
+<div>
+	<span sec:authentication="principal.fullName">Fullname</span>
+	<span sec:authentication="principal.authorities">Roles</span>
+</div>
 <div th:fragment="topnav" class="topnav">
  <div class="container">
   <a href="#logout">Logout</a>
@@ -24,6 +30,8 @@
  </div>
 </div>
 
+
 </body>
+
 
 </html>
