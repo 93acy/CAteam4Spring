@@ -18,7 +18,6 @@ public class MyUserDetails implements UserDetails {
 	
 	private User user;
 	
-	
 	public MyUserDetails(User user) {
 		super();
 		this.user = user;
@@ -46,6 +45,11 @@ public class MyUserDetails implements UserDetails {
 	public String getUsername() {
 		// TODO Auto-generated method stub
 		return user.getUsername();
+	}
+
+
+	public Integer getUserid(){
+		return user.getId();
 	}
 
 	@Override

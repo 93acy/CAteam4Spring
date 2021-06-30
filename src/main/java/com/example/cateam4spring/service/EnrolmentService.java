@@ -8,18 +8,18 @@ import java.util.ArrayList;
 
 public interface EnrolmentService {
 
-    ArrayList<Enrolment> findAllEnrolments();
-
-    ArrayList<Enrolment> findEnrolmentById(String Id);
-
-//  ArrayList<Enrolment> findAllEnrolmentsByCourse(String enrolId);
-
-    Enrolment createEnrolment(Enrolment e);
-
-    void enrolCourse(String studentId, String courseId);
-
-    void deleteEnrolment(Enrolment e);
-    //dk if should use integer here
+//    ArrayList<Enrolment> findAllEnrolments();
+//
+//    ArrayList<Enrolment> findEnrolmentById(String Id);
+//
+////  ArrayList<Enrolment> findAllEnrolmentsByCourse(String enrolId);
+//
+//    Enrolment createEnrolment(Enrolment e);
+//
+//    void enrolCourse(String studentId, String courseId);
+//
+//    void deleteEnrolment(Enrolment e);
+//    //dk if should use integer here
 
 
 

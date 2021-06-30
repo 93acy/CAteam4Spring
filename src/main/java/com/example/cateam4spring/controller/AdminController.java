@@ -1,15 +1,12 @@
 package com.example.cateam4spring.controller;
 
-import com.example.cateam4spring.service.EnrolmentService;
-import com.example.cateam4spring.service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value="/admin_lecturer")
-public class AdminLecturerController {
+@RequestMapping(value="/admin_home")
+public class AdminController {
 
     @GetMapping("/home")
     public String returnHome(){
@@ -31,6 +28,12 @@ public class AdminLecturerController {
         return "Admin/admin_enrolment";
     }
 
+    @GetMapping("/course")
+    public String AdminCourse(){
+        return "Admin/admin_enrolment";
+    }
+
+
+
+
 }
-
-

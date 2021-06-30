@@ -15,25 +15,25 @@ import java.util.List;
 
 @Service
 public class EnrolmentServiceImpl implements EnrolmentService {
-
-    @Resource
-    private EnrolmentRepository erepo;
-    @Resource
-    private CourseRepository crepo;
-
-
-    @Override
-    @Transactional
-    public ArrayList<Enrolment> findAllEnrolments(){
-        ArrayList<Enrolment> e = (ArrayList<Enrolment>) erepo.findAll();
-        return e;
-    }
-
-    @Override
-    @Transactional
-    public ArrayList<Enrolment> findEnrolmentById(String Id){
-        return (ArrayList<Enrolment>) erepo.findEnrolmentById(Id);
-    }
+//
+//    @Resource
+//    private EnrolmentRepository erepo;
+//    @Resource
+//    private CourseRepository crepo;
+//
+//
+//    @Override
+//    @Transactional
+//    public ArrayList<Enrolment> findAllEnrolments(){
+//        ArrayList<Enrolment> e = (ArrayList<Enrolment>) erepo.findAll();
+//        return e;
+//    }
+//
+//    @Override
+//    @Transactional
+//    public ArrayList<Enrolment> findEnrolmentById(String Id){
+//        return (ArrayList<Enrolment>) erepo.findEnrolmentById(Id);
+//    }
 
 
 //    public List<Course> findCourseNotEnrol(String Id) {
@@ -46,21 +46,21 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 //        return unattendedCourses;
 //    }
 
-    @Override
-    @Transactional
-    public Enrolment createEnrolment(Enrolment e){
-        return erepo.saveAndFlush(e);
-    }
-
-    @Override
-    public void enrolCourse(String studentId, String courseId) {
-        erepo.enrolCourse(studentId, courseId);
-    }
-
-    @Override
-    @Transactional
-    public void deleteEnrolment(Enrolment e){
-        erepo.delete(e);
-    }
-
+//    @Override
+//    @Transactional
+//    public Enrolment createEnrolment(Enrolment e){
+//        return erepo.saveAndFlush(e);
+//    }
+//
+//    @Override
+//    public void enrolCourse(String studentId, String courseId) {
+//        erepo.enrolCourse(studentId, courseId);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public void deleteEnrolment(Enrolment e){
+//        erepo.delete(e);
+//    }
+//
 }

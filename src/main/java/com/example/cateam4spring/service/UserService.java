@@ -16,7 +16,4 @@ public interface UserService {
     ArrayList<Role> findRolesforUser(String userId);
 
 
-
-
-
 }
