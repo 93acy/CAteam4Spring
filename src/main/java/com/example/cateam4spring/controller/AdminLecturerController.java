@@ -50,9 +50,9 @@ public class AdminLecturerController {
 	    return "redirect:/admin_home/lecturer";
 	}
 	
-	@RequestMapping("/edit/{id}")
+	@RequestMapping(value = "/edit/{id}")
 	public ModelAndView showEditLecturerPage(@PathVariable(name = "id") int id) {
-	    ModelAndView mav = new ModelAndView("edit_lecturer");
+	    ModelAndView mav = new ModelAndView("Admin/edit_lecturer");
 	    Lecturer lecturer = alservice.get(id);
 	    mav.addObject("lecturer", lecturer);
 	     
