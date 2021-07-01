@@ -11,22 +11,26 @@ import com.example.cateam4spring.repo.EnrolmentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-//import javax.annotation.Resource;
-//import javax.transaction.Transactional;
-//import java.lang.reflect.Array;
+import javax.annotation.Resource;
+import javax.transaction.Transactional;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 
 @Service
 public class EnrolmentServiceImpl implements EnrolmentService {
 
-    /*@Resource
-    private EnrolmentRepository erepo;
-    @Resource
-    private CourseRepository crepo;
 
+    @Autowired
+    private EnrolmentRepository erepo;
+
+    @Autowired
+    private CourseRepository crepo;
 
     @Override
     @Transactional
@@ -36,21 +40,38 @@ public class EnrolmentServiceImpl implements EnrolmentService {
     }
 
     @Override
-    @Transactional
-    public ArrayList<Enrolment> findEnrolmentById(String Id){
-        return (ArrayList<Enrolment>) erepo.findEnrolmentById(Id);
+    public List<Enrolment> findEnrolmentById(Integer Id){
+        return erepo.findEnrolmentById(Id);
     }
 
+    @Override
+    public List<Enrolment> findEnrolmentsByStudentId(Integer id) {
 
-//    public List<Course> findCourseNotEnrol(String Id) {
-//        List<String> unattendedCoursesIds = erepo.findCourseNotEnrol(Id);
-//        List<Course> unattendedCourses = new ArrayList<>();
-//        for (String unattendedCoursesId : unattendedCoursesIds) {
-//            Course course = crepo.findCourseById(unattendedCoursesId);
-//            unattendedCourses.add(course);
-//        }
-//        return unattendedCourses;
-//    }
+        return erepo.findEnrolmentsByStudentId(id);
+    }
+
+    public List<Course> findCourseNotEnrolled(Integer Id){
+        List<Integer> unattendedCoursesIds = erepo.findCourseNotEnrolled(Id);
+        List<Course> unattendedCourses = new ArrayList<>();
+        for(Integer unattendedCoursesId : unattendedCoursesIds) {
+            Course course = crepo.findCourseById(unattendedCoursesId);
+            unattendedCourses.add(course);
+        }
+        return unattendedCourses;
+
+    }
+
+    public void enrolCourse(Integer studentId, Integer courseId, String now) {
+        erepo.enrolCourse(studentId,courseId, now);
+    }
+
+    public List<Course> findEnrolledCourseById(Integer Id){
+        return erepo.findEnrolledCourseById(Id);
+    }
+
+    public void cancelEnrolment(Integer studentId, Integer courseId) {
+        erepo.cancelEnrolment(studentId, courseId);
+    }
 
     @Override
     @Transactional
@@ -58,49 +79,21 @@ public class EnrolmentServiceImpl implements EnrolmentService {
         return erepo.saveAndFlush(e);
     }
 
-    /*@Override
-    public void enrolCourse(String studentId, String courseId) {
-        erepo.enrolCourse(studentId, courseId);
-    }*/
-
-    /*@Override
+    @Override
     @Transactional
     public void deleteEnrolment(Enrolment e){
         erepo.delete(e);
-    }*/
-    
-    
-	@Autowired
-	private EnrolmentRepository erepo;
-	
-	@Autowired
-	private CourseRepository crepo;
-	
-	public List<Enrolment> findEnrolmentById(Integer Id){
-		return erepo.findEnrolmentById(Id);
+    }
+
+	@Override
+	public Enrolment updateEnrolment(Enrolment enrolment) {
+		return erepo.saveAndFlush(enrolment);
 	}
-	
-	public List<Course> findCourseNotEnrolled(Integer Id){
-		List<Integer> unattendedCoursesIds = erepo.findCourseNotEnrolled(Id);
-		List<Course> unattendedCourses = new ArrayList<>();
-		for(Integer unattendedCoursesId : unattendedCoursesIds) {
-			Course course = crepo.findCourseById(unattendedCoursesId);
-			unattendedCourses.add(course);
-		}
-		return unattendedCourses;
-		
-	}
-	
-	public void enrolCourse(Integer studentId, Integer courseId, String now) {
-		erepo.enrolCourse(studentId,courseId, now);
-	}
-	
-	public List<Course> findEnrolledCourseById(Integer Id){
-		return erepo.findEnrolledCourseById(Id);
-	}
-	
-	public void cancelEnrolment(Integer studentId, Integer courseId) {
-		erepo.cancelEnrolment(studentId, courseId);
+
+	@Override
+	public void updateGrade(Double grade, Integer id) {
+		// TODO Auto-generated method stub
+		erepo.updateGrade(grade, id);
 	}
 
 }

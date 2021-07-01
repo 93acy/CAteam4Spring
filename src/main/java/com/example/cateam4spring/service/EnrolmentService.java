@@ -2,45 +2,31 @@ package com.example.cateam4spring.service;
 
 import com.example.cateam4spring.model.Course;
 import com.example.cateam4spring.model.Enrolment;
-//import com.example.cateam4spring.model.Student;
+import com.example.cateam4spring.model.Student;
 
 import java.util.Date;
-
-//import com.example.cateam4spring.model.Enrolment;
-
-//import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public interface EnrolmentService {
 
-    //ArrayList<Enrolment> findAllEnrolments();
+    ArrayList<Enrolment> findAllEnrolments();
 
-    //ArrayList<Enrolment> findEnrolmentById(String Id);
+    List<Enrolment> findEnrolmentById(Integer Id);
 
-//  ArrayList<Enrolment> findAllEnrolmentsByCourse(String enrolId);
+    List<Enrolment> findEnrolmentsByStudentId(Integer id);
 
-    //Enrolment createEnrolment(Enrolment e);
+    List<Course> findCourseNotEnrolled(Integer Id);
 
-   //void enrolCourse(String studentId, String courseId);
+    void enrolCourse(Integer studentId, Integer courseId, String now);
 
-    //void deleteEnrolment(Enrolment e);
-    //dk if should use integer here
+    Enrolment createEnrolment(Enrolment e);
 
+    List<Course> findEnrolledCourseById(Integer Id);
 
+    void cancelEnrolment(Integer studentId, Integer courseId);
 
-//    Enrolment updateEnrolment(String enrolId);
-    //for lecturer to grade and set courseStatus
-    
-    
-    
-	public List<Enrolment> findEnrolmentById(Integer Id);
-	
-	public List<Course> findCourseNotEnrolled(Integer Id);
-
-	public void enrolCourse(Integer studentId, Integer courseId, String now);
-	
-	public List<Course> findEnrolledCourseById(Integer Id);
-	
-	public void cancelEnrolment(Integer studentId, Integer courseId);
+    void deleteEnrolment(Enrolment e);
 
 }
