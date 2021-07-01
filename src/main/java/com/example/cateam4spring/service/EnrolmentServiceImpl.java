@@ -39,10 +39,6 @@ public class EnrolmentServiceImpl implements EnrolmentService {
         return e;
     }
 
-    @Override
-    public List<Enrolment> findEnrolmentById(Integer Id){
-        return erepo.findEnrolmentById(Id);
-    }
 
     @Override
     public List<Enrolment> findEnrolmentsByStudentId(Integer id) {
@@ -86,7 +82,7 @@ public class EnrolmentServiceImpl implements EnrolmentService {
     }
 
 	@Override
-	public Enrolment updateEnrolment(Enrolment enrolment) {
+	public Enrolment editEnrolment(Enrolment enrolment) {
 		return erepo.saveAndFlush(enrolment);
 	}
 

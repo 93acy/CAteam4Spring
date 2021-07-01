@@ -13,8 +13,6 @@ public interface EnrolmentService {
 
     ArrayList<Enrolment> findAllEnrolments();
 
-    List<Enrolment> findEnrolmentById(Integer Id);
-
     List<Enrolment> findEnrolmentsByStudentId(Integer id);
 
     List<Course> findCourseNotEnrolled(Integer Id);
@@ -29,4 +27,7 @@ public interface EnrolmentService {
 
     void deleteEnrolment(Enrolment e);
 
+    void updateGrade(Double grade, Integer id);
+
+    public Enrolment editEnrolment(Enrolment enrolment);
 }

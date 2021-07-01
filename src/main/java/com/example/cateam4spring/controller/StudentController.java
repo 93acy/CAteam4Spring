@@ -66,7 +66,7 @@ public class StudentController {
 	@RequestMapping("/student/gradeandgpa")
 	public String ViewGradeAndGpa(Model model, @AuthenticationPrincipal MyUserDetails userDetails) {
 		
-		List<Enrolment> enrollments = es.findEnrolmentById(userDetails.getId());
+		List<Enrolment> enrollments = es.findEnrolmentsByStudentId(userDetails.getId());
 		model.addAttribute("enrolments", enrollments);
 		Integer GPA = ss.findGpaById(userDetails.getId());
 		model.addAttribute("GPA", GPA);

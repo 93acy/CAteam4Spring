@@ -40,7 +40,6 @@ public class LecturerController {
 	
 	@Autowired
 	EnrolmentRepository erepo;
-	
 
 	
 	@GetMapping("/home")
@@ -124,7 +123,7 @@ public class LecturerController {
 	
 	@RequestMapping("/edit/{id}")
 	  public String editGrade(Model model, @PathVariable("id") Integer id) {
-		model.addAttribute("enrolment", es.findEnrolmentById(id).get());
+		model.addAttribute("enrolment", es.findEnrolmentsByStudentId(id).get(id));
 		return "grade_edit";
 	  }
 	
