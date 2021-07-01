@@ -47,9 +47,6 @@ public class AdminStudentController {
 //    @RequestMapping(value= "/edit/{id}", method = RequestMethod.POST)
 //    public ModelAndView(@ModelAttribute Student student, BindingResult result,)
 //        @PathVariable String id){
-
-
-
     }
 
 

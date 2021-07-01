@@ -198,7 +198,7 @@ public class StudentController {
 	}
 	
 	@RequestMapping("/student/cancelenrollment/{id}")
-	public String CancelEnrollment(@PathVariable("id") Integer id, Model model, @AuthenticationPrincipal MyUserDetails userDetails) {
+	public String CancelEnrolment(@PathVariable("id") Integer id, Model model, @AuthenticationPrincipal MyUserDetails userDetails) {
 		
 		es.cancelenrollment(userDetails.getId(), id);
 		Integer newNum = (cs.findCourseById(id).getCurrentSelectNum())-1;
