@@ -1,5 +1,6 @@
 package com.example.cateam4spring;
 
+import antlr.collections.List;
 import com.example.cateam4spring.model.*;
 import com.example.cateam4spring.repo.*;
 
@@ -10,6 +11,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 //import java.util.HashSet;
 //import java.util.Optional;
@@ -118,13 +122,33 @@ public class CAteam4SpringApplication {
 			student2.getRoles().add(student);
 			srepo.save(student2);
 
+			Course c1 = new Course("Math","this is a math course", 50, 6, null);
+			Course c2 = new Course("Science","this is a science course", 45, 8, null);
+			crepo.save(c1); crepo.save(c2);
+			Collection<Course> courses1 = new ArrayList<>();
+			Collection<Course> courses2 = new ArrayList<>();
+			courses1.add(c1);courses1.add(c2);
+			courses2.add(c1);
+
 			String rawPassword6 = "lecturer";
 			String encodedPassword6 = encoder.encode(rawPassword6);
 			Lecturer lecturer1 = new Lecturer("tin", encodedPassword6, true, "Nguyen", "Tri");
+			lecturer1.setCourses(courses1);
 			lrepo.save(lecturer1);
 			lecturer1.getRoles().add(lecturer);
 			lrepo.save(lecturer1);
-			
+
+
+			String rawPassword3 ="lecturer";
+			String encodedPassword3 = encoder.encode(rawPassword3);
+			Lecturer lecturer2 = new Lecturer("L001", encodedPassword3, true, "Surai", "Asai");
+			lecturer2.getRoles().add(lecturer);
+			lecturer2.setCourses(courses2);
+//			Collection<Lecturer> lecturers = new ArrayList<>();
+//			lecturers.add(lecturer1);
+			lrepo.save(lecturer2);
+			lecturer1.getRoles().add(lecturer);
+			lrepo.save(lecturer2);
 //			User a = urepo.getById(1);
 //			a.setRoles(Set.of(lecturer, admin));
 //			urepo.save(a);

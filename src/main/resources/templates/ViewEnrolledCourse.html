@@ -12,13 +12,13 @@
 			<th>CourseId</th>
 			<th>CourseName</th>
 			<th>Credit</th>
-			<th>CancelEnrollment</th>
+			<th>CancelEnrolment</th>
 		</tr>
 		<tr th:each="course:${enrolledCourses}">
 			<td th:text="${course.id}"></td>
 			<td th:text="${course.name}"></td>
 			<td th:text="${course.credit}"></td>
-			<td><a th:href="@{/student/cancelenrollment/} + ${course.id}">Cancel</a></td> 
+			<td><a th:href="@{/student/cancelenrolment/} + ${course.id}">Cancel</a></td>
 		</tr>
 	</table>
 </body>

@@ -76,12 +76,12 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 	@Autowired
 	private CourseRepository crepo;
 	
-	public List<Enrolment> findEnrollmentById(Integer Id){
-		return erepo.findEnrollmentById(Id);
+	public List<Enrolment> findEnrolmentById(Integer Id){
+		return erepo.findEnrolmentById(Id);
 	}
 	
-	public List<Course> findCourseNotEnroll(Integer Id){
-		List<Integer> unattendedCoursesIds = erepo.findCourseNotEnroll(Id);
+	public List<Course> findCourseNotEnrolled(Integer Id){
+		List<Integer> unattendedCoursesIds = erepo.findCourseNotEnrolled(Id);
 		List<Course> unattendedCourses = new ArrayList<>();
 		for(Integer unattendedCoursesId : unattendedCoursesIds) {
 			Course course = crepo.findCourseById(unattendedCoursesId);
@@ -91,16 +91,16 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 		
 	}
 	
-	public void enrollCourse(Integer studentId, Integer courseId, String now) {
-		erepo.enrollCourse(studentId,courseId, now);
+	public void enrolCourse(Integer studentId, Integer courseId, String now) {
+		erepo.enrolCourse(studentId,courseId, now);
 	}
 	
 	public List<Course> findEnrolledCourseById(Integer Id){
 		return erepo.findEnrolledCourseById(Id);
 	}
 	
-	public void cancelenrollment(Integer studentId, Integer courseId) {
-		erepo.cancelenrollment(studentId, courseId);
+	public void cancelEnrolment(Integer studentId, Integer courseId) {
+		erepo.cancelEnrolment(studentId, courseId);
 	}
 
 }

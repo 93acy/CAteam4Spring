@@ -33,14 +33,14 @@ public interface EnrolmentService {
     
     
     
-	public List<Enrolment> findEnrollmentById(Integer Id);
+	public List<Enrolment> findEnrolmentById(Integer Id);
 	
-	public List<Course> findCourseNotEnroll(Integer Id);
+	public List<Course> findCourseNotEnrolled(Integer Id);
 
-	public void enrollCourse(Integer studentId, Integer courseId, String now);
+	public void enrolCourse(Integer studentId, Integer courseId, String now);
 	
 	public List<Course> findEnrolledCourseById(Integer Id);
 	
-	public void cancelenrollment(Integer studentId, Integer courseId);
+	public void cancelEnrolment(Integer studentId, Integer courseId);
 
 }

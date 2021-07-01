@@ -66,8 +66,8 @@ public class StudentController {
 	@RequestMapping("/student/gradeandgpa")
 	public String ViewGradeAndGpa(Model model, @AuthenticationPrincipal MyUserDetails userDetails) {
 		
-		List<Enrolment> enrollments = es.findEnrollmentById(userDetails.getId());
-		model.addAttribute("enrollments", enrollments);
+		List<Enrolment> enrollments = es.findEnrolmentById(userDetails.getId());
+		model.addAttribute("enrolments", enrollments);
 		Integer GPA = ss.findGpaById(userDetails.getId());
 		model.addAttribute("GPA", GPA);
 		
@@ -77,7 +77,7 @@ public class StudentController {
 	@RequestMapping("/student/gradeandgpa")
 	public String ViewGradeAndGpa(Model model, @SessionAttribute("studentSession") Student s) { 
 		
-		List<Enrolment> enrollments = es.findEnrollmentById(s.getId());
+		List<Enrolment> enrollments = es.findEnrolmentById(s.getId());
 		model.addAttribute("enrollments", enrollments);
 		
 		return "GradeAndGPA";
@@ -118,10 +118,10 @@ public class StudentController {
 		
 	}*/
 	
-	@RequestMapping("/student/enrollcourse")
+	@RequestMapping("/student/enrolcourse")
 	public String ShowEnrollCoursePage(Model model, @AuthenticationPrincipal MyUserDetails userDetails) {
 		
-		List<Course> unattendedCourses = es.findCourseNotEnroll(userDetails.getId());
+		List<Course> unattendedCourses = es.findCourseNotEnrolled(userDetails.getId());
 		model.addAttribute("unattendedCourses", unattendedCourses);
 			
 		return "EnrollCourse";
@@ -130,24 +130,24 @@ public class StudentController {
 	/*@RequestMapping("/student/enrollcourse")
 	public String ShowEnrollCoursePage(Model model, @SessionAttribute("studentSession") Student s) {
 		
-		List<Course> unattendedCourses = es.findCourseNotEnroll(s.getId());
+		List<Course> unattendedCourses = es.findCourseNotEnrolled(s.getId());
 		model.addAttribute("unattendedCourses", unattendedCourses);
 			
 		return "EnrollCourse";
 	}*/
 	
-	@RequestMapping("/student/enrollcourse/{id}")
-	public String EnrollCourse(@PathVariable("id") Integer id, Model model, @AuthenticationPrincipal MyUserDetails userDetails) {
+	@RequestMapping("/student/enrolcourse/{id}")
+	public String EnrolCourse(@PathVariable("id") Integer id, Model model, @AuthenticationPrincipal MyUserDetails userDetails) {
 		
 		Date d = new Date();
 		String now = d.toString();
 		Double capacity =  cs.findCapacityById(id);
 		Double currentSelectNum = cs.findcurrentSelectNumById(id);
 		if(cs.Compare(capacity,currentSelectNum)==true) {
-			es.enrollCourse(userDetails.getId(), id, now);
+			es.enrolCourse(userDetails.getId(), id, now);
 			Integer newNum = (cs.findCourseById(id).getCurrentSelectNum())+1;
 			cs.addOne(id,newNum);
-			List<Course> unattendedCourses = es.findCourseNotEnroll(userDetails.getId());
+			List<Course> unattendedCourses = es.findCourseNotEnrolled(userDetails.getId());
 			model.addAttribute("unattendedCourses", unattendedCourses);
 			return "EnrollCourse";
 		}
@@ -162,10 +162,10 @@ public class StudentController {
 		Double capacity =  cs.findCapacityById(id);
 		Double currentSelectNum = cs.findcurrentSelectNumById(id);
 		if(cs.Compare(capacity,currentSelectNum)==true) {
-			es.enrollCourse(s.getId(), id);
+			es.enrolCourse(s.getId(), id);
 			Integer newNum = (cs.findCourseById(id).getCurrentSelectNum())+1;
 			cs.addOne(id,newNum);
-			List<Course> unattendedCourses = es.findCourseNotEnroll(s.getId());
+			List<Course> unattendedCourses = es.findCourseNotEnrolled(s.getId());
 			model.addAttribute("unattendedCourses", unattendedCourses);
 			return "EnrollCourse";
 		}
@@ -197,10 +197,10 @@ public class StudentController {
 		return "ViewEnrolledCourse";
 	}
 	
-	@RequestMapping("/student/cancelenrollment/{id}")
+	@RequestMapping("/student/cancelenrolment/{id}")
 	public String CancelEnrolment(@PathVariable("id") Integer id, Model model, @AuthenticationPrincipal MyUserDetails userDetails) {
 		
-		es.cancelenrollment(userDetails.getId(), id);
+		es.cancelEnrolment(userDetails.getId(), id);
 		Integer newNum = (cs.findCourseById(id).getCurrentSelectNum())-1;
 		cs.minusOne(id,newNum);
 		List<Course> enrolledCourses = es.findEnrolledCourseById(userDetails.getId());

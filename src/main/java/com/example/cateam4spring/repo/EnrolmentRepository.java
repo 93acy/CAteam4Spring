@@ -30,16 +30,16 @@ public interface EnrolmentRepository extends JpaRepository<Enrolment, Integer> {
     
     
 	@Query("SELECT c.id FROM Course c WHERE c.id NOT IN (SELECT e.course.id FROM Enrolment e WHERE e.student.id = :Id)")
-	public List<Integer> findCourseNotEnroll(@Param("Id") Integer Id);
+	public List<Integer> findCourseNotEnrolled(@Param("Id") Integer Id);
 	
 	@Query("SELECT e FROM Enrolment e WHERE e.student.id = :Id")
-	public List<Enrolment> findEnrollmentById(Integer Id);
+	public List<Enrolment> findEnrolmentById(Integer Id);
 	
 	@Modifying
 	@Transactional
 	@Query(value = "INSERT INTO enrolment (course_status,enrolment_date, grade, student_user_id, course_course_id) VALUES (0, :now, NULL, :SId, :CId)", nativeQuery=true)
 	//@Query(value = "INSERT INTO enrolment (id, student_id, course_id) VALUES (111, :SId, :CId)", nativeQuery=true)
-	public void enrollCourse(@Param("SId") Integer studentId, @Param("CId") Integer courseId, @Param("now") String now);
+	public void enrolCourse(@Param("SId") Integer studentId, @Param("CId") Integer courseId, @Param("now") String now);
 
 	@Query("SELECT c FROM Course c WHERE c.id IN (SELECT e.course.id FROM Enrolment e WHERE e.student.id = :Id AND grade IS NULL)")
 	public List<Course> findEnrolledCourseById(@Param("Id") Integer Id);
@@ -47,6 +47,6 @@ public interface EnrolmentRepository extends JpaRepository<Enrolment, Integer> {
 	@Modifying
 	@Transactional
 	@Query(value = "DELETE FROM enrolment WHERE student_user_id = :SID AND course_course_id = :CID", nativeQuery=true)
-	public void cancelenrollment(@Param("SID") Integer studentId, @Param("CID") Integer courseId);
+	public void cancelEnrolment(@Param("SID") Integer studentId, @Param("CID") Integer courseId);
 
 }
