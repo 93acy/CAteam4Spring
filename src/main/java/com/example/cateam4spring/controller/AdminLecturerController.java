@@ -58,6 +58,14 @@ public class AdminLecturerController {
 	     
 	    return mav;
 	}
+	
+	@RequestMapping("/delete/{id}")
+	public String deleteProduct(@PathVariable(name = "id") int id) {
+	    alservice.delete(id);
+	    return "redirect:/admin_home/lecturer";       
+	}
+	
+	
 }
 
 
