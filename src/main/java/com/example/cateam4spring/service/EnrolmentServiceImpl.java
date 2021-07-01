@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 //import javax.transaction.Transactional;
 //import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -90,8 +91,16 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 		
 	}
 	
-	public void enrollCourse(Integer studentId, Integer courseId) {
-		erepo.enrollCourse(studentId,courseId);
+	public void enrollCourse(Integer studentId, Integer courseId, String now) {
+		erepo.enrollCourse(studentId,courseId, now);
+	}
+	
+	public List<Course> findEnrolledCourseById(Integer Id){
+		return erepo.findEnrolledCourseById(Id);
+	}
+	
+	public void cancelenrollment(Integer studentId, Integer courseId) {
+		erepo.cancelenrollment(studentId, courseId);
 	}
 
 }

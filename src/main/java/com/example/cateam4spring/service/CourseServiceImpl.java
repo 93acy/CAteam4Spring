@@ -39,5 +39,9 @@ public class CourseServiceImpl implements CourseService {
 	public Course findCourseById(Integer id) {
 		return crepo.findCourseById(id);
 	}
+	
+	public void minusOne (Integer Id,Integer newNum) {
+		crepo.minusOne(Id, newNum);
+	}
 
 }

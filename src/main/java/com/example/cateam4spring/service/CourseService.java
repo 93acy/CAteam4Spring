@@ -28,6 +28,8 @@ public interface CourseService {
 	public Boolean Compare(Double capacity, Double currentSelectNum);
 	public void addOne(Integer Id,Integer newNum);
 	public Course findCourseById(Integer id);
+	
+	public void minusOne (Integer Id,Integer newNum);
 
 
 }

@@ -13,8 +13,8 @@ public class Enrolment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private boolean courseStatus;		
-    private Date enrolmentDate;			
-    private double grade;
+    private String enrolmentDate;			
+    private Double grade;
 
     @ManyToOne
     private Student student;
@@ -26,7 +26,12 @@ public class Enrolment {
 		super();
 	}
 
-    public Enrolment(boolean courseStatus, Date enrolmentDate, double grade, Student student, Course course) {
+    public Enrolment(Student student, Course course) {
+        this.student = student;
+        this.course = course;
+    }
+	
+    public Enrolment(boolean courseStatus, String enrolmentDate, Double grade, Student student, Course course) {
         this.courseStatus = courseStatus;
         this.enrolmentDate = enrolmentDate;
         this.grade = grade;
@@ -34,7 +39,7 @@ public class Enrolment {
         this.course = course; }
 
 
-    public Enrolment(boolean courseStatus, Date enrolmentDate, double grade) {
+    public Enrolment(boolean courseStatus, String enrolmentDate, Double grade) {
         super();
         this.courseStatus = courseStatus;
         this.enrolmentDate = enrolmentDate;
@@ -57,11 +62,11 @@ public class Enrolment {
 		this.courseStatus = courseStatus;
 	}
 
-	public Date getEnrolmentDate() {
+	public String getEnrolmentDate() {
 		return enrolmentDate;
 	}
 
-	public void setEnrolmentDate(Date enrolmentDate) {
+	public void setEnrolmentDate(String enrolmentDate) {
 		this.enrolmentDate = enrolmentDate;
 	}
 
@@ -69,7 +74,7 @@ public class Enrolment {
 		return grade;
 	}
 
-	public void setGrade(double grade) {
+	public void setGrade(Double grade) {
 		this.grade = grade;
 	}
 

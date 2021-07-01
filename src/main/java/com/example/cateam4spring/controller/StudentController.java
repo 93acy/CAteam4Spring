@@ -1,5 +1,6 @@
 package com.example.cateam4spring.controller;
 
+import java.util.Date;
 //import java.security.Principal;
 import java.util.List;
 
@@ -138,10 +139,12 @@ public class StudentController {
 	@RequestMapping("/student/enrollcourse/{id}")
 	public String EnrollCourse(@PathVariable("id") Integer id, Model model, @AuthenticationPrincipal MyUserDetails userDetails) {
 		
+		Date d = new Date();
+		String now = d.toString();
 		Double capacity =  cs.findCapacityById(id);
 		Double currentSelectNum = cs.findcurrentSelectNumById(id);
 		if(cs.Compare(capacity,currentSelectNum)==true) {
-			es.enrollCourse(userDetails.getId(), id);
+			es.enrollCourse(userDetails.getId(), id, now);
 			Integer newNum = (cs.findCourseById(id).getCurrentSelectNum())+1;
 			cs.addOne(id,newNum);
 			List<Course> unattendedCourses = es.findCourseNotEnroll(userDetails.getId());
@@ -184,5 +187,25 @@ public class StudentController {
 		
 		return "Home";
 	}*/
+	
+	@RequestMapping("/student/viewenrolledcourse")
+	public String ViewEnrolledCourse(Model model, @AuthenticationPrincipal MyUserDetails userDetails) {
+		
+		List<Course> enrolledCourses = es.findEnrolledCourseById(userDetails.getId());
+		model.addAttribute("enrolledCourses", enrolledCourses);
+		
+		return "ViewEnrolledCourse";
+	}
+	
+	@RequestMapping("/student/cancelenrollment/{id}")
+	public String CancelEnrollment(@PathVariable("id") Integer id, Model model, @AuthenticationPrincipal MyUserDetails userDetails) {
+		
+		es.cancelenrollment(userDetails.getId(), id);
+		Integer newNum = (cs.findCourseById(id).getCurrentSelectNum())-1;
+		cs.minusOne(id,newNum);
+		List<Course> enrolledCourses = es.findEnrolledCourseById(userDetails.getId());
+		model.addAttribute("enrolledCourses", enrolledCourses);
+		return "ViewEnrolledCourse";	
+	}
 
 }

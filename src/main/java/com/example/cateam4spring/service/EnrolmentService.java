@@ -4,6 +4,8 @@ import com.example.cateam4spring.model.Course;
 import com.example.cateam4spring.model.Enrolment;
 //import com.example.cateam4spring.model.Student;
 
+import java.util.Date;
+
 //import com.example.cateam4spring.model.Enrolment;
 
 //import java.util.ArrayList;
@@ -35,6 +37,10 @@ public interface EnrolmentService {
 	
 	public List<Course> findCourseNotEnroll(Integer Id);
 
-	public void enrollCourse(Integer studentId, Integer courseId);
+	public void enrollCourse(Integer studentId, Integer courseId, String now);
+	
+	public List<Course> findEnrolledCourseById(Integer Id);
+	
+	public void cancelenrollment(Integer studentId, Integer courseId);
 
 }

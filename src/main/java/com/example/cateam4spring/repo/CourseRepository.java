@@ -27,10 +27,15 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
 		
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE course SET current_select_num = :newNum WHERE id = :Id", nativeQuery=true)
+	@Query(value = "UPDATE course SET current_select_num = :newNum WHERE course_id = :Id", nativeQuery=true)
 	public void addOne(@Param("Id") Integer Id, @Param("newNum") Integer newNum);
 	
 	public Course findCourseById(Integer Id);
+	
+	@Modifying
+	@Transactional
+	@Query(value = "UPDATE course SET current_select_num = :newNum WHERE course_id = :Id", nativeQuery=true)
+	public void minusOne (Integer Id,Integer newNum);
 
 
 }
