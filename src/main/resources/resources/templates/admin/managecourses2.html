@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+</head>
+
+  <body>
+  <div th:replace="fragments/layoutadmin :: topnav">
+  </div>
+<div>
+ <h1>Courses Summary</h1>
+   
+    <table id="CourseListing" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Capacity</th>
+            <th>Credit Units</th>
+        </tr>
+        </thead>
+    </table>
+    
+     <div class = "align-right">
+        <button type="submit">Edit Course Summary</button>
+</div>
+<div>
+ <h1>Allocation of Lecturers</h1>
+  <table>
+    <tr>
+    <td>
+    <form>
+  <label for="semesters"><strong>Semester</strong></label>
+  <select name="semesters" id="semesters">
+    <option value="A17/18 Semester 1">A17/18 Semester 1</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  
+  <input type="submit" value="Submit">
+</form>
+    </td>
+ 
+    </tr>
+    </table>
+    </div>
+<div>
+    <table id="AllocationOfLecturers" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Lecturer Id</th>
+            <th>Lecturer Name</th>
+        </tr>
+        </thead>
+    </table>
+  </div>
+   <div class = "align-right">
+        <button type="submit">Allocate Lecturer</button>
+</div>
+  </body>
+</html>

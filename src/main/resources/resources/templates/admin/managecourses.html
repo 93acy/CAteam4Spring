@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+</head>
+
+  <body>
+  <div th:replace="fragments/layoutadmin :: topnav">
+  </div>
+<div>
+ <h1>Courses Listing</h1>
+    <table>
+    <tr>
+    <td>
+    <form>
+  <label for="semesters"><strong>Semester</strong></label>
+  <select name="semesters" id="semesters">
+    <option value="A17/18 Semester 1">A17/18 Semester 1</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  
+  <input type="submit" value="Submit">
+</form>
+    </td>
+  
+    <td>
+    <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search by name/course ID" name="search">
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+  </td>
+  </tr>
+    </table> 
+</div>
+
+    <table id="CourseListing" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Course Id</th>
+            <th>Course Start Date</th>
+            <th>Capacity</th>
+            <th>Credit Units</th>
+        </tr>
+        </thead>
+    </table>
+  </body>
+</html>

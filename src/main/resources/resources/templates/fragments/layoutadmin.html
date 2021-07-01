@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" th:fragment="layoutadmin (template, menu)">
+
+<head>
+
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+
+</head>
+
+<body>
+<div th:fragment="topnav" class="topnav">
+	<div class="container">
+	  <a href="#logout">Logout</a>
+	  <a href="managestudents.html"
+			th:href="@{/managestudents}" > Manage Students </a>
+	  <a href="managelecturers.html"
+			th:href="@{/managelecturers}" > Manage Lecturers </a>
+	  <a href="managecourses.html"
+			th:href="@{/managecourses}" > Manage Courses </a>
+	  <a href="adminhome.html"
+			th:href="@{/adminhome}" > Home </a>
+</div>
+</div>
+
+
+</body>
+
+</html>

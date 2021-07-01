@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+</head>
+
+  <body>
+  <div th:replace="fragments/layoutstudent :: topnav">
+  </div>
+<div>
+ <h1>Course Enrolment</h1>
+
+ <h3>AY2021/2022 - Semester 1</h3>
+    <table id="Course Enrolment" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Course Id</th>
+            <th>Credit Units</th>
+            <th>Enrolment Status</th>
+            <th>Change</th>
+        </tr>
+        </thead>
+    </table>
+    </div>
+
+  <div>
+  <input type="submit" value="Add Course">
+  </div>
+  
+
+    
+  
+  
+  </body>
+</html>

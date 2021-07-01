@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" th:fragment="layout (template, menu)">
+
+<head>
+
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+
+</head>
+
+<body>
+<div th:fragment="topnav" class="topnav">
+	<div class="container">
+	  <a href="#logout">Logout</a>
+	  <a href="StudentPerformance.html"
+			th:href="@{/studentperformance}" > Student Performance </a>
+	  <a href="InputGrades.html"
+			th:href="@{/inputgrades}" > Input Grades </a>
+	  <a href="StudentList.html"
+			th:href="@{/studentlist}" > Student List </a>
+	  <a href="ViewCourses.html"
+			th:href="@{/viewcourses}" > View Courses </a>
+	  <a href="lecturerhome.html"
+			th:href="@{/lecturerhome}" > Home </a>
+</div>
+</div>
+
+</body>
+
+</html>
