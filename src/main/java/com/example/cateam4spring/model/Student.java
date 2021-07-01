@@ -1,63 +1,95 @@
 package com.example.cateam4spring.model;
 
-
 import java.util.Collection;
+import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
+//@Data
+//@NoArgsConstructor
 @Entity
-public class Student {
+public class Student extends User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String FirstName;
-	private String LastName;	
-	private Double GPA;
-	@OneToMany(mappedBy="student") 
-	private Collection<Enrolment> enrolments;
+	private Integer id;
+	private String firstName;
+	private String lastName;	
+	private double GPA;
+	private Date enrollmentDate;
 	
-	public Student(int id, String firstName, String lastName, Double gPA, Collection<Enrolment> enrolments) {
+	public Student() {
 		super();
+	}
+
+	public Student(String username, String password, boolean enabled, Integer id, String firstName, String lastName) {
+		super(username, password, enabled);
 		this.id = id;
-		FirstName = firstName;
-		LastName = lastName;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	@OneToMany(mappedBy="student")
+	 private Collection<Enrolment> enrolments;
+
+	public Student(String username, String password, boolean enabled, String firstName, String lastName, double GPA, Date enrollmentDate) {
+		super(username, password, enabled);
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.GPA = GPA;
+		this.enrollmentDate = enrollmentDate;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public double getGPA() {
+		return GPA;
+	}
+
+	public void setGPA(double gPA) {
 		GPA = gPA;
+	}
+
+	public Date getEnrollmentDate() {
+		return enrollmentDate;
+	}
+
+	public void setEnrollmentDate(Date enrollmentDate) {
+		this.enrollmentDate = enrollmentDate;
+	}
+
+	public Collection<Enrolment> getEnrolments() {
+		return enrolments;
+	}
+
+	public void setEnrolments(Collection<Enrolment> enrolments) {
 		this.enrolments = enrolments;
 	}
-
-	public Student(String firstName, String lastName, Double gPA, Collection<Enrolment> enrolments) {
-		super();
-		FirstName = firstName;
-		LastName = lastName;
-		GPA = gPA;
-		this.enrolments = enrolments;
-	}
-
-	public Student(String firstName, String lastName, Double gPA) {
-		super();
-		FirstName = firstName;
-		LastName = lastName;
-		GPA = gPA;
-	}
 	
 	
-	 
-
-
-	
-	
-	
-	
-	
-
 }

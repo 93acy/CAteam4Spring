@@ -18,7 +18,6 @@ public class MyUserDetails implements UserDetails {
 	
 	private User user;
 	
-	
 	public MyUserDetails(User user) {
 		super();
 		this.user = user;
@@ -48,6 +47,11 @@ public class MyUserDetails implements UserDetails {
 		return user.getUsername();
 	}
 
+
+	public Integer getUserid(){
+		return user.getId();
+	}
+
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
@@ -75,5 +79,9 @@ public class MyUserDetails implements UserDetails {
 	public boolean hasRole(String roleName) {
         return this.user.hasRole(roleName);
     }
+	
+	public Integer getId() {
+		return this.user.getId();
+	}
 
 }

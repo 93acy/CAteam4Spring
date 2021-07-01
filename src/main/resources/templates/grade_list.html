@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>View student enrolment</title>
+</head>
+<body>
+<div th:replace="lecturer_home :: topnav">
+  </div>
+<h1> Grade List</h1>     
+		
+<table>
+<tr>
+   <th>COURSE ID</th>
+   <th>COURSE NAME</th>
+   <th>STUDENT NAME</th>
+   <th>STUDENT ID</th>
+   <th>GRADE</th>
+   <th>EDIT GRADE</th>
+</tr>
+ 
+ <tr th:each="e:${enrolment}">
+   <td th:text="${e.course.id}">ID</td> 
+   <td th:text="${e.course.name}">ID</td>
+   <td th:text="${e.student.firstName} + ${e.student.lastName}">ID</td>
+   <td th:text="${e.student.id}">ID</td>
+   <td th:text="${e.grade}" > 
+   <td><a th:href="@{/lecturer/edit/}+${e.id}"
+					 class="btn btn-default">Edit</a></td>
+					 
+
+					 
+					 
+					
+	
+	
+</tr>
+
+
+</table>
+
+
+
+</body>
+</html>

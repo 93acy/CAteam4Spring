@@ -6,38 +6,68 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@NoArgsConstructor
+//@Data
+//@NoArgsConstructor
 public class Admin extends User {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String FirstName;
-	private String LastName;
+	private String firstName;
+	private String lastName;
 	
-	public Admin(Integer id, String username, String password, boolean enabled, Set<Role> roles, Integer id2,
-			String firstName, String lastName) {
-		super(id, username, password, enabled, roles);
-		id = id2;
-		FirstName = firstName;
-		LastName = lastName;
-	}
-
-	public Admin(Integer id, String username, String password, boolean enabled, Set<Role> roles, String firstName,
-			String lastName) {
-		super(id, username, password, enabled, roles);
-		FirstName = firstName;
-		LastName = lastName;
+	public Admin() {
+		super();
 	}
 	
-	
-	
+
+	public Admin(String username, String password, boolean enabled, Set<Role> roles, String firstName, String lastName) {
+		super(username, password, enabled, roles);
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	public Admin(String username, String password, boolean enabled, String firstName, String lastName) {
+		super(username, password, enabled);
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 
 
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	
+	
 }

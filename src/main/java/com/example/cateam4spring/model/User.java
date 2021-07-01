@@ -1,10 +1,12 @@
 package com.example.cateam4spring.model;
 
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,14 +17,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
+import org.hibernate.annotations.Proxy;
+//@Data
+//@NoArgsConstructor
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public class User {
+@Proxy(lazy=false)
+public class User{
 	
 	@Id
 	@Column(name="user_id")
@@ -33,37 +34,26 @@ public class User {
 	private String password;
 	private boolean enabled;
 	
-	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER)
 	private Set<Role> roles = new HashSet<>();
 	
-	public User(Integer id, String username, String password, boolean enabled, Set<Role> roles) {
+	public User() {
 		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.enabled = enabled;
-		this.roles = roles;
 	}
-	
-	public User(String username, String password, boolean enabled, Set<Role> roles) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.enabled = enabled;
-		this.roles = roles;
-	}
-
-
 
 	public User(String username, String password, boolean enabled) {
-		super();
 		this.username = username;
 		this.password = password;
 		this.enabled = enabled;
 	}
-	
-	
-	
+
+	public User(String username, String password, boolean enabled, Set<Role> roles) {
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.roles = roles;
+	}	
+
 	public boolean hasRole(String roleName) {
         Iterator<Role> iterator = this.roles.iterator();
         while (iterator.hasNext()) {
@@ -72,19 +62,50 @@ public class User {
                 return true;
             }
         }
-         
+
         return false;
     }
 
+	public Set<Role> getRoles() {
+		return roles;
+	}
+	
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 
+	public Integer getId() {
+		return id;
+	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
+	public String getUsername() {
+		return username;
+	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
+	public String getPassword() {
+		return password;
+	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
+	public boolean isEnabled() {
+		return enabled;
+	}
 
-
-
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
+	
 
 }

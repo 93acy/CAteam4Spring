@@ -1,68 +1,73 @@
 package com.example.cateam4spring.model;
 
 import java.util.Collection;
+//import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
+//@Data
+//@NoArgsConstructor
 @Entity
-public class Lecturer {
+public class Lecturer extends User{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@Column(name="lecturer_id")
+	private Integer id;
 	private String FirstName;
 	private String LastName;
-		
+	
 	 @ManyToMany
-	 @JoinTable(name="courseAllocation",
-	 joinColumns = @JoinColumn(name="lecturer_id"),
-	 inverseJoinColumns = @JoinColumn(name="course_id")) 
+	 @JoinTable(name="course_Allocation",
+	 joinColumns= @JoinColumn(name="lecturer_id"),
+	 inverseJoinColumns= @JoinColumn(name="course_id"))
 	 private Collection<Course> courses;
-	 
-	
-	public Lecturer(String firstName, String lastName) {
-		super();
+
+		public Lecturer() {
+			super();
+		}
+
+	public Lecturer(String username, String password, boolean enabled, String firstName, String lastName) {
+		super(username, password, enabled);
 		FirstName = firstName;
 		LastName = lastName;
 	}
 
-
-	public Lecturer(String firstName, String lastName, Collection<Course> courses) {
-		super();
-		FirstName = firstName;
-		LastName = lastName;
-		this.courses = courses;
+	public Integer getId() {
+		return id;
 	}
 
-
-	public Lecturer(int id, String firstName, String lastName, Collection<Course> courses) {
-		super();
+	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getFirstName() {
+		return FirstName;
+	}
+
+	public void setFirstName(String firstName) {
 		FirstName = firstName;
+	}
+
+	public String getLastName() {
+		return LastName;
+	}
+
+	public void setLastName(String lastName) {
 		LastName = lastName;
+	}
+
+	public Collection<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(Collection<Course> courses) {
 		this.courses = courses;
 	}
 	
 	
-
-	
-
-	 
-	
-	
-	
-	
-
 }
 

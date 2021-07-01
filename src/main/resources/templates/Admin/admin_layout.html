@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="BIG5">
+  <title>Layout</title>
+</head>
+<body>
+<div th:fragment="menu">
+  <a th:href="@{/admin_home/}">DashBoard</a>
+  <a th:href="@{/admin_home/student}">Student Management</a>
+  <a th:href="@{/admin_home/enrolment}">Enrolment Management</a>
+  <a th:href="@{/student/lecturer}">Lecturer Management</a>
+  <a th:href="@{/student/course}">course Management</a>
+  <a th:href="@{/logout}">Log Out</a>
+</div>
+
+<div th:fragment="student_submenu">
+  <a th:href="@{/admin_student/}">Home</a>
+  <a th:href="@{/admin_student/Add}">Add</a>
+  <a th:href="@{/admin_student/Edit}">Edit</a>
+  <a th:href="@{/admin_student/Delete}">Delete</a>
+</div>
+
+<div th:fragment="lecturer_submenu">
+  <a th:href="@{/admin_lecturer/}">Home</a>
+  <a th:href="@{/admin_lecturer/Add}">Add</a>
+  <a th:href="@{/admin_lecturer/Edit}">Edit</a>
+  <a th:href="@{/admin_lecturer/Delete}">Delete</a>
+</div>
+
+</body>
+</html>

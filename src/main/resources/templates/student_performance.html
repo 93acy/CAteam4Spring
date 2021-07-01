@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>Student Performance</title>
+</head>
+<body>
+<div th:replace="lecturer_home :: topnav">
+  </div>
+<h1> Student Performance</h1>     
+
+<table border="1" >
+ <tr>
+   <th>COURSE ID</th>
+   <th>COURSE NAME</th>
+   <th>STUDENT NAME</th>
+   <th>STUDENT ID</th>
+   <th>COURSE START DATE</th>
+   <th>GPA</th>
+ </tr>
+ 
+ <tr th:each="performance:${performances}">
+   <td th:text="${performance.course.id}">ID</td> 
+   <td th:text="${performance.course.name}">ID</td>
+   <td th:text="${performance.student.firstName} + ${performance.student.lastName}">ID</td>
+   <td th:text="${performance.student.id}">ID</td>
+   <td th:text="${performance.course.startDate}">ID</td>
+   <td th:text="${performance.student.GPA}">ID</td>
+   
+   
+ </tr>
+</table>
+</body>
+</html>

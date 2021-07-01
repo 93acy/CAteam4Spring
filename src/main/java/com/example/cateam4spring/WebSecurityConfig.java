@@ -15,7 +15,8 @@ import com.example.cateam4spring.service.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class
+WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private LoginSuccessHandler successHandler;
@@ -53,12 +54,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers("/", "/index").permitAll()
 				.antMatchers("/admin_home/**").hasAuthority("ADMIN")
+				.antMatchers("/admin_home/**").hasAuthority("ADMIN")
 				.antMatchers("/student_home/**").hasAuthority("STUDENT")
 				.antMatchers("/lecturer_home/**").hasAuthority("LECTURER")
 				.anyRequest().authenticated()
 				.and()
 				.formLogin().loginPage("/login").successHandler(successHandler).permitAll()
 				.and()
-				.logout().permitAll();
+				.logout()
+//				.logoutSuccessUrl("/login?logout")
+				.permitAll();
+//				.exceptionHandling().accessDeniedPage("/403")
 	}
 }
