@@ -1,15 +1,15 @@
 package com.example.cateam4spring.model;
 
 import java.util.Collection;
-import java.util.Set;
+//import java.util.Set;
 
 import javax.persistence.*;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
+//@Data
+//@NoArgsConstructor
 @Entity
 public class Lecturer extends User{
 	
@@ -26,11 +26,48 @@ public class Lecturer extends User{
 	 inverseJoinColumns= @JoinColumn(name="course_id"))
 	 private Collection<Course> courses;
 
+		public Lecturer() {
+			super();
+		}
 
 	public Lecturer(String username, String password, boolean enabled, String firstName, String lastName) {
 		super(username, password, enabled);
 		FirstName = firstName;
 		LastName = lastName;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getFirstName() {
+		return FirstName;
+	}
+
+	public void setFirstName(String firstName) {
+		FirstName = firstName;
+	}
+
+	public String getLastName() {
+		return LastName;
+	}
+
+	public void setLastName(String lastName) {
+		LastName = lastName;
+	}
+
+	public Collection<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(Collection<Course> courses) {
+		this.courses = courses;
+	}
+	
+	
 }
 

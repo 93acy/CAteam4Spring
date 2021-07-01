@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="BIG5">
+<title>Grade and GPA</title>
+</head>
+<body>
+	<!--  <div th:text=" Hello + ${session.studentSession.firstName} + ${session.studentSession.lastName}"></div>  -->
+	<div th:replace="Layout.html :: menu"></div>
+	
+	<div th:if=" ${#lists.isEmpty(enrollments)}">No record</div>
+	<table th:if=" ${not #lists.isEmpty(enrollments)}">
+		<tr>
+			<th>CourseId</th>
+			<th>Course Name</th>
+			<th>Description</th>
+			<th>Credit</th>
+			<th>Grade</th>
+
+		</tr>
+		<tr th:each="enrollment:${enrollments}">
+			<td th:text="${enrollment.course.id}"></td>
+			<td th:text="${enrollment.course.name}"></td>
+			<td th:text="${enrollment.course.description}"></td>
+			<td th:text="${enrollment.course.credit}"></td>
+			<td th:text="${enrollment.grade}"></td>
+
+		</tr>
+	</table>
+	
+	GPA:<div th:text="${GPA}">NA</div>
+	
+	<!--  GPA:<div th:text="${session.studentSession.gpa}">NA</div>  -->
+	
+	
+	<!-- <div th:if=" ${#lists.isEmpty(courses)}">No record</div>
+	<table th:if=" ${not #lists.isEmpty(courses)}">
+		<tr>
+			<th>CourseId</th>
+			<th>Course Name</th>
+			<th>Description</th>
+			<th>Credit</th>
+
+		</tr>
+		<tr th:each="course:${courses}">
+			<td th:text="${course.id}"></td>
+			<td th:text="${course.name}"></td>
+			<td th:text="${course.description}"></td>
+			<td th:text="${course.credit}"></td>
+
+		</tr>
+	</table>
+	
+	<table th:if=" ${not #lists.isEmpty(grades)}">
+		<tr>
+
+			<th>Grade</th>
+		</tr>
+		<tr th:each="grade:${grades}">
+			<td th:text="${grade}"></td>
+		</tr>
+	</table>
+	
+	GPA:<div th:text="${gpa}"></div>
+	 -->
+	
+
+</body>
+</html>

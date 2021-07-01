@@ -1,7 +1,7 @@
 package com.example.cateam4spring.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -18,8 +18,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.Proxy;
-@Data
-@NoArgsConstructor
+//@Data
+//@NoArgsConstructor
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @Proxy(lazy=false)
@@ -36,6 +36,10 @@ public class User{
 	
 	@ManyToMany(fetch=FetchType.EAGER)
 	private Set<Role> roles = new HashSet<>();
+	
+	public User() {
+		super();
+	}
 
 	public User(String username, String password, boolean enabled) {
 		this.username = username;
@@ -69,5 +73,39 @@ public class User{
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
+	
 
 }
