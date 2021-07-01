@@ -2,6 +2,7 @@ package com.example.cateam4spring.service;
 
 import java.util.List;
 
+import com.example.cateam4spring.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +11,12 @@ import com.example.cateam4spring.repo.LecturerRepository;
 
 @Service
 public class AdminLecturerServiceImpl implements AdminLecturerService {
+	@Autowired
+	private UserRepository urepo;
 
 	@Autowired
 	private LecturerRepository lrepo;
-	
+
 	@Override
 	public List<Lecturer> listAll() {
 		return lrepo.findAll();

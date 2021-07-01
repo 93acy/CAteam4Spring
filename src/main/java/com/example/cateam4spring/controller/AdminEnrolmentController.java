@@ -6,4 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value="/admin_enrolment")
 public class AdminEnrolmentController {
+
+
+
 }

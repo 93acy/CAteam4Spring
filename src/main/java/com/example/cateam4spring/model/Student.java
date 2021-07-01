@@ -90,6 +90,7 @@ public class Student extends User {
 	public void setEnrolments(Collection<Enrolment> enrolments) {
 		this.enrolments = enrolments;
 	}
-	
+
+
 	
 }

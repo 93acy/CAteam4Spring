@@ -21,7 +21,7 @@ public class Course {
 	private int capacity;
 	private int credit;
 	private Date startDate;
-	private Integer currentSelectNum;
+	private Integer currentSelectNum=0;
 
 	  @ManyToMany(mappedBy = "courses")
 	  private Collection<Lecturer> lecturers;
@@ -35,8 +35,7 @@ public class Course {
 
 
 
-	public Course(String name, String description, int capacity, int credit, Date startDate) {
-		this.name = name;
+	public Course(String name, String description, int capacity, int credit, Date startDate) { this.name = name;
 		this.description = description;
 		this.capacity = capacity;
 		this.credit = credit;

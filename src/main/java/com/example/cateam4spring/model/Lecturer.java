@@ -45,20 +45,18 @@ public class Lecturer extends User{
 	}
 
 	public String getFirstName() {
-		return FirstName;
+		return firstName;
 	}
 
 	public void setFirstName(String firstName) {
-		FirstName = firstName;
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 
-	public void setLastName(String lastName) {
-		LastName = lastName;
-	}
+	public void setLastName(String lastName) { this.lastName = lastName; }
 
 	public Collection<Course> getCourses() {
 		return courses;

@@ -2,14 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org" th:fragment="admin_home (template, menu)">
 
 <head>
-    <title>Student View</title>
+    <title>Admin Student View</title>
     <meta charset="ISO-8859-1">
     <link rel="stylesheet" type="text/css" media="all"
           th:href="@{/css/style.css}" />
 </head>
 
 <body>
-
 <div th:fragment="topnav" class="topnav">
     <div class="container" align="center">
         <a href="/admin_home">Home</a>
@@ -20,15 +19,35 @@
         <a href="/admin/logout">Log out</a>
     </div>
 </div>
-<div th:fragment="topnav" class="topnav">
-    <div class="container" align="center">
-        <a href="/admin_student/enrol">ViewStudentEnrolments</a>
-        <a href="/admin_student/edit">Edit Student Details</a>
-        <a href="/admin_student/delete">Delete Students</a>
-    </div>
-</div>
+<div align="center">
+    <h1>Student List</h1>
+    <a href="/admin_student/new">Create New Student</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${listStudents}">
+            <td th:text="${student.id}">Lecturer ID</td>
+            <td th:text="${student.firstName}">firstName</td>
+            <td th:text="${student.lastName}">lastName</td>
 
-<p>Hello</p>
+            <td>
+                <a th:href="@{'/admin_student/edit/' + ${student.id}}">Edit</a>
+
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/admin_student/delete/' + ${student.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 
