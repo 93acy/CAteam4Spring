@@ -23,6 +23,13 @@ public interface EnrolmentRepository extends JpaRepository<Enrolment, Integer> {
     @Transactional
     @Query(value = "INSERT INTO Enrolment (student_id, course_id) VALUES ( :SId, :CId)", nativeQuery=true)
     public void enrolCourse(@Param("SId") String studentId, @Param("CId") String courseId);
+    
+    
+    @Modifying
+    @Transactional
+    @Query(value = "update Enrolment e set e.grade = :newGrade where e.id = :Eid", nativeQuery=true)
+    public void updateGrade(@Param("newGrade") Double newGrade, @Param("Eid") Integer Eid);
+
 
 
     

@@ -5,31 +5,43 @@
 <title>Edit Grade</title>
 </head>
 <body>
-<header th:insert="fragments/layout.html :: header" ></header>
 
 <form action="#"
-		th:action="@{/lecturer/edit/}+${enrolment.id}"
+		th:action="@{/lecturer/save}"
 		th:object="${enrolment}" method="get">
 <table>
-		<tr>
-			Student Name: <td th:text =${enrolment.student.firstName}+${enrolment.student.lirstName}> </td>
+		<tr  th:each="e:${enrolment}" >
+			<td>Course Id:</td> 
+			<td th:text="${e.course.id}"> </td>
 		</tr>
 		
-		<tr>
-			Student Id: <td th:text =${enrolment.student.id}> </td>
+		<tr  th:each="e:${enrolment}" >
+			<td>Course Name:</td> 
+			<td th:text="${e.course.name}"> </td>
 		</tr>
 		
+		<tr  th:each="e:${enrolment}" >
+			<td>Student Name:</td> 
+			<td th:text="${e.student.firstName} + ${e.student.lastName}"> </td>
+		</tr>
+		
+		
+		<tr  th:each="e:${enrolment}">
+			<td>Student Id: </td>
+			<td th:text =${e.student.id}> </td>
+		</tr>
+		
+		
 		<tr>
-
 			Grade: <input type="text" th:field="*{grade}">
 		</tr>
-		
-		<fieldset>
-			<input type="submit" value="Save"/>
-			&nbsp; &nbsp; 	
-			<input type="reset" value="Reset"/>
-		</fieldset>
+
 		</table>
+		
+		<input type="submit" value="Save"/>
+			&nbsp; &nbsp; 	
+		<input type="reset" value="Reset"/>
+		
 	</form>
 
 </body>

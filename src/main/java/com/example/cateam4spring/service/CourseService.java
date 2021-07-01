@@ -1,10 +1,10 @@
 package com.example.cateam4spring.service;
 
-import com.example.cateam4spring.model.Course;
-import com.example.cateam4spring.model.Lecturer;
+import java.util.List;
 
-import java.util.ArrayList;
-import java.util.Date;
+import com.example.cateam4spring.model.Course;
+
+
 
 public interface CourseService {
 
@@ -19,6 +19,9 @@ public interface CourseService {
 //    Course addLecturertoCourse(Lecturer lecturer, Course course);
 //
 //    void deleteCourse(Course course);
+	
+	//get course by keyword
+	List<Course> findByKeyword(String keyword);
 
 
 }

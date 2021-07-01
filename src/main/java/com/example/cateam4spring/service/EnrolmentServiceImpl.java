@@ -39,7 +39,7 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 	}
     
 	@Override
-	public Optional<Enrolment> findEnrolmentById(Integer id) {
+	public Optional<Enrolment>findEnrolmentById(Integer id) {
     	
 		return erepo.findById(id);
 	}
@@ -77,6 +77,12 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 	@Override
 	public Enrolment updateEnrolment(Enrolment enrolment) {
 		return erepo.saveAndFlush(enrolment);
+	}
+
+	@Override
+	public void updateGrade(Double grade, Integer id) {
+		// TODO Auto-generated method stub
+		erepo.updateGrade(grade, id);
 	}
 
 

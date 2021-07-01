@@ -15,6 +15,7 @@ public interface EnrolmentService {
     public List<Enrolment> findEnrolmentsByStudentId(Integer id);
     
     Optional<Enrolment> findEnrolmentById(Integer id);
+    
 
 //  ArrayList<Enrolment> findAllEnrolmentsByCourse(String enrolId);
 
@@ -29,6 +30,8 @@ public interface EnrolmentService {
 
     Enrolment updateEnrolment(Enrolment enrolment);
     //for lecturer to grade and set courseStatus
+    
+    void updateGrade(Double grade, Integer id);
 
 
 

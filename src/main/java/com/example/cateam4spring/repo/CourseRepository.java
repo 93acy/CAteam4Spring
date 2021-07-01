@@ -16,6 +16,11 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
 
     @Query("SELECT c.capacity FROM Course c WHERE c.id = :Id")
     public Double findCapacityById(@Param("Id") String Id);
+    
+    @Query("SELECT c FROM Course c WHERE "
+    		+ "CONCAT(c.name,c.id)"
+    		+ "LIKE %:keyword%")
+    public List<Course> findByKeyword(@Param("keyword") String keyword);
 
 
 }

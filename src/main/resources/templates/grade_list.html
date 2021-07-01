@@ -20,14 +20,16 @@
    <th>EDIT GRADE</th>
 </tr>
  
- <tr th:each="record:${glist}">
-   <td th:text="${record.course.id}">ID</td> 
-   <td th:text="${record.course.name}">ID</td>
-   <td th:text="${record.student.firstName} + ${record.student.lastName}">ID</td>
-   <td th:text="${record.student.id}">ID</td>
-   <td th:text="${record.grade}" > 
-   <td><a th:href="@{/lecutrer/edit/}+${record.id}"
+ <tr th:each="e:${enrolment}">
+   <td th:text="${e.course.id}">ID</td> 
+   <td th:text="${e.course.name}">ID</td>
+   <td th:text="${e.student.firstName} + ${e.student.lastName}">ID</td>
+   <td th:text="${e.student.id}">ID</td>
+   <td th:text="${e.grade}" > 
+   <td><a th:href="@{/lecturer/edit/}+${e.id}"
 					 class="btn btn-default">Edit</a></td>
+					 
+
 					 
 					 
 					
