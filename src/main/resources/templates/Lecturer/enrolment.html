@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+
+<title>View Enrolment</title>
+</head>
+<body>
+<div th:replace="fragments/layoutlecturer :: topnav">
+  </div>
+<h1> Student Enrolment List</h1>     
+
+<table>
+ <tr>
+ <td>
+    <form>
+  <label for="selectmodule"><strong>Select Module</strong></label>
+  <select name="selectmodule" id="selectmodule">
+    <option value="CS3230">CS3230</option>
+    <option value="GES1010">GES2020</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  
+  <input type="submit" value="Submit">
+</form>
+</td>
+
+<td>
+    
+    <form>
+  <label for="semesters"><strong>Semester</strong></label>
+  <select name="semesters" id="semesters">
+    <option value="A17/18 Semester 1">A17/18 Semester 1</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  
+  <input type="submit" value="Submit">
+</form>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search by name/course ID" name="search">
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+    
+  </td>
+  </tr>
+  </table>
+  <br></br>
+  <table class ="a">
+    <tr>
+   <th>Course ID</th>
+   <th>Course Name</th>
+   <th>Student Name</th>
+   <th>Student ID</th>
+   <th>Enrolment Date</th>
+ </tr>
+ 
+ <tr th:each="enrolment:${enrolments}">
+   <td th:text="${enrolment.course.id}">ID</td> 
+   <td th:text="${enrolment.course.name}">ID</td>
+   <td th:text="${enrolment.student.firstName} + ${enrolment.student.lastName}">ID</td>
+   <td th:text="${enrolment.student.id}">ID</td>
+   <td th:text="${enrolment.enrolmentDate}">ID</td>
+   
+   
+ </tr>
+</table>
+<div class="b">
+        <p>Total Students 
+        </p>
+        </div>
+
+
+</body>
+
+</html>

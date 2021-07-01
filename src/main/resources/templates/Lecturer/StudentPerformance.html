@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+<meta charset="ISO-8859-1">
+<title>Student Performance</title>
+</head>
+
+<body>
+<div class="a" th:replace="fragments/layoutlecturer :: topnav">
+  </div>
+  
+<div class="b">
+ <h1>Student Performance</h1>
+    <table>
+    <tr>
+    <td>
+    <form>
+  <label for="selectmodule"><strong>Select Module</strong></label>
+  <select name="selectmodule" id="selectmodule">
+    <option value="CS3230">CS3230</option>
+    <option value="GES1010">GES2020</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  
+  <input type="submit" value="Submit">
+</form>
+</td>
+<td>
+    
+    <form>
+  <label for="semesters"><strong>Semester</strong></label>
+  <select name="semesters" id="semesters">
+    <option value="A17/18 Semester 1">A17/18 Semester 1</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  
+  <input type="submit" value="Submit">
+</form>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search by name/matriculation ID" name="search">
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+  </td>
+  </tr>
+    </table>
+ 
+</div>
+<br></br>
+    <table id="Student Performance" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Matriculation Id</th>
+            <th>Course Name</th>
+            <th>Course Id</th>
+            <th>Cumulative GPA</th>
+        </tr>
+        
+         <tr th:each="performance:${performances}">
+   <td th:text="${performance.student.firstName} + ${performance.student.lastName}">ID</td>
+   <td th:text="${performance.student.id}">ID</td>
+     <td th:text="${performance.course.id}">ID</td> 
+   <td th:text="${performance.course.name}">ID</td>
+   <td th:text="${performance.student.GPA}">ID</td>
+   
+        </thead>
+        </table>
+
+</body>
+</html>

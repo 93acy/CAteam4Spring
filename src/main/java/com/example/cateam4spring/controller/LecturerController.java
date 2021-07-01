@@ -45,10 +45,10 @@ public class LecturerController {
 	@GetMapping("/home")
 	public String returnHome() {					
 		
-		return "lecturer_home";	
+		return "lecturer/lecturer_home";	
 	}
 	
-	@RequestMapping("/course")
+	@GetMapping("/viewcourses")
 	public String listCourse(Model model, String keyword) {
 		
 		if(keyword !=null) {
@@ -57,26 +57,26 @@ public class LecturerController {
 		else {
 			model.addAttribute("courses", crepo.findAll());	
 		}
-		return "course";	
+		return "lecturer/viewcourses";	
 	}
 	
 	
 	@GetMapping("/enrolment")
 	public String listEnrolment(Model model) {
 		model.addAttribute("enrolments", erepo.findAll());
-		return "enrolment";
+		return "lecturer/enrolment";
 	}
 	
-	@GetMapping("/performance")
+	@GetMapping("/studentperformance")
 	public String listPerformance(Model model) {
 		model.addAttribute("performances", erepo.findAll());
-		return "student_performance";
+		return "lecturer/studentperformance";
 	}
 	
-	@RequestMapping("/grade")
+	@GetMapping("/inputgrades")
 	public String showGrades(Model model) {
 		model.addAttribute("enrolment", erepo.findAll());
-		return "grade_list";
+		return "lecturer/inputgrades";
 	}
 	
 //	@GetMapping("/edit/{id}")
@@ -124,7 +124,7 @@ public class LecturerController {
 	@RequestMapping("/edit/{id}")
 	  public String editGrade(Model model, @PathVariable("id") Integer id) {
 		model.addAttribute("enrolment", es.findEnrolmentsByStudentId(id).get(id));
-		return "grade_edit";
+		return "lecturer/grade_edit";
 	  }
 	
 	

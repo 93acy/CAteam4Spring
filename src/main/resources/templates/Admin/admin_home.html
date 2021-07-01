@@ -9,19 +9,11 @@
 </head>
 
 <body>
-<div th:fragment="topnav" class="topnav">
-    <div class="container" align="center">
-        <a href="/admin_home">Home</a>
-        <a href="/admin_home/student">ViewStudent</a>
-        <a href="/admin_home/enrolment">ViewEnrolment</a>
-        <a href="/admin_home/lecturer">ViewLecturer</a>
-        <a href="/admin_home/course">View Courses</a>
-        <a href="/admin/logout">Log out</a>
+ <div th:replace="fragments/layoutadmin :: topnav">
+  </div>
 
-    </div>
-</div>
 
-<p>Hello</p>
+<p>Welcome, (name)</p>
 
 </body>
 

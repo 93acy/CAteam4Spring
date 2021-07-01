@@ -9,21 +9,14 @@
 </head>
 
 <body>
-<div th:fragment="topnav" class="topnav">
-    <div class="container" align="center">
-        <a href="/admin_home">Home</a>
-        <a href="/admin_home/student">Student</a>
-        <a href="/admin_home/enrolment">Enrolment</a>
-        <a href="/admin_home/lecturer">Lecturer</a>
-        <a href="/admin_home/course">Courses</a>
-        <a href="/admin/logout">Log out</a>
-    </div>
-</div>
-<div align="center">
+ <div th:replace="fragments/layoutadmin :: topnav">
+  </div>
+
     <h1>Student List</h1>
+    <div class="d">
     <a href="/admin_student/new">Create New Student</a>
-    <br/><br/>
-    <table border="1" cellpadding="10">
+  	</div>
+    <table class="a">
         <thead>
         <tr>
             <th>Student ID</th>
@@ -47,7 +40,7 @@
         </tr>
         </tbody>
     </table>
-</div>
+
 
 </body>
 

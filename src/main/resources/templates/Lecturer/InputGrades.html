@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+<meta charset="ISO-8859-1">
+<title>Input Grades</title>
+</head>
+
+<body>
+<div class="a" th:replace="fragments/layoutlecturer :: topnav">
+  </div>
+  
+<div class="b">
+ <h1>Input Grades</h1>
+    <table>
+    <tr>
+    <td>
+    <form>
+  <label for="selectmodule"><strong>Select Module</strong></label>
+  <select name="selectmodule" id="selectmodule">
+    <option value="CS3230">CS3230</option>
+    <option value="GES1010">GES2020</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  
+  <input type="submit" value="Submit">
+</form>
+</td>
+<td>
+    
+    <form>
+  <label for="semesters"><strong>Semester</strong></label>
+  <select name="semesters" id="semesters">
+    <option value="A17/18 Semester 1">A17/18 Semester 1</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  
+  <input type="submit" value="Submit">
+</form>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search by name/matriculation ID" name="search">
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+    
+  </td>
+  </tr>
+    </table>
+
+</div>
+ <br></br>
+    <table id="StudentList" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Matriculation Id</th>
+            <th>Course Start Date</th>
+            <th>Course Status</th>
+            <th >Grade</th>
+        </tr>
+         <tr th:each="e:${enrolment}">
+<!--    <td th:text="${e.course.id}">ID</td> 
+   <td th:text="${e.course.name}">ID</td> -->
+   <td th:text="${e.student.firstName} + ${e.student.lastName}">Name</td>
+   <td th:text="${e.student.id}">Matriculation Id</td>
+   <td th:text="${e.course.startdate}">Course Start Date</td>
+   <td></td>
+   <td th:text="${e.grade}" > 
+   <td><a th:href="@{/lecturer/edit/}+${e.id}"
+					 class="btn btn-default">Edit</a></td>
+					 </tr>
+        </thead>
+        </table>
+
+</body>
+</html>
