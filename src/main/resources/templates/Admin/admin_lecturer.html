@@ -39,9 +39,10 @@
                 <td th:text="${lecturer.lastName}">lastName</td>
 
                 <td>
-                    <a th:href="@{'admin_lecturer/edit/' + ${lecturer.id}}">Edit</a>
+                    <a th:href="@{'/admin_lecturer/edit/' + ${lecturer.id}}">Edit</a>
+                     
                     &nbsp;&nbsp;&nbsp;
-                    <a th:href="@{'admin_lecturer/delete/' + ${lecturer.id}}">Delete</a>
+                    <a th:href="@{'/admin_lecturer/delete/' + ${lecturer.id}}">Delete</a>
                 </td>
             </tr>
         </tbody>
