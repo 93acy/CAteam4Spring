@@ -48,8 +48,10 @@ public class AdminController {
     }
 
     @GetMapping("/course")
-    public String AdminCourse(){
-        return "Admin/admin_enrolment";
+    public String AdminCourse(Model model){
+    	List<Course> listCourses = cservice.findAllCourses();
+    	model.addAttribute("listcourses", listCourses);
+        return "Admin/admin_course";
     }
 
 

@@ -8,7 +8,11 @@ import java.util.Date;
 import java.util.List;
 
 public interface CourseService {
-
+	
+	public void saveCourse(Course course);
+	
+	public void deleteCourseById(Integer id);
+	
 	public List<Course> findAllCourses();
 //
 //    ArrayList<Course> findCourseByEnrolmentId(Integer eid);

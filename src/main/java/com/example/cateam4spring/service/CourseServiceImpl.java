@@ -13,7 +13,12 @@ public class CourseServiceImpl implements CourseService {
 	
 	@Autowired
 	CourseRepository crepo;
-
+	
+	@Override
+	public void saveCourse(Course course) {
+		crepo.save(course);
+	}
+	
 	@Override
 	public List<Course> findAllCourses() {
 		return crepo.findAll();
@@ -23,6 +28,11 @@ public class CourseServiceImpl implements CourseService {
 	public Course findCourse(Integer cid) {
 		return crepo.getById(cid);
 	}
-	
+
+	@Override
+	public void deleteCourseById(Integer id) {
+		crepo.deleteById(id);
+	}
+
 	
 }
