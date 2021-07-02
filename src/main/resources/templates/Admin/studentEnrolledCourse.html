@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="admin_home (template, menu)">
+
+<head>
+	<title>Admin Student View</title>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" type="text/css" media="all"
+		  th:href="@{/css/style.css}" />
+</head>
+<body>
+<div th:fragment="topnav" class="topnav">
+	<div class="container" align="center">
+		<a href="/admin_home">Home</a>
+		<a href="/admin_home/student">Student</a>
+		<a href="/admin_home/enrolment">Enrolment</a>
+		<a href="/admin_home/lecturer">Lecturer</a>
+		<a href="/admin_home/course">Courses</a>
+		<a href="/admin/logout">Log out</a>
+	</div>
+</div>
+<div align="center">
+	<h1>Student List</h1>
+	<table>
+		<tr>
+			<th>CourseId</th>
+			<th>CourseName</th>
+			<th>Credit</th>
+			<th>Current Enrolments</th>
+			<th>Course Capacity</th>
+			<th>CancelEnrolment</th>
+		</tr>
+		<tr th:each="course: ${enrolledCourses}">
+			<td th:text="${course.id}"></td>
+			<td th:text="${course.name}"></td>
+			<td th:text="${course.credit}"></td>
+			<td th:text="${course.currentSelectNum}"></td>
+			<td th:text="${course.capacity}"></td>
+			<td><a th:href="@{'/admin_enrolment/deleteEnrolment2/'+ ${student.id} + '/' + ${course.id}}">Cancel</a></td>
+		</tr>
+	</table>
+</body>
+</html>

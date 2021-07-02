@@ -34,13 +34,10 @@ public class AdminEnrolmentController {
     @Autowired
     private EnrolmentService eservice;
 
-
-
-
     @GetMapping("/enrolStudent/{id}")
-    public String startNewStudentEnrolment(@PathVariable(name = "id") int id, Model model){
+    public String startNewStudentEnrolment(@PathVariable(name = "id")Integer id, Model model){
         Student student = asservice.get(id);
-        List<Course> unattendedCourses = eservice.findCourseNotEnrolled(student.getId());
+        List<Course> unattendedCourses = eservice.findCourseNotEnrolled(id);
         model.addAttribute("student", student);
         model.addAttribute("unattendedCourses",unattendedCourses);
         return "Admin/admin_enrolmentChooseCourse";
@@ -57,11 +54,30 @@ public class AdminEnrolmentController {
             eservice.enrolCourse(sId, cId, now);
             Integer newNum = (cservice.findCourseById(cId).getCurrentSelectNum())+1;
             cservice.addOne(cId, newNum);
-            return "Admin/admin_enrolment";
+            return "redirect:/admin_home/enrolment";
         }
         else return "Admin/messageCourseFull";
     }
 
+    @GetMapping("/deleteEnrolment/{id}")
+    public String DeleteEnrolment(@PathVariable(name="id")Integer id, Model model){
+        Student student = asservice.get(id);
+        List<Course> enrolledCourses = eservice.findEnrolledCourseById(id);
+        model.addAttribute("enrolledCourses", enrolledCourses);
+        model.addAttribute("student", student);
+        return "Admin/studentEnrolledCourse";
+    }
 
+    @GetMapping("/deleteEnrolment2/{studentId}/{courseId}")
+    public String Delete(@PathVariable(name = "studentId") Integer sId, @PathVariable(name= "courseId") Integer cId, Model model){
+        Student student = asservice.get(sId);
+        eservice.cancelEnrolment(sId, cId);
+        Integer newNum = (cservice.findCourseById(cId).getCurrentSelectNum())-1;
+        cservice.minusOne(cId,newNum);
+        List<Course> enrolledCourses = eservice.findEnrolledCourseById(sId);
+        model.addAttribute("enrolledCourses", enrolledCourses);
+        model.addAttribute("student", student);
+        return "Admin/studentEnrolledCourse";
 
+    }
 }
