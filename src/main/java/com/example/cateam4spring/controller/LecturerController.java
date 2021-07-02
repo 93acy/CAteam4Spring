@@ -114,7 +114,8 @@ public class LecturerController {
 		
 		catch (InvalidGradeException e){
 			ModelAndView mav = new ModelAndView("redirect:/lecturer/edit/{id}");
-			mav.addObject("errMsg", e.getMessage());
+			String errMsg= e.getMessage();
+			mav.addObject("errMsg", errMsg);
 			return mav;
 		}
 		

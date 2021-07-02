@@ -29,38 +29,12 @@
 
 		</table>
 		
-		<input type="submit" value="Save"/>
+		<input type="submit" value="Save" />
 			&nbsp; &nbsp; 	
 		<input type="reset" value="Reset"/>
 		
 	</form>
 	
-<form action="#" th:object="${errMsg}" method="get" >
-<table>
-		<tr th:each="e:${errMsg}"> 
-			<td th:text="${e}"></td>
-		</tr>
-
-</table>
-</form>
-	
-<!--  
-<script>
-var msg = "<%= errMsg %>"
-function myFunction(){
-	
-if (msg){
-		
-	alert("Grade should be within 0 to 100 :)");
-}
-else
-	alert("Save successfully!!")
-	
-}
-   
-</script>
--->	
-
 
 </body>
 </html>

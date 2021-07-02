@@ -55,9 +55,13 @@
    
    
  </tr>
+ </table>
+ 
+<table border="1" >
+ <tr th:each="enrolment:${enrolments}">
+   Size: <td th:text="${enrolment.course.currentSelectNum}">ID</td> 
+ </tr>
 </table>
-
-
 
 </body>
 
