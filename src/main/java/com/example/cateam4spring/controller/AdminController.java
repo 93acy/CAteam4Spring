@@ -43,7 +43,9 @@ public class AdminController {
     }
 
     @GetMapping("/enrolment")
-    public String AdminEnrolment(){
+    public String AdminEnrolment(Model model){
+        List<Student> listStudents = asservice.listAll();
+        model.addAttribute("listStudents", listStudents);
         return "Admin/admin_enrolment";
     }
 
