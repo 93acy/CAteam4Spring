@@ -5,14 +5,15 @@ import com.example.cateam4spring.model.Lecturer;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public interface CourseService {
 
-//    ArrayList<Course> findAllCourses();
+	public List<Course> findAllCourses();
 //
 //    ArrayList<Course> findCourseByEnrolmentId(Integer eid);
 //
-//    Course findCourse(Integer cid);
+    public Course findCourse(Integer cid);
 //
 //    Course createCourse(Course course);
 //

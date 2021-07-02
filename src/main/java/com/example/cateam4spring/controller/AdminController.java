@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.cateam4spring.model.Course;
 import com.example.cateam4spring.model.Lecturer;
 import com.example.cateam4spring.service.AdminLecturerService;
+import com.example.cateam4spring.service.CourseService;
 
 @Controller
 @RequestMapping(value="/admin_home")
@@ -17,6 +19,9 @@ public class AdminController {
 	
 	@Autowired
 	private AdminLecturerService alservice;
+	
+	@Autowired
+	private CourseService cservice;
 
     @GetMapping("/home")
     public String returnHome(){
@@ -36,7 +41,9 @@ public class AdminController {
     }
 
     @GetMapping("/enrolment")
-    public String AdminEnrolment(){
+    public String AdminEnrolment(Model model) {
+    	List<Course> listCourses = cservice.findAllCourses();
+    	model.addAttribute("listcourses", listCourses);
         return "Admin/admin_enrolment";
     }
 

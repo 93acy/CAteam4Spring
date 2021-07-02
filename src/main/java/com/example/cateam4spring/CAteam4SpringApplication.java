@@ -54,9 +54,9 @@ public class CAteam4SpringApplication {
 //			Lecturer l1 = new Lecturer("K","K");
 //			lrepo.save(l1);
 //
-//			Course c1 = new Course("Math","this is a math course", 50, 6, null);
-//			Course c2 = new Course("Science","this is a science course", 45, 8, null);
-//			crepo.save(c1); crepo.save(c2);
+			Course c1 = new Course("Math","this is a math course", 50, 6, null);
+			Course c2 = new Course("Science","this is a science course", 45, 8, null);
+			crepo.save(c1); crepo.save(c2);
 //			Collection<Course> courses = new ArrayList<>();
 //			courses.add(c1);courses.add(c2);
 //

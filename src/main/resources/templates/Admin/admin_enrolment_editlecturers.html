@@ -1,0 +1,71 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:text="${course.id} + '. ' + ${course.name}"></title>
+    <meta charset="ISO-8859-1">
+    <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{/css/style.css}" />
+</head>
+
+<body>
+
+<div class="container" align="center">
+    <a href="/admin_home">Home</a>
+    <a href="/admin_home/student">Student</a>
+    <a href="/admin_home/enrolment">Enrolment</a>
+    <a href="/admin_home/lecturer">Lecturer</a>
+    <a href="/admin_home/course">Courses</a>
+    <a href="/admin/logout">Log out</a>
+</div>
+<div align="center">
+	<div style="float: left; width:50%; padding:10px; box-sizing: border-box;">
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th colspan="4">Lecturers In Course</th>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="lecturerInCourse : ${listLecturersInCourse}">
+					<td th:text="${lecturerInCourse.id}"></td>
+					<td th:text="${lecturerInCourse.firstName}"></td>
+					<td th:text="${lecturerInCourse.lastName}"></td>
+					<td><a th:href="@{'/admin_enrolment/remove/' + ${course.id} + '/' + ${lecturerInCourse.id}}">Remove</a></td>		
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div style="float: left; width:50%; padding:10px; box-sizing: border-box;">
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th colspan="4">Lecturers Not In Course</th>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="lecturerNotInCourse : ${listLecturersNotInCourse}">
+					<td th:text="${lecturerNotInCourse.id}"></td>
+					<td th:text="${lecturerNotInCourse.firstName}"></td>
+					<td th:text="${lecturerNotInCourse.lastName}"></td>
+					<td><a th:href="@{'/admin_enrolment/add/' + ${course.id} + '/' + ${lecturerNotInCourse.id}}">Add</a></td>		
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+
+</html>

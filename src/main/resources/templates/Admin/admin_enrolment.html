@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" th:fragment="admin_home (template, menu)">
 
 <head>
-    <title>Student View</title>
+    <title>Courses View</title>
     <meta charset="ISO-8859-1">
     <link rel="stylesheet" type="text/css" media="all"
           th:href="@{/css/style.css}" />
@@ -18,21 +18,32 @@
     <a href="/admin_home/course">Courses</a>
     <a href="/admin/logout">Log out</a>
 </div>
+
+<div align="center">
+	<h1>Course List</h1>
+	<br/><br/>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Course ID</th>
+				<th>Course Name</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="course : ${listcourses}">
+				<td th:text="${course.id}">Course ID</td>
+				<td th:text="${course.name}">Course Name</td>
+				<td> 
+					<a th:href="@{'/admin_enrolment/edit_lecturersincourse/' + ${course.id}}">View Lecturers</a>
+					&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/admin_enrolment/edit_studentsincourse/' + ${course.id}}">View Students</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
 </div>
-
-
-<div th:fragment="topnav" class="topnav">
-    <div class="container" align="center">
-
-        <a href="/admin_enrolment/enrol">Enrol</a>
-        <a href="/admin_enrolment/edit">Edit Enrolment Details</a>
-        <a href="/admin_course/delete">Delete Course Details</a>
-
-    </div>
-</div>
-
-<p>Hello</p>
-
 </body>
 
 </html>
