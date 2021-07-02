@@ -1,0 +1,159 @@
+ div.b {
+ margin-left:150px;
+ margin-right:10px;
+ padding:10px;
+ }
+ 
+div.c {
+ text-align: right;
+ padding:10px;
+ }
+
+ h1 {
+	margin-top:50px;
+	margin-left: 150px;
+	font-weight: 300;
+	font-family: 'Titillium Web', sans-serif;
+	position: center;  
+	font-size: 30px;
+	line-height: 30px;
+	color: #534a4a;
+
+}
+
+h3 {
+	margin: 30px;
+	font-weight: normal;
+	position: relative;
+	text-shadow: 0 -1px rgba(0,0,0,0.6);
+	font-size: 18px;
+	line-height: 40px;
+	padding:5px 10px;
+	color: #534a4a;
+	font-family: 'Muli', sans-serif;
+}
+
+h4{
+	font-size: 20px;
+	color: #ffffff;
+	font-family: 'Muli', sans-serif;
+	margin:0;
+}
+ body{
+ margin:0;
+ }
+/* Add a black background color to the top navigation */
+.topnav {
+  width: 100%;
+  height:100 px;
+  background-color: #4d4d4d;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #7a6d6d;
+  color: white;
+}
+
+table
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	border-collapse: collapse;
+	width:80%;
+	text-align: center;
+	padding: 30px;
+	
+	
+}
+
+table.a
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 14px;
+	background: #fff;
+/* 	border-collapse: collapse; */
+/* 	border: 1px solid #534a4a; */
+	width:90%;
+	text-align: center;
+	padding: 30px;
+	margin-left:auto;
+	margin-right:auto;
+}
+th
+{
+	font-size: 16px;
+	font-weight: normal;
+	/* color: #534a4a; */
+	padding: 10px 8px;
+	border: 2px solid #534a4a;
+}
+
+/* tr{
+	border: 1px solid #534a4a
+} */
+td
+{
+	/* color: #534a4a; */
+	padding: 9px 8px 0px 8px;
+	width: 300px;
+	border: 2px solid #534a4a
+	
+}
+
+.align-right {
+        text-align: right;
+        padding:10px;
+        
+      }
+
+.e img{
+height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+ display: flex;
+justify-content: center;
+}
+
+.footer{
+	  background-color: #4d4d4d;
+	   color: white;
+	   padding: 20px 0px;
+	   text-align: center;
+	   display: inline-block; 
+	   margin: 0; 
+	   width:100%;
+}
+
+ul{
+	display:inline-block; 
+	text-align: left; 
+	list-style: none;
+}
+
+.images-container{
+	display:flex;
+	justify-content:center;
+}
+.images-container img{
+	margin-left:5px;
+	margin-right:5px;
+}

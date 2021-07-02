@@ -9,20 +9,14 @@
 </head>
 
 <body>
-<div th:fragment="topnav" class="topnav">
-    <div class="container" align="center">
-        <a href="/admin_home">Home</a>
-        <a href="/admin_home/student">Student</a>
-        <a href="/admin_home/enrolment">Enrolment</a>
-        <a href="/admin_home/lecturer">Lecturer</a>
-        <a href="/admin_home/course">Courses</a>
-        <a href="/admin_home/logout">Log out</a>
-    </div>
-</div>
-<div align="center">
-    <h1>Student List</h1>
+ <div th:replace="fragments/layoutadmin :: topnav">
+  </div>
+  <div class="e">
+  <img src="https://image.freepik.com/free-vector/preparing-test-together-learning-studying-with-friends-effective-revision-revision-timetables-planning-how-revise-exams-concept-pinkish-coral-bluevector-isolated-illustration_335657-1258.jpg">
+   </div> 
+   <h1>Student List</h1>
     <br/><br/>
-    <table border="1" cellpadding="10">
+    <table class="a">
         <thead>
         <tr>
             <th>Student ID</th>
@@ -47,10 +41,9 @@
     </table>
 </div>
 
-<div align="center">
     <h1>Course List</h1>
     <br/><br/>
-    <table border="1" cellpadding="10">
+    <table class ="a">
         <thead>
         <tr>
             <th>Course ID</th>
@@ -70,8 +63,9 @@
         </tr>
         </tbody>
     </table>
-
-</div>
+<br>/<br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
 
 </body>
 

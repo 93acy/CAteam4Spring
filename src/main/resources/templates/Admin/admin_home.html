@@ -9,20 +9,16 @@
 </head>
 
 <body>
-<div th:fragment="topnav" class="topnav">
-    <div class="container" align="center">
-        <a href="/admin_home">Home</a>
-        <a href="/admin_home/student">ViewStudent</a>
-        <a href="/admin_home/enrolment">ViewEnrolment</a>
-        <a href="/admin_home/lecturer">ViewLecturer</a>
-        <a href="/admin_home/course">View Courses</a>
-        <a href="/admin_home/logout">Log out</a>
+ <div th:replace="fragments/layoutadmin :: topnav">
+  </div>
 
-    </div>
-</div>
 
-<p>Hello</p>
-
+<h1>Welcome</h1>
+<div class="e">
+<img src="https://img.freepik.com/free-vector/system-administrators-sysadmins-are-servicing-server-racks-system-administration-upkeeping-configuration-computer-systems-networks-concept-pinkish-coral-blue-palette-vector-illustration_335657-1642.jpg?size=626&ext=jpg">
+  </div>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
 </body>
 
 </html>
