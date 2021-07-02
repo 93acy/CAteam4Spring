@@ -25,22 +25,12 @@
    <td th:text="${e.course.name}">ID</td>
    <td th:text="${e.student.firstName} + ${e.student.lastName}">ID</td>
    <td th:text="${e.student.id}">ID</td>
-   <td th:text="${e.grade}" > 
-   <td><a th:href="@{/lecturer/edit/}+${e.id}"
-					 class="btn btn-default">Edit</a></td>
+   <td th:text="${e.grade}" >0.0</td>
+   <td><button><a th:href="@{/lecturer/edit/}+${e.id}"
+					 class="btn btn-default">Edit</a></button></td>
 					 
-
-					 
-					 
-					
-	
-	
 </tr>
-
-
 </table>
-
-
 
 </body>
 </html>

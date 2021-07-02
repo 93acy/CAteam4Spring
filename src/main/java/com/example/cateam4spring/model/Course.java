@@ -21,7 +21,7 @@ public class Course {
 	private int capacity;
 	private int credit;
 	private Date startDate;
-	private Integer currentSelectNum;
+	private Integer currentSelectNum=4;
 
 	  @ManyToMany(mappedBy = "courses")
 	  private Collection<Lecturer> lecturers;

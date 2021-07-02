@@ -7,18 +7,9 @@
 <body>
 
 <form action="#"
-		th:action="@{/lecturer/save}"
+		th:action="@{/lecturer/save/}+${enrolment.id}"
 		th:object="${enrolment}" method="get">
 <table>
-		<tr  th:each="e:${enrolment}" >
-			<td>Course Id:</td> 
-			<td th:text="${e.course.id}"> </td>
-		</tr>
-		
-		<tr  th:each="e:${enrolment}" >
-			<td>Course Name:</td> 
-			<td th:text="${e.course.name}"> </td>
-		</tr>
 		
 		<tr  th:each="e:${enrolment}" >
 			<td>Student Name:</td> 
@@ -28,7 +19,7 @@
 		
 		<tr  th:each="e:${enrolment}">
 			<td>Student Id: </td>
-			<td th:text =${e.student.id}> </td>
+			<td th:text ="${e.student.id}"> </td>
 		</tr>
 		
 		
@@ -43,6 +34,33 @@
 		<input type="reset" value="Reset"/>
 		
 	</form>
+	
+<form action="#" th:object="${errMsg}" method="get" >
+<table>
+		<tr th:each="e:${errMsg}"> 
+			<td th:text="${e}"></td>
+		</tr>
+
+</table>
+</form>
+	
+<!--  
+<script>
+var msg = "<%= errMsg %>"
+function myFunction(){
+	
+if (msg){
+		
+	alert("Grade should be within 0 to 100 :)");
+}
+else
+	alert("Save successfully!!")
+	
+}
+   
+</script>
+-->	
+
 
 </body>
 </html>

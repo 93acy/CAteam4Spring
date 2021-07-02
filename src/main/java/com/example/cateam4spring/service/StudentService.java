@@ -8,6 +8,10 @@ public interface StudentService {
 	//public Student findStudentById(String id);
 	
 	public Integer findGpaById(Integer id);
-
+	
+	
+	public Double calculateGPA(Integer id);
+	
+//	void updateGpa(Double gpa, Integer id);
 
 }

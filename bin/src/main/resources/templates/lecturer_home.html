@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="lecturer_home (template, menu)">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+  <title>View Courses</title>
+  <meta charset="ISO-8859-1">
+  <link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
 </head>
+
 <body>
-<p>lecturer</p>
+<div th:fragment="topnav" class="topnav">
+    <div class="container" align="center">
+	  <a href="/lecturer/home">Home</a>|
+      <a href="/lecturer/course">View Course</a>|
+  	  <a href="/lecturer/enrolment">View Enrolment</a>|
+      <a href="/lecturer/grade">Input Grades</a>|
+  	  <a href="/lecturer/performance">Student Performance</a>|
+  	  <a href="/lecturer/logout">Log out</a>
+
+	</div>
+</div>
+
+<p>Hello</p>
+
 </body>
+
 </html>

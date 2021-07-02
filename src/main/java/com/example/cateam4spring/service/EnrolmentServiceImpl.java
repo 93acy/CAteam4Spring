@@ -82,14 +82,34 @@ public class EnrolmentServiceImpl implements EnrolmentService {
     }
 
 	@Override
-	public Enrolment editEnrolment(Enrolment enrolment) {
+	public Enrolment updateEnrolment(Enrolment enrolment) {
 		return erepo.saveAndFlush(enrolment);
 	}
 
+
 	@Override
-	public void updateGrade(Double grade, Integer id) {
-		// TODO Auto-generated method stub
-		erepo.updateGrade(grade, id);
+	public Enrolment findEnrolmentById(Integer id) {
+		return erepo.findById(id).get();
+	}
+
+
+	@Override
+	public List<Enrolment> findByKeyword(String keyword) {
+		return erepo.findByKeyword(keyword);
+	}
+
+
+	@Override
+	public void updateGrade(Double newGrade, Integer id) {
+		erepo.updateGrade(newGrade, id);
+		
+	}
+
+
+	@Override
+	public void updateCourseStatus() {
+		erepo.updateCourseStatus();
+		
 	}
 
 }

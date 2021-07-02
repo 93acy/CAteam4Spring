@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 public interface EnrolmentService {
 
     ArrayList<Enrolment> findAllEnrolments();
@@ -27,7 +29,13 @@ public interface EnrolmentService {
 
     void deleteEnrolment(Enrolment e);
 
-    void updateGrade(Double grade, Integer id);
+    Enrolment updateEnrolment(Enrolment enrolment);
+    
+    void updateGrade(Double newGrade, Integer id);
+    
+    void updateCourseStatus();
 
-    public Enrolment editEnrolment(Enrolment enrolment);
+	Enrolment findEnrolmentById(Integer id);
+	
+	List<Enrolment> findByKeyword(String keyword);
 }

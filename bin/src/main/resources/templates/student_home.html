@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="BIG5">
+<title>DashBoard</title>
 </head>
 <body>
- <p>student</p>
+	<!--  <div th:text=" Hello + ${session.studentSession.firstName} + ${session.studentSession.lastName}"></div>  -->
+	<div th:replace="Layout.html :: menu"></div>
+	
+	<p>This is a DashBoard</p>
+
 </body>
 </html>

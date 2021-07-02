@@ -18,15 +18,17 @@
    <th>STUDENT ID</th>
    <th>COURSE START DATE</th>
    <th>GPA</th>
+   <th>COURSE STATUS</th>
  </tr>
  
  <tr th:each="performance:${performances}">
-   <td th:text="${performance.course.id}">ID</td> 
-   <td th:text="${performance.course.name}">ID</td>
-   <td th:text="${performance.student.firstName} + ${performance.student.lastName}">ID</td>
-   <td th:text="${performance.student.id}">ID</td>
-   <td th:text="${performance.course.startDate}">ID</td>
-   <td th:text="${performance.student.GPA}">ID</td>
+   <td th:text="${performance.course.id}"></td> 
+   <td th:text="${performance.course.name}"></td>
+   <td th:text="${performance.student.firstName} + ${performance.student.lastName}"></td>
+   <td th:text="${performance.student.id}"></td>
+   <td th:text="${performance.course.startDate}"></td>
+   <td th:text="${performance.student.GPA}"></td>
+   <td th:text="${performance.courseStatus}"></td>
    
    
  </tr>

@@ -8,7 +8,34 @@
 <body>
 <div th:replace="lecturer_home :: topnav">
   </div>
-<h1> Student Enrolment</h1>     
+<h1> Student Enrolment</h1>  
+
+<table>
+  <tr>
+  <td>     
+  <form>
+  <label for="semesters"><strong>Semester</strong></label>
+  <select name="semesters" id="semesters">
+    <option value="A17/18 Semester 1">A17/18 Semester 1</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  
+  <input type="submit" value="Submit">
+  </form>
+  </td> 
+  
+  <td>  
+    <div class="search-container">
+    <form action="enrolment">
+      <input type="text" placeholder="Search by name/matriculation id" name="keyword">
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+  </td>
+  </tr>
+  </table>   
 
 <table border="1" >
  <tr>
