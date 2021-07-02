@@ -56,4 +56,23 @@ public class CourseServiceImpl implements CourseService {
 		return crepo.findByKeyword(keyword);
 	}
 
+	@Override
+	public void saveCourse(Course course) {
+		crepo.save(course);
+	}
+
+	@Override
+	public List<Course> findAllCourses() {
+		return crepo.findAll();
+	}
+
+	@Override
+	public Course findCourse(Integer cid) {
+		return crepo.getById(cid);
+	}
+
+	@Override
+	public void deleteCourseById(Integer id) {
+		crepo.deleteById(id);
+	}
 }

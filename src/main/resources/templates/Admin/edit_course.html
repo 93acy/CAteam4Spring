@@ -2,40 +2,40 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Edit Lecturer</title>
+<title>Edit Course</title>
 </head>
 <body>
 	<div align="center">
-        <h1>Edit Lecturer</h1>
+        <h1>Edit Course</h1>
         <br />
-        <form action="#" th:action="@{/admin_lecturer/save}" th:object="${lecturer}"
+        <form action="#" th:action="@{/admin_course/save}" th:object="${course}"
             method="post">
  
             <table border="0" cellpadding="10">
             	<tr>             
-                    <td>Lecturer ID:</td>
+                    <td>Course ID:</td>
                     <td>
                         <input type="text" th:field="*{id}" readonly="readonly" />
                     </td>
                 <tr>
-                    <td>Lecturer First Name:</td>
-                    <td><input type="text" th:field="*{firstName}" /></td>
+                    <td>Course Name:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
                 </tr>
                 <tr>
-                    <td>Lecturer Last Name:</td>
-                    <td><input type="text" th:field="*{lastName}" /></td>
+                    <td>Description:</td>
+                    <td><input type="text" th:field="*{description}" /></td>
                 </tr>
                 <tr>
-                    <td>Username:</td>
-                    <td><input type="text" th:field="*{username}" /></td>
+                    <td>Capacity:</td>
+                    <td><input type="text" th:field="*{capacity}" /></td>
                 </tr>
                 <tr>
-                	<td>Password:</td>
-                	<td><input type="text" th:field="*{password}"/></td>
+                	<td>Credit:</td>
+                	<td><input type="text" th:field="*{credit}"/></td>
                 </tr>
                 <tr>
-                	<td>Enabled:</td>
-                	<td><input type="text" th:field="*{enabled}"/></td>
+                	<td>Start Date:</td>
+                	<td><input type="text" th:field="*{startDate}"/></td>
                 </tr>
                 <tr>
                     <td colspan="2"><button type="submit">Save</button> </td>

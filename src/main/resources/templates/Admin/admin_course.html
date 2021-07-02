@@ -17,14 +17,40 @@
     <a href="/admin_home/course">Courses</a>
     <a href="/admin_home/logout">Log out</a>
 </div>
-</div>
-<div th:fragment="topnav" class="topnav">
-    <div class="container" align="center">
-        <a href="/admin_course/viewCourse">ViewAllCourses</a>
-        <a href="/admin_course/add">Add Course</a>
-        <a href="/admin_course/edit">Edit Course Details</a>
-    </div>
-</div>
+<div align="center">
+    <h1>Lecturer List</h1>
+    <a href="/admin_course/new">Create New Course</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Course Description</th>
+                <th>Capacity</th>
+                <th>Credit</th>
+                <th>Start Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="course : ${listcourses}">
+                <td th:text="${course.id}">Course ID</td>
+               	<td th:text="${course.name}">Course Name</td>
+               	<td th:text="${course.description}">Course Description</td>
+               	<td th:text="${course.capacity}">Capacity</td>
+               	<td th:text="${course.credit}">Credit</td>
+               	<td th:text="${course.startDate}">Start Date</td>
+                <td>
+                    <a th:href="@{'/admin_course/edit/' + ${course.id}}">Edit</a>
+                     
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/admin_course/delete/' + ${course.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> 
 
 <p>Hello</p>
 

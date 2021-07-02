@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" th:fragment="admin_home (template, menu)">
 
 <head>
-    <title>Admin Student View</title>
+    <title>Admin Enrolment</title>
     <meta charset="ISO-8859-1">
     <link rel="stylesheet" type="text/css" media="all"
           th:href="@{/css/style.css}" />
@@ -45,6 +45,32 @@
         </tr>
         </tbody>
     </table>
+</div>
+
+<div align="center">
+    <h1>Course List</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${listcourses}">
+            <td th:text="${course.id}">Course ID</td>
+            <td th:text="${course.name}">Course Name</td>
+            <td>
+                <a th:href="@{'/admin_enrolment/edit_lecturersincourse/' + ${course.id}}">View Lecturers</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/admin_enrolment/edit_studentsincourse/' + ${course.id}}">View Students</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
 </div>
 
 </body>
