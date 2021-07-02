@@ -16,11 +16,12 @@
         <a href="/admin_home/enrolment">Enrolment</a>
         <a href="/admin_home/lecturer">Lecturer</a>
         <a href="/admin_home/course">Courses</a>
-        <a href="/admin/logout">Log out</a>
+        <a href="/admin_home/logout">Log out</a>
     </div>
 </div>
 <div align="center">
     <h1>Student List</h1>
+    <a href="/admin_student/new">Create New Student</a>
     <br/><br/>
     <table border="1" cellpadding="10">
         <thead>
@@ -38,10 +39,10 @@
             <td th:text="${student.lastName}">lastName</td>
 
             <td>
-                <a th:href="@{'/enrolStudent/' + ${student.id}}">EnrolStudent</a>
+                <a th:href="@{'/admin_student/edit/' + ${student.id}}">Edit</a>
 
                 &nbsp;
-                <a th:href="@{'/DeleteEnrolment/' + ${student.id}}">DeleteEnrolment</a>
+                <a th:href="@{'/admin_student/delete/' + ${student.id}}">Delete</a>
             </td>
         </tr>
         </tbody>

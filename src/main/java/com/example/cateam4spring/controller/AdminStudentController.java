@@ -64,7 +64,7 @@ public class AdminStudentController {
     }
 
     @RequestMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable(name = "id") int id) {
+    public String deleteStudent(@PathVariable(name = "id") int id) {
         asservice.delete(id);
         return "redirect:/admin_home/student";
     }
