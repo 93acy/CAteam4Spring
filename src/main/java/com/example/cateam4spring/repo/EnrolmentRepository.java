@@ -24,7 +24,7 @@ public interface EnrolmentRepository extends JpaRepository<Enrolment, Integer> {
 
 	@Modifying
 	@Transactional
-	@Query(value = "INSERT INTO enrolment (course_status,enrolment_date, grade, student_user_id, course_course_id) VALUES (0, :now, NULL, :SId, :CId)", nativeQuery=true)
+	@Query(value = "INSERT INTO enrolment (course_status,enrolment_date, grade, student_user_id, course_course_id) VALUES ('Ongoing', :now, NULL, :SId, :CId)", nativeQuery=true)
 	//@Query(value = "INSERT INTO enrolment (id, student_id, course_id) VALUES (111, :SId, :CId)", nativeQuery=true)
 	void enrolCourse(@Param("SId") Integer studentId, @Param("CId") Integer courseId, @Param("now") String now);
 
