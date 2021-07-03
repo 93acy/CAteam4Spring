@@ -19,23 +19,23 @@ import com.example.cateam4spring.service.CourseService;
 @Controller
 @RequestMapping(value="/admin_home")
 public class AdminController {
-	
-	@Autowired
-	private AdminLecturerService alservice;
 
-	@Autowired
-	private CourseService cservice;
+    @Autowired
+    private AdminLecturerService alservice;
+
+    @Autowired
+    private CourseService cservice;
 
     @Autowired
     private AdminStudentService asservice;
 
     @GetMapping("/home")
-    public String returnHome(){
+    public String returnHome() {
         return "Admin/admin_home";
     }
 
     @GetMapping("/student")
-    public String AdminStudent(Model model){
+    public String AdminStudent(Model model) {
         List<Student> listStudents = asservice.listAll();
         model.addAttribute("listStudents", listStudents);
         return "Admin/admin_student"; //return view from templates
@@ -43,13 +43,13 @@ public class AdminController {
 
     @GetMapping("/lecturer")
     public String AdminLecturer(Model model) {
-    	List<Lecturer> listLecturers = alservice.listAll();
-    	model.addAttribute("listLecturers", listLecturers);
+        List<Lecturer> listLecturers = alservice.listAll();
+        model.addAttribute("listLecturers", listLecturers);
         return "Admin/admin_lecturer";
     }
 
     @GetMapping("/enrolment")
-    public String AdminEnrolment(Model model){
+    public String AdminEnrolment(Model model) {
         List<Student> listStudents = asservice.listAll();
         List<Course> listCourses = cservice.findAllCourses();
         model.addAttribute("listStudents", listStudents);
@@ -58,15 +58,14 @@ public class AdminController {
     }
 
     @GetMapping("/course")
-    public String AdminCourse(Model model){
-    	List<Course> listCourses = cservice.findAllCourses();
-    	model.addAttribute("listcourses", listCourses);
+    public String AdminCourse(Model model) {
+        List<Course> listCourses = cservice.findAllCourses();
+        model.addAttribute("listcourses", listCourses);
         return "Admin/admin_course";
     }
 
     @RequestMapping("/logout")
     public String logout() {
-
-
-
+        return "index";
+    }
 }
