@@ -37,8 +37,6 @@ public interface EnrolmentService {
 
     void updateCourseStatus();
 
-    public Enrolment editEnrolment(Enrolment enrolment);
-
     Student findStudentByEnrolment(Integer eId);
 
     Enrolment findEnrolmentById(Integer id);
@@ -46,4 +44,4 @@ public interface EnrolmentService {
     List<Enrolment> findByKeyword(String keyword);
 }
 
-}
+

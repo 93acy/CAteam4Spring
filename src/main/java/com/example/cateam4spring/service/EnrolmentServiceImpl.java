@@ -24,7 +24,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class EnrolmentServiceImpl implements EnrolmentService {
+public class EnrolmentServiceImpl implements EnrolmentService{
 
 
     @Autowired
