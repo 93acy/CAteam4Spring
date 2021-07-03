@@ -96,12 +96,8 @@ public class AdminEnrolmentController {
 
     @GetMapping("/viewCourseEnrolments/{id}") // id is course id
     public String ViewCourseEnrolments(@PathVariable(name="id")Integer id, Model model){
-        Course course = cservice.findCourse(id);
+        Course course = cservice.findCourseById(id);
         List <Enrolment> enrolledStudents = eservice.findEnrolmentByCourseId(id);
-//        List<Student> students = new ArrayList<>();
-//        for (Enrolment e : enrolledStudents){
-//            students.add(e.getStudent());}
-//        model.addAttribute("students", students);
         model.addAttribute("enrolment", enrolledStudents);
         model.addAttribute("course", course);
         return "Admin/course_enrolments";
@@ -110,19 +106,16 @@ public class AdminEnrolmentController {
     @GetMapping("/deleteEnrolment3/{courseId}/{enrolmentId}")
     public String DeleteEnrolmentInCourse(@PathVariable(name ="courseId") Integer cId, @PathVariable(name= "enrolmentId") Integer eId, Model model)
     {
-        Course course = cservice.findCourse(cId);
+        Course course = cservice.findCourseById(cId);
         Student student = eservice.findStudentByEnrolment(eId);
         eservice.cancelEnrolment(student.getId(), cId);
         Integer newNum = (cservice.findCourseById(cId).getCurrentSelectNum())-1;
         cservice.minusOne(cId,newNum);
         List<Enrolment> enrolledStudents = eservice.findEnrolmentByCourseId(cId);
         model.addAttribute("course", course);
-        model.addAttribute("enrolments", enrolledStudents);
+        model.addAttribute("enrolment", enrolledStudents);
         return "Admin/course_enrolments";
     }
-
-
-
 
 
     @RequestMapping("/edit_lecturersincourse/{cid}")

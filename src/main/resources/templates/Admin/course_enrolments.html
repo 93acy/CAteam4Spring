@@ -19,14 +19,15 @@
     <th>Student Last Name</th>
     <th>Student Id</th>
     <th>Enrolment Date</th>
-    <th>CancelEnrolment</th>
+    <th>Actions</th>
   </tr>
-  <tr th:each="enrolment: ${enrolledStudents}">
-    <td th:text="${enrolment.getId()}"></td>
-    <td th:text="${enrolment.getStudent().getFirstName()}"></td>
-    <td th:text="${enrolment.getStudent().getLastName}"></td>
-    <td th:text="${enrolment.enrolment_date}"></td>
-    <td><a th:href="@{'/admin_enrolment/deleteEnrolment3/'+ ${course.id} + '/' + ${enrolment.id}}">Cancel</a></td>
+  <tr th:each="e :${enrolment}">
+    <td th:text="${e.getId()}"></td>
+    <td th:text="${e.getStudent().getFirstName()}"></td>
+    <td th:text="${e.getStudent().getLastName()}"></td>
+    <td th:text="${e.getStudent().getId()}"></td>
+    <td th:text="${e.getEnrolmentDate()}"></td>
+    <td><a th:href="@{'/admin_enrolment/deleteEnrolment3/'+ ${course.id} + '/' + ${e.id}}">Cancel</a></td>
   </tr>
 </table>
 <br>/<br>
