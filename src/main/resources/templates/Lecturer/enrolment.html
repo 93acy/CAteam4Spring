@@ -2,43 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-
-<title>View student enrolment</title>
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+<title>View Student Enrolment</title>
 </head>
 <body>
-<div th:replace="lecturer_home :: topnav">
-  </div>
+<div th:replace="fragments/layoutlecturer :: topnav">
+</div>
+<div class="e"><img src="https://img.freepik.com/free-vector/medical-college-professor-teaching-students_74855-5537.jpg?size=626&ext=jpg"></div>
 <h1> Student Enrolment</h1>  
 
-<table>
-  <tr>
-  <td>  
+
     <div class="search-container">
     <form action="enrolment">
       <input type="text" placeholder="Search by course name/id" name="keyword1">
       <button type="submit">Submit</button>
     </form>
     </div>
-  </td>
-    
-  <td>  
+
     <div class="search-container">
     <form action="enrolment">
       <input type="text" placeholder="Search by student name/matriculation id" name="keyword2">
       <button type="submit">Submit</button>
     </form>
     </div>
-  </td>
-  </tr>
-  </table>   
+<br></br>
 
-<table border="1" >
+<table class="a" >
  <tr>
-   <th>COURSE ID</th>
-   <th>COURSE NAME</th>
-   <th>STUDENT NAME</th>
-   <th>STUDENT ID</th>
-   <th>ENROLEMENT DATE</th>
+   <th>Course Id</th>
+   <th>Course Name</th>
+   <th>Student name</th>
+   <th>Matriculation Id</th>
+   <th>Enrolment Date</th>
  </tr>
  
  <tr th:each="enrolment:${enrolments}">
@@ -57,6 +53,9 @@
    Size: <td th:text="${enrolment.course.currentSelectNum}">ID</td> 
  </tr>
 </table>-->
+   <br></br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
 
 </body>
 

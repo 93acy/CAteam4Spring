@@ -2,19 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="BIG5">
+ <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{/css/style.css}" />
 <title>Grade and GPA</title>
 </head>
 <body>
 	<!--  <div th:text=" Hello + ${session.studentSession.firstName} + ${session.studentSession.lastName}"></div>  -->
-	<div th:replace="Layout.html :: menu"></div>
-	
-	<div th:if=" ${#lists.isEmpty(enrolments)}">No record</div>
-	<table th:if=" ${not #lists.isEmpty(enrolments)}">
+	 <div th:replace="fragments/layoutstudent :: topnav">
+  </div>
+	<div class="e"><img src="https://image.freepik.com/free-vector/primary-school-education-developing-games-entertaining-study-elementary-grade_335657-3294.jpg"></div>
+	<div class="d" th:if=" ${#lists.isEmpty(enrolments)}">No record</div>
+	<table class="a" th:if=" ${not #lists.isEmpty(enrolments)}">
 		<tr>
-			<th>CourseId</th>
+			<th>Course Id</th>
 			<th>Course Name</th>
 			<th>Description</th>
-			<th>Credit</th>
+			<th>Credits</th>
 			<th>Grade</th>
 
 		</tr>
@@ -28,7 +31,7 @@
 		</tr>
 	</table>
 	
-	GPA:<div th:text="${GPA}">NA</div>
+	<div class="d">GPA:<div th:text="${GPA}">NA</div> </div>
 	
 	<!--  GPA:<div th:text="${session.studentSession.gpa}">NA</div>  -->
 	
@@ -63,7 +66,9 @@
 	
 	GPA:<div th:text="${gpa}"></div>
 	 -->
-	
+	<br></br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
 
 </body>
 </html>

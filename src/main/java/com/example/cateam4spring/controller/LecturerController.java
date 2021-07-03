@@ -41,10 +41,10 @@ public class LecturerController {
 	@GetMapping("/home")
 	public String returnHome() {					
 		
-		return "lecturer_home";	
+		return "lecturer/lecturer_home";	
 	}
 	
-	@RequestMapping("/course")
+	@RequestMapping("/viewcourses")
 	public String listCourse(Model model, String keyword) {
 		
 		if(keyword !=null) {
@@ -53,7 +53,7 @@ public class LecturerController {
 		else {
 			model.addAttribute("courses", crepo.findAll());	
 		}
-		return "course";	
+		return "lecturer/viewcourses";	
 	}
 	
 	
@@ -76,12 +76,12 @@ public class LecturerController {
 			model.addAttribute("enrolments", es.findByCourseKeyword(keyword1).retainAll(es.findByStudentKeyword(keyword2)));
 		}
 		
-		return "enrolment";
+		return "lecturer/enrolment";
 		
 		
 	}
 	
-	@GetMapping("/performance")
+	@GetMapping("/studentperformance")
 	public String listPerformance(Model model, String keyword1, String keyword2) {
 		
 		if(keyword1 == null && keyword2 == null) {
@@ -100,11 +100,11 @@ public class LecturerController {
 			model.addAttribute("performances", es.findByCourseKeyword(keyword1).retainAll(es.findByStudentKeyword(keyword2)));
 		}
 	
-		return "student_performance";
+		return "lecturer/student_performance";
 	}
 	
 	
-	@RequestMapping("/grade")
+	@RequestMapping("/inputgrades")
 	public String showGrades(Model model, String keyword1, String keyword2) {
 		
 		if(keyword1 == null && keyword2 == null) {
@@ -124,7 +124,7 @@ public class LecturerController {
 		}
 
 		
-		return "grade_list";
+		return "lecturer/inputgrades";
 	}
 	
 	

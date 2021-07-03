@@ -71,7 +71,7 @@ public class StudentController {
 		Integer GPA = ss.findGpaById(userDetails.getId());
 		model.addAttribute("GPA", GPA);
 		
-		return "GradeAndGPA";
+		return "student/GradeAndGPA";
 	}
 	/*
 	@RequestMapping("/student/gradeandgpa")
@@ -89,7 +89,7 @@ public class StudentController {
 		List<Course> allCourses = cs.findAll();
 		model.addAttribute("allCourses", allCourses);
 		
-		return "ViewCourse";
+		return "student/ViewCourse";
 		
 	}
 	
@@ -106,7 +106,7 @@ public class StudentController {
 	@RequestMapping("/student/student_home")
 	public String dashBoard(@AuthenticationPrincipal MyUserDetails userDetails) {
 		
-		return "student_home";
+		return "student/student_home";
 		
 	}
 	
@@ -124,7 +124,7 @@ public class StudentController {
 		List<Course> unattendedCourses = es.findCourseNotEnrolled(userDetails.getId());
 		model.addAttribute("unattendedCourses", unattendedCourses);
 			
-		return "EnrollCourse";
+		return "student/EnrollCourse";
 	}
 	
 	/*@RequestMapping("/student/enrollcourse")
@@ -152,7 +152,7 @@ public class StudentController {
 			return "EnrollCourse";
 		}
 		else
-			return "Message";
+			return "student/Message";
 					
 	}
 	
@@ -194,7 +194,7 @@ public class StudentController {
 		List<Course> enrolledCourses = es.findEnrolledCourseById(userDetails.getId());
 		model.addAttribute("enrolledCourses", enrolledCourses);
 		
-		return "ViewEnrolledCourse";
+		return "student/ViewEnrolledCourse";
 	}
 	
 	@RequestMapping("/student/cancelenrolment/{id}")
@@ -205,7 +205,7 @@ public class StudentController {
 		cs.minusOne(id,newNum);
 		List<Course> enrolledCourses = es.findEnrolledCourseById(userDetails.getId());
 		model.addAttribute("enrolledCourses", enrolledCourses);
-		return "ViewEnrolledCourse";	
+		return "student/ViewEnrolledCourse";	
 	}
 
 }
