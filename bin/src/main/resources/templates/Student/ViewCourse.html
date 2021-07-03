@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="BIG5">
+  <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{/css/style.css}" />
+<title>View Courses</title>
+</head>
+<body>
+	<!--  <div th:text=" Hello + ${session.studentSession.firstName} + ${session.studentSession.lastName}"></div>  -->
+		 <div th:replace="fragments/layoutstudent :: topnav">
+  </div>
+  <div class="e"><img src="https://image.freepik.com/free-vector/book-readers-concept_74855-6263.jpg"></div>
+  <h1>View Courses</h1>
+	<table class="a">
+		<tr>
+			<th>Course Id</th>
+			<th>Course Name</th>
+			<th>Description</th>
+			<th>Capacity</th>
+			<th>Credit</th>
+		</tr>
+		<tr th:each="course:${allCourses}">
+			<td th:text="${course.id}"></td>
+			<td th:text="${course.name}"></td>
+			<td th:text="${course.description}"></td>
+			<td th:text="${course.capacity}"></td>
+			<td th:text="${course.credit}"></td>
+		</tr>
+	</table>
+	  <br></br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
+</body>
+</html>

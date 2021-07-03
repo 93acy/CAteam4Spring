@@ -3,6 +3,8 @@ package com.example.cateam4spring.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.cateam4spring.model.Course;
+import com.example.cateam4spring.model.Enrolment;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -30,11 +32,12 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
     @Transactional
     @Query(value = "UPDATE course SET current_select_num = :newNum WHERE course_id = :Id", nativeQuery=true)
     void minusOne (Integer Id,Integer newNum);
-
+    
     @Query("SELECT c FROM Course c WHERE "
             + "CONCAT(c.name,c.id)"
             + "LIKE %:keyword%")
     List<Course> findByKeyword(@Param("keyword") String keyword);
+
 
 
 }

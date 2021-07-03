@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.cateam4spring.model.Course;
+import com.example.cateam4spring.model.Enrolment;
 import com.example.cateam4spring.repo.CourseRepository;
 
 @Service
@@ -56,4 +57,23 @@ public class CourseServiceImpl implements CourseService {
 		return crepo.findByKeyword(keyword);
 	}
 
+	@Override
+	public void saveCourse(Course course) {
+		crepo.save(course);
+	}
+
+	@Override
+	public List<Course> findAllCourses() {
+		return crepo.findAll();
+	}
+
+	@Override
+	public Course findCourse(Integer cid) {
+		return crepo.getById(cid);
+	}
+
+	@Override
+	public void deleteCourseById(Integer id) {
+		crepo.deleteById(id);
+	}
 }

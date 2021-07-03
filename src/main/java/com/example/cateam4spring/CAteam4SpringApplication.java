@@ -58,9 +58,6 @@ public class CAteam4SpringApplication {
 //			Lecturer l1 = new Lecturer("K","K");
 //			lrepo.save(l1);
 //
-//			Course c1 = new Course("Math","this is a math course", 50, 6, null);
-//			Course c2 = new Course("Science","this is a science course", 45, 8, null);
-//			crepo.save(c1); crepo.save(c2);
 //			Collection<Course> courses = new ArrayList<>();
 //			courses.add(c1);courses.add(c2);
 //
@@ -144,14 +141,16 @@ public class CAteam4SpringApplication {
 			Lecturer lecturer2 = new Lecturer("L001", encodedPassword3, true, "Surai", "Asai");
 			lecturer2.getRoles().add(lecturer);
 			lecturer2.setCourses(courses2);
-//			Collection<Lecturer> lecturers = new ArrayList<>();
-//			lecturers.add(lecturer1);
+			Collection<Lecturer> lecturers = new ArrayList<>();
+			lecturers.add(lecturer1);
 			lrepo.save(lecturer2);
 			lecturer1.getRoles().add(lecturer);
 			lrepo.save(lecturer2);
+
 //			User a = urepo.getById(1);
 //			a.setRoles(Set.of(lecturer, admin));
-//			urepo.save(a);
+//			urepo.save(a);*/
+			
 		};
 	}
 

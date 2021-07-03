@@ -9,25 +9,48 @@
 </head>
 
 <body>
-<div class="container" align="center">
-    <a href="/admin_home">Home</a>
-    <a href="/admin_home/student">Student</a>
-    <a href="/admin_home/enrolment">Enrolment</a>
-    <a href="/admin_home/lecturer">Lecturer</a>
-    <a href="/admin_home/course">Courses</a>
-    <a href="/admin/logout">Log out</a>
-</div>
-</div>
-<div th:fragment="topnav" class="topnav">
-    <div class="container" align="center">
-        <a href="/admin_course/viewCourse">ViewAllCourses</a>
-        <a href="/admin_course/add">Add Course</a>
-        <a href="/admin_course/edit">Edit Course Details</a>
+ <div th:replace="fragments/layoutadmin :: topnav">
+  </div>
+  <div class="e">
+  <img src="https://image.freepik.com/free-vector/students-with-magnifier-reading-stack-e-books-smartphone-education-app_335657-3300.jpg">
     </div>
-</div>
-
-<p>Hello</p>
-
+    <h1>Course List</h1>
+    <div class="b">
+    <a href="/admin_course/new">Create New Course</a>
+    </div>
+    <br/><br/>
+    <table class="a">
+        <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Course Description</th>
+                <th>Capacity</th>
+                <th>Credit</th>
+                <th>Start Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="course : ${listcourses}">
+                <td th:text="${course.id}">Course ID</td>
+               	<td th:text="${course.name}">Course Name</td>
+               	<td th:text="${course.description}">Course Description</td>
+               	<td th:text="${course.capacity}">Capacity</td>
+               	<td th:text="${course.credit}">Credit</td>
+               	<td th:text="${course.startDate}">Start Date</td>
+                <td>
+                    <a th:href="@{'/admin_course/edit/' + ${course.id}}">Edit</a>
+                     
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/admin_course/delete/' + ${course.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br></br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
 </body>
 
 </html>

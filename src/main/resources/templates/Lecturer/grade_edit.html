@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Edit Grade</title>
+</head>
+<body>
+
+<form action="#"
+		th:action="@{/lecturer/save/}+${enrolment.id}"
+		th:object="${enrolment}" method="get">
+<table>
+		
+		<tr  th:each="e:${enrolment}" >
+			<td>Student Name:</td> 
+			<td th:text="${e.student.firstName} + ${e.student.lastName}"> </td>
+		</tr>
+		
+		
+		<tr  th:each="e:${enrolment}">
+			<td>Student Id: </td>
+			<td th:text ="${e.student.id}"> </td>
+		</tr>
+		
+		
+		<tr>
+			Grade: <input type="text" th:field="*{grade}">
+		</tr>
+
+		</table>
+		
+		<input type="submit" value="Save" />
+			&nbsp; &nbsp; 	
+		<input type="reset" value="Reset"/>
+		
+	</form>
+	
+
+</body>
+</html>

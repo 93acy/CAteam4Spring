@@ -17,8 +17,8 @@ public class Lecturer extends User{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="lecturer_id")
 	private Integer id;
-	private String FirstName;
-	private String LastName;
+	private String firstName;
+	private String lastName;
 	
 	 @ManyToMany
 	 @JoinTable(name="course_Allocation",
@@ -32,8 +32,8 @@ public class Lecturer extends User{
 
 	public Lecturer(String username, String password, boolean enabled, String firstName, String lastName) {
 		super(username, password, enabled);
-		FirstName = firstName;
-		LastName = lastName;
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 
 	public Integer getId() {
@@ -45,20 +45,18 @@ public class Lecturer extends User{
 	}
 
 	public String getFirstName() {
-		return FirstName;
+		return firstName;
 	}
 
 	public void setFirstName(String firstName) {
-		FirstName = firstName;
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 
-	public void setLastName(String lastName) {
-		LastName = lastName;
-	}
+	public void setLastName(String lastName) { this.lastName = lastName; }
 
 	public Collection<Course> getCourses() {
 		return courses;

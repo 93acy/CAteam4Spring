@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+<title>Input Grades</title>
+</head>
+<body>
+<div th:replace="fragments/layoutlecturer :: topnav">
+</div>
+<div class="e"><img src="https://image.freepik.com/free-vector/happy-women-learning-language-online-isolated-flat-vector-illustration-cartoon-female-characters-taking-individual-lessons-through-messenger-education-digital-technology-concept_74855-10088.jpg"></div>
+<h1> Grade List</h1>  
+
+
+    <div class="search-container">
+    <form action="inputgrades">
+      <input type="text" placeholder="Search by student name/matriculation id" name="keyword">
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+ <br></br>
+		
+<table class="a">
+<tr>
+   <th>Course Id</th>
+   <th>Course Name</th>
+   <th>Student Name</th>
+   <th>Matriculation Id</th>
+   <th>Grade</th>
+   <th></th>
+</tr>
+ 
+ <tr th:each="e:${enrolment}">
+   <td th:text="${e.course.id}">ID</td> 
+   <td th:text="${e.course.name}">ID</td>
+   <td th:text="${e.student.firstName} + ${e.student.lastName}">ID</td>
+   <td th:text="${e.student.id}">ID</td>
+   <td th:text="${e.grade}" >0.0</td>
+   <td><a th:href="@{/lecturer/edit/}+${e.id}">Edit</a></td>
+					 
+</tr>
+</table>
+
+<br></br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
+</body>
+</html>

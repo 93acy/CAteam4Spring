@@ -6,7 +6,7 @@
 </head>
 <body>
 		<div th:replace="Layout.html :: menu"></div>
-	
+		<td colspan="2"><a href="@{'/admin_enrolment'}"><button type="submit">Back</button></a></td>
 	<table>
 		<tr>
 			<th>CourseId</th>
@@ -18,7 +18,7 @@
 			<td th:text="${course.id}"></td>
 			<td th:text="${course.name}"></td>
 			<td th:text="${course.credit}"></td>
-			<td><a th:href="@{/student/cancelenrolment/} + ${course.id}">Cancel</a></td>
+			<td><a th:href="@{'/student/cancelenrolment/' + ${course.id}}">Cancel</a></td>
 		</tr>
 	</table>
 </body>

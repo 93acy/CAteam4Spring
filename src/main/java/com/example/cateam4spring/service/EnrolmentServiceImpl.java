@@ -3,6 +3,7 @@ package com.example.cateam4spring.service;
 import com.example.cateam4spring.model.Course;
 import com.example.cateam4spring.model.Enrolment;
 //import com.example.cateam4spring.model.Student;
+import com.example.cateam4spring.model.Student;
 import com.example.cateam4spring.repo.CourseRepository;
 import com.example.cateam4spring.repo.EnrolmentRepository;
 
@@ -23,7 +24,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class EnrolmentServiceImpl implements EnrolmentService {
+public class EnrolmentServiceImpl implements EnrolmentService{
 
 
     @Autowired
@@ -44,6 +45,12 @@ public class EnrolmentServiceImpl implements EnrolmentService {
     public List<Enrolment> findEnrolmentsByStudentId(Integer id) {
 
         return erepo.findEnrolmentsByStudentId(id);
+    }
+
+    @Override
+    public List<Enrolment> findEnrolmentByCourseId(Integer id){
+
+        return erepo.findEnrolmentByCourseId(id);
     }
 
     public List<Course> findCourseNotEnrolled(Integer Id){
@@ -82,14 +89,40 @@ public class EnrolmentServiceImpl implements EnrolmentService {
     }
 
 	@Override
-	public Enrolment editEnrolment(Enrolment enrolment) {
+	public Enrolment updateEnrolment(Enrolment enrolment) {
 		return erepo.saveAndFlush(enrolment);
 	}
 
+
 	@Override
-	public void updateGrade(Double grade, Integer id) {
-		// TODO Auto-generated method stub
-		erepo.updateGrade(grade, id);
+	public Enrolment findEnrolmentById(Integer id) {
+		return erepo.findById(id).get();
 	}
+
+
+	@Override
+	public void updateGrade(Double newGrade, Integer id) {
+		erepo.updateGrade(newGrade, id);
+		
+	}
+
+
+	@Override
+	public void updateCourseStatus() {
+		erepo.updateCourseStatus();
+		
+	}
+
+
+
+	@Override
+	public List<Enrolment> findByKeyword(String keyword) {
+		
+		return erepo.findByKeyword(keyword);
+	}
+    @Override
+    public Student findStudentByEnrolment(Integer eId){
+       return erepo.findStudentByEnrolment(eId);
+    }
 
 }

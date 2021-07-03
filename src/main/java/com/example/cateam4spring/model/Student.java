@@ -18,7 +18,7 @@ public class Student extends User {
 	private Integer id;
 	private String firstName;
 	private String lastName;	
-	private double GPA;
+	private Double GPA;
 	private Date enrollmentDate;
 	
 	public Student() {
@@ -35,7 +35,7 @@ public class Student extends User {
 	@OneToMany(mappedBy="student")
 	 private Collection<Enrolment> enrolments;
 
-	public Student(String username, String password, boolean enabled, String firstName, String lastName, double GPA, Date enrollmentDate) {
+	public Student(String username, String password, boolean enabled, String firstName, String lastName, Double GPA, Date enrollmentDate) {
 		super(username, password, enabled);
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -90,6 +90,8 @@ public class Student extends User {
 	public void setEnrolments(Collection<Enrolment> enrolments) {
 		this.enrolments = enrolments;
 	}
-	
-	
+
+
+
+
 }
