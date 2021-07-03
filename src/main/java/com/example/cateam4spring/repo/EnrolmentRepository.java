@@ -2,6 +2,7 @@ package com.example.cateam4spring.repo;
 
 import com.example.cateam4spring.model.Course;
 import com.example.cateam4spring.model.Enrolment;
+import com.example.cateam4spring.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -21,6 +22,8 @@ public interface EnrolmentRepository extends JpaRepository<Enrolment, Integer> {
 
 	@Query("SELECT e FROM Enrolment e WHERE e.student.id = :Id")
 	List<Enrolment> findEnrolmentsByStudentId(Integer Id);
+	@Query("SELECT e from Enrolment e WHERE e.course.id=:Id")
+	List<Enrolment> findEnrolmentByCourseId(Integer Id);
 
 	@Modifying
 	@Transactional
@@ -41,4 +44,6 @@ public interface EnrolmentRepository extends JpaRepository<Enrolment, Integer> {
     @Query(value = "update Enrolment e set e.grade = :newGrade where e.id = :Eid", nativeQuery=true)
     public void updateGrade(@Param("newGrade") Double newGrade, @Param("Eid") Integer Eid);
 
+	@Query("SELECT e.student FROM Enrolment e WHERE e.id = :eId")
+	public Student findStudentByEnrolment(@Param("eId") Integer eId);
 }

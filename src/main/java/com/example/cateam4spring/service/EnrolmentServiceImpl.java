@@ -3,6 +3,7 @@ package com.example.cateam4spring.service;
 import com.example.cateam4spring.model.Course;
 import com.example.cateam4spring.model.Enrolment;
 //import com.example.cateam4spring.model.Student;
+import com.example.cateam4spring.model.Student;
 import com.example.cateam4spring.repo.CourseRepository;
 import com.example.cateam4spring.repo.EnrolmentRepository;
 
@@ -44,6 +45,12 @@ public class EnrolmentServiceImpl implements EnrolmentService {
     public List<Enrolment> findEnrolmentsByStudentId(Integer id) {
 
         return erepo.findEnrolmentsByStudentId(id);
+    }
+
+    @Override
+    public List<Enrolment> findEnrolmentByCourseId(Integer id){
+
+        return erepo.findEnrolmentByCourseId(id);
     }
 
     public List<Course> findCourseNotEnrolled(Integer Id){
@@ -91,5 +98,9 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 		// TODO Auto-generated method stub
 		erepo.updateGrade(grade, id);
 	}
+    @Override
+    public Student findStudentByEnrolment(Integer eId){
+       return erepo.findStudentByEnrolment(eId);
+    }
 
 }

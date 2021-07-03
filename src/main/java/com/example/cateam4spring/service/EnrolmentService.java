@@ -15,6 +15,8 @@ public interface EnrolmentService {
 
     List<Enrolment> findEnrolmentsByStudentId(Integer id);
 
+    List<Enrolment> findEnrolmentByCourseId(Integer id);
+
     List<Course> findCourseNotEnrolled(Integer Id);
 
     void enrolCourse(Integer studentId, Integer courseId, String now);
@@ -30,4 +32,6 @@ public interface EnrolmentService {
     void updateGrade(Double grade, Integer id);
 
     public Enrolment editEnrolment(Enrolment enrolment);
+
+    Student findStudentByEnrolment(Integer eId);
 }

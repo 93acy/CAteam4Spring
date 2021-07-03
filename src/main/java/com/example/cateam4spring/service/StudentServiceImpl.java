@@ -1,5 +1,6 @@
 package com.example.cateam4spring.service;
 
+import com.example.cateam4spring.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,13 +23,15 @@ public class StudentServiceImpl implements StudentService{
 		else
 			return false;
 	};*/
-	
-	/*public Student findStudentById(String id) {
+
+
+	public Student findStudentById(Integer id) {
 		return sr.findStudentById(id);
-	}*/
+	}
 	
 	public Integer findGpaById(Integer id) {
 		return sr.findGpaById(id);
 	}
+
 
 }

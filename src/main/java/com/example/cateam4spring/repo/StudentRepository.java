@@ -10,12 +10,12 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 	
 	
 	public Student findStudentByIdAndPassword(Integer id, String password);
-	
+
+	@Query("SELECT s FROM Student s WHERE s.id= :id")
 	public Student findStudentById(Integer id);
 	
 	@Query("SELECT s.GPA FROM Student s WHERE s.id = :id")
 	public Integer findGpaById(@Param("id") Integer id);
-
 
 
 }

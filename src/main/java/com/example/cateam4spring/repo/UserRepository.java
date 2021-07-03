@@ -9,4 +9,5 @@ import com.example.cateam4spring.model.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	@Query("Select u from User u where u.username = :username")
 	public User getUserByUsername(@Param("username") String username);
+
 }

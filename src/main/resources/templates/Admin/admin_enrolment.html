@@ -15,7 +15,6 @@
   <img src="https://image.freepik.com/free-vector/preparing-test-together-learning-studying-with-friends-effective-revision-revision-timetables-planning-how-revise-exams-concept-pinkish-coral-bluevector-isolated-illustration_335657-1258.jpg">
    </div> 
    <h1>Student List</h1>
-    <br/><br/>
     <table class="a">
         <thead>
         <tr>
@@ -58,7 +57,7 @@
             <td>
                 <a th:href="@{'/admin_enrolment/edit_lecturersincourse/' + ${course.id}}">View Lecturers</a>
                 &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/admin_enrolment/edit_studentsincourse/' + ${course.id}}">View Students</a>
+                <a th:href="@{'/admin_enrolment/viewCourseEnrolments/' + ${course.id}}">View Students</a>
             </td>
         </tr>
         </tbody>
