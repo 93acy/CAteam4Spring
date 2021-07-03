@@ -12,7 +12,7 @@ public class Enrolment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String courseStatus = "Ongoing";		
+    private String courseStatus;		
     private String enrolmentDate;			
     private Double grade=0.0;
     private Double point;
@@ -57,43 +57,36 @@ public class Enrolment {
 
 
 	//get course status
-	public String updateCourseStatus() {
-		Double g = this.grade;
-		
-		if(g>=90 && g<=100) {			
-			this.point = 5.0;
-			return "A";
-		}
-			
-		
-		else if(g>=80 && g<=89) {			
-			this.point = 4.0;
-			return "B";
-		}
-			
-		
-		else if(g>=70 && g<=79) {			
-			this.point = 3.0;
-			return "C";
-		}
-			
-		
-		else if(g>=60 && g<=69) {			
-			this.point = 2.0;
-			return "D";
-		}
-			
-		
-		else if(g==0) {
-			this.point = 0.0;
-			return "Ongoing";
-		}
-			
-		
-		else {
-			this.point = 1.0;
-			return "F";
-		} 
+		public String updateCourseStatus() {
+	        Double g = this.grade;
+	       
+	        if(g>=90 && g<=100) {           
+	            this.point = 5.0;
+	            return "A";
+	        }
+	           
+	       
+	        else if(g>=80 && g<=89) {           
+	            this.point = 4.0;
+	            return "B";
+	        }
+	           
+	       
+	        else if(g>=70 && g<=79) {           
+	            this.point = 3.0;
+	            return "C";
+	        }
+	           
+	       
+	        else if(g>=60 && g<=69) {           
+	            this.point = 2.0;
+	            return "D";
+	        }
+	       
+	        else {
+	            this.point = 1.0;
+	            return "F";
+	        }
 			
 
 	}

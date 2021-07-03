@@ -123,7 +123,8 @@ public class LecturerController {
 				throw new InvalidGradeException("Grade should be within 0 to 100 :)");
 			}
 			
-			enrolment.setCourseStatus();
+			String status = enrolment.updateCourseStatus();
+			enrolment.setCourseStatus(status);
 			es.updateGrade(grade, id);
 			es.updateCourseStatus();
 			Double gpa = ss.calculateGPA(enrolment.getStudent().getId());
@@ -140,6 +141,35 @@ public class LecturerController {
 		
 	}
 	
+//	@RequestMapping(value = "/save/{id}")
+//    public ModelAndView saveGrade(@RequestParam Double grade, @PathVariable("id") Integer id) {
+//
+// 
+//
+//        try {
+//            Enrolment enrolment = es.findEnrolmentById(id);
+//            enrolment.setGrade(grade);
+//            
+//            if (grade <0 || grade>100) {
+//                throw new InvalidGradeException("Grade should be within 0 to 100 :)");
+//            }
+//            
+//            enrolment.updateCourseStatus();
+//            es.updateGrade(grade, id);
+//            es.updateCourseStatus();
+//            Double gpa = ss.calculateGPA(enrolment.getStudent().getId());
+//            ModelAndView mav = new ModelAndView("forward:/lecturer/inputgrades");
+//            return mav;
+//        }
+//        
+//        catch (InvalidGradeException e){
+//            ModelAndView mav = new ModelAndView("redirect:/lecturer/edit/{id}");
+//            mav.addObject("errMsg", e.getMessage());
+//            return mav;
+//        }
+//        
+//    }
+//	
 
 	
 	@RequestMapping("/logout")
