@@ -85,11 +85,11 @@ public class Enrolment {
 			
 		
 		else if(g==0)
-			return "Enrolled";
+			return "Ongoing";
 		
 		else {
 			this.point = 0.0;
-			return "Fail";
+			return "F";
 		} 
 			
 

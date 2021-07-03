@@ -1,6 +1,7 @@
 package com.example.cateam4spring.service;
 
 import com.example.cateam4spring.model.Course;
+import com.example.cateam4spring.model.Enrolment;
 import com.example.cateam4spring.model.Lecturer;
 
 //import java.util.ArrayList;

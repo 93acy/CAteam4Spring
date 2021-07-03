@@ -94,12 +94,6 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 
 
 	@Override
-	public List<Enrolment> findByKeyword(String keyword) {
-		return erepo.findByKeyword(keyword);
-	}
-
-
-	@Override
 	public void updateGrade(Double newGrade, Integer id) {
 		erepo.updateGrade(newGrade, id);
 		
@@ -110,6 +104,20 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 	public void updateCourseStatus() {
 		erepo.updateCourseStatus();
 		
+	}
+
+
+	@Override
+	public List<Enrolment> findByCourseKeyword(String keyword) {
+
+		return erepo.findByCourseKeyword(keyword);
+	}
+
+
+	@Override
+	public List<Enrolment> findByStudentKeyword(String keyword) {
+		
+		return erepo.findByStudentKeyword(keyword);
 	}
 
 }

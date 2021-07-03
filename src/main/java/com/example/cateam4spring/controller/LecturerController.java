@@ -58,30 +58,75 @@ public class LecturerController {
 	
 	
 	@GetMapping("/enrolment")
-	public String listEnrolment(Model model, String keyword) {
+	public String listEnrolment(Model model, String keyword1, String keyword2) {
 		
-		if(keyword !=null) {
-			model.addAttribute("enrolments", es.findByKeyword(keyword));
-		}		
-		else {
+		if(keyword1 == null && keyword2 == null) {
 			model.addAttribute("enrolments", erepo.findAll());	
 		}
+		
+		else if(keyword1 !=null && keyword2 == null) {
+			model.addAttribute("enrolments", es.findByCourseKeyword(keyword1));
+		}		
+		
+		else if (keyword1 ==null && keyword2 != null){
+			model.addAttribute("enrolments", es.findByStudentKeyword(keyword2));
+		}
+		
+		else {
+			model.addAttribute("enrolments", es.findByCourseKeyword(keyword1).retainAll(es.findByStudentKeyword(keyword2)));
+		}
+		
 		return "enrolment";
 		
 		
 	}
 	
 	@GetMapping("/performance")
-	public String listPerformance(Model model) {
-		model.addAttribute("performances", erepo.findAll());
+	public String listPerformance(Model model, String keyword1, String keyword2) {
+		
+		if(keyword1 == null && keyword2 == null) {
+			model.addAttribute("performances", erepo.findAll());	
+		}
+		
+		else if(keyword1 !=null && keyword2 == null) {
+			model.addAttribute("performances", es.findByCourseKeyword(keyword1));
+		}		
+		
+		else if (keyword1 ==null && keyword2 != null){
+			model.addAttribute("performances", es.findByStudentKeyword(keyword2));
+		}
+		
+		else {
+			model.addAttribute("performances", es.findByCourseKeyword(keyword1).retainAll(es.findByStudentKeyword(keyword2)));
+		}
+	
 		return "student_performance";
 	}
 	
+	
 	@RequestMapping("/grade")
-	public String showGrades(Model model) {
-		model.addAttribute("enrolment", erepo.findAll());
+	public String showGrades(Model model, String keyword1, String keyword2) {
+		
+		if(keyword1 == null && keyword2 == null) {
+			model.addAttribute("enrolment", erepo.findAll());	
+		}
+		
+		else if(keyword1 !=null && keyword2 == null) {
+			model.addAttribute("enrolment", es.findByCourseKeyword(keyword1));
+		}		
+		
+		else if (keyword1 ==null && keyword2 != null){
+			model.addAttribute("enrolment", es.findByStudentKeyword(keyword2));
+		}
+		
+		else {
+			model.addAttribute("enrolment", es.findByCourseKeyword(keyword1).retainAll(es.findByStudentKeyword(keyword2)));
+		}
+
+		
 		return "grade_list";
 	}
+	
 	
 	
 	@RequestMapping("/edit/{id}")

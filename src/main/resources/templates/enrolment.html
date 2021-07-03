@@ -12,24 +12,19 @@
 
 <table>
   <tr>
-  <td>     
-  <form>
-  <label for="semesters"><strong>Semester</strong></label>
-  <select name="semesters" id="semesters">
-    <option value="A17/18 Semester 1">A17/18 Semester 1</option>
-    <option value="saab">Saab</option>
-    <option value="opel">Opel</option>
-    <option value="audi">Audi</option>
-  </select>
-  
-  <input type="submit" value="Submit">
-  </form>
-  </td> 
-  
   <td>  
     <div class="search-container">
     <form action="enrolment">
-      <input type="text" placeholder="Search by name/matriculation id" name="keyword">
+      <input type="text" placeholder="Search by course name/id" name="keyword1">
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+  </td>
+    
+  <td>  
+    <div class="search-container">
+    <form action="enrolment">
+      <input type="text" placeholder="Search by student name/matriculation id" name="keyword2">
       <button type="submit">Submit</button>
     </form>
     </div>
@@ -57,11 +52,11 @@
  </tr>
  </table>
  
-<table border="1" >
+<!--  <table border="1" >
  <tr th:each="enrolment:${enrolments}">
    Size: <td th:text="${enrolment.course.currentSelectNum}">ID</td> 
  </tr>
-</table>
+</table>-->
 
 </body>
 

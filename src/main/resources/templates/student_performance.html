@@ -8,7 +8,29 @@
 <body>
 <div th:replace="lecturer_home :: topnav">
   </div>
-<h1> Student Performance</h1>     
+<h1> Student Performance</h1> 
+
+  <table>
+  <tr>
+  <td>  
+    <div class="search-container">
+    <form action="performance">
+      <input type="text" placeholder="Search by course name/id" name="keyword1">
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+  </td>
+    
+  <td>  
+    <div class="search-container">
+    <form action="performance">
+      <input type="text" placeholder="Search by student name/matriculation id" name="keyword2">
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+  </td>
+  </tr>
+  </table>   
 
 <table border="1" >
  <tr>
