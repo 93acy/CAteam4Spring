@@ -7,18 +7,9 @@
 <body>
 
 <form action="#"
-		th:action="@{/lecturer/save}"
+		th:action="@{/lecturer/save/}+${enrolment.id}"
 		th:object="${enrolment}" method="get">
 <table>
-		<tr  th:each="e:${enrolment}" >
-			<td>Course Id:</td> 
-			<td th:text="${e.course.id}"> </td>
-		</tr>
-		
-		<tr  th:each="e:${enrolment}" >
-			<td>Course Name:</td> 
-			<td th:text="${e.course.name}"> </td>
-		</tr>
 		
 		<tr  th:each="e:${enrolment}" >
 			<td>Student Name:</td> 
@@ -28,7 +19,7 @@
 		
 		<tr  th:each="e:${enrolment}">
 			<td>Student Id: </td>
-			<td th:text =${e.student.id}> </td>
+			<td th:text ="${e.student.id}"> </td>
 		</tr>
 		
 		
@@ -38,11 +29,12 @@
 
 		</table>
 		
-		<input type="submit" value="Save"/>
+		<input type="submit" value="Save" />
 			&nbsp; &nbsp; 	
 		<input type="reset" value="Reset"/>
 		
 	</form>
+	
 
 </body>
 </html>

@@ -46,24 +46,23 @@ public interface EnrolmentRepository extends JpaRepository<Enrolment, Integer> {
     @Transactional
     @Query(value = "update Enrolment e "
     		+ "set e.course_status = case "
-    		+ "when e.grade in (90,100) then 'A'"
-    		+ "when e.grade in (80,90) then 'B'"
-    		+ "when e.grade in (70,80) then 'C'"
-    		+ "when e.grade in (60,70) then 'D'"
+    		+ "when e.grade between 90 and 100 then 'A'"
+    		+ "when e.grade between 80 and 90 then'B'"
+    		+ "when e.grade between 70 and 80 then 'C'"
+    		+ "when e.grade between 60 and 70 then 'D'"
     		+ "else 'F'"
     		+ "end", nativeQuery=true)
     void updateCourseStatus();
     
-    @Query(value = "SELECT * FROM Course c, Enrolment e WHERE c.course_id = e.course_course_id AND "
-            + "CONCAT(c.name, c.course_id)"
-            + "LIKE %:keyword1%", nativeQuery=true)
-    List<Enrolment> findByCourseKeyword(@Param("keyword1") String keyword1);
     
-    @Query(value="SELECT * FROM Enrolment e, Student s WHERE e.student_user_id = s.user_id AND "
-    		+ "CONCAT(first_name,last_name,user_id)"
-            + "LIKE %:keyword2%", nativeQuery=true)
-    List<Enrolment> findByStudentKeyword(@Param("keyword2") String keyword2);
+    @Query(value="SELECT * FROM Enrolment e, Student s, Course c "
+    		+ "WHERE e.student_user_id = s.user_id AND e.course_course_id = c.course_id AND "
+    		+ "CONCAT(name, first_name,last_name,user_id)"
+            + "LIKE %:keyword%", nativeQuery=true)
+    List<Enrolment> findByKeyword(@Param("keyword") String keyword);
     
+  
+
 
     
 

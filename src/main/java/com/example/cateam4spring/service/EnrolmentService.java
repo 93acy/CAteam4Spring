@@ -37,7 +37,5 @@ public interface EnrolmentService {
 
 	Enrolment findEnrolmentById(Integer id);
 	
-	List<Enrolment> findByCourseKeyword(String keyword);
-	
-	List<Enrolment> findByStudentKeyword(String keyword);
+	List<Enrolment> findByKeyword(String keyword);
 }

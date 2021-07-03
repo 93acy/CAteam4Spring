@@ -58,22 +58,13 @@ public class LecturerController {
 	
 	
 	@GetMapping("/enrolment")
-	public String listEnrolment(Model model, String keyword1, String keyword2) {
+	public String listEnrolment(Model model, String keyword) {
 		
-		if(keyword1 == null && keyword2 == null) {
-			model.addAttribute("enrolments", erepo.findAll());	
-		}
-		
-		else if(keyword1 !=null && keyword2 == null) {
-			model.addAttribute("enrolments", es.findByCourseKeyword(keyword1));
+		if(keyword !=null) {
+			model.addAttribute("enrolments", es.findByKeyword(keyword));
 		}		
-		
-		else if (keyword1 ==null && keyword2 != null){
-			model.addAttribute("enrolments", es.findByStudentKeyword(keyword2));
-		}
-		
 		else {
-			model.addAttribute("enrolments", es.findByCourseKeyword(keyword1).retainAll(es.findByStudentKeyword(keyword2)));
+			model.addAttribute("enrolments", erepo.findAll());	
 		}
 		
 		return "lecturer/enrolment";
@@ -82,45 +73,28 @@ public class LecturerController {
 	}
 	
 	@GetMapping("/studentperformance")
-	public String listPerformance(Model model, String keyword1, String keyword2) {
+	public String listPerformance(Model model, String keyword) {
 		
-		if(keyword1 == null && keyword2 == null) {
+		if(keyword !=null) {
+			model.addAttribute("performances", es.findByKeyword(keyword));
+		}		
+		else {
 			model.addAttribute("performances", erepo.findAll());	
 		}
-		
-		else if(keyword1 !=null && keyword2 == null) {
-			model.addAttribute("performances", es.findByCourseKeyword(keyword1));
-		}		
-		
-		else if (keyword1 ==null && keyword2 != null){
-			model.addAttribute("performances", es.findByStudentKeyword(keyword2));
-		}
-		
-		else {
-			model.addAttribute("performances", es.findByCourseKeyword(keyword1).retainAll(es.findByStudentKeyword(keyword2)));
-		}
+
 	
 		return "lecturer/student_performance";
 	}
 	
 	
 	@RequestMapping("/inputgrades")
-	public String showGrades(Model model, String keyword1, String keyword2) {
+	public String showGrades(Model model, String keyword) {
 		
-		if(keyword1 == null && keyword2 == null) {
-			model.addAttribute("enrolment", erepo.findAll());	
-		}
-		
-		else if(keyword1 !=null && keyword2 == null) {
-			model.addAttribute("enrolment", es.findByCourseKeyword(keyword1));
+		if(keyword !=null) {
+			model.addAttribute("enrolment", es.findByKeyword(keyword));
 		}		
-		
-		else if (keyword1 ==null && keyword2 != null){
-			model.addAttribute("enrolment", es.findByStudentKeyword(keyword2));
-		}
-		
 		else {
-			model.addAttribute("enrolment", es.findByCourseKeyword(keyword1).retainAll(es.findByStudentKeyword(keyword2)));
+			model.addAttribute("enrolment", erepo.findAll());	
 		}
 
 		
@@ -131,7 +105,7 @@ public class LecturerController {
 	
 	@RequestMapping("/edit/{id}")
 	public ModelAndView editGrade(@PathVariable("id") Integer id) {
-		ModelAndView mav = new ModelAndView("grade_edit");
+		ModelAndView mav = new ModelAndView("lecturer/grade_edit");
 		Enrolment enrolment = es.findEnrolmentById(id);
 		mav.addObject("enrolment", enrolment);
 		return mav;
@@ -153,7 +127,7 @@ public class LecturerController {
 			es.updateGrade(grade, id);
 			es.updateCourseStatus();
 			Double gpa = ss.calculateGPA(enrolment.getStudent().getId());
-			ModelAndView mav = new ModelAndView("forward:/lecturer/grade");
+			ModelAndView mav = new ModelAndView("forward:/lecturer/inputgrades");
 			return mav;
 		}
 		

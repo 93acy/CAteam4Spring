@@ -107,17 +107,11 @@ public class EnrolmentServiceImpl implements EnrolmentService {
 	}
 
 
-	@Override
-	public List<Enrolment> findByCourseKeyword(String keyword) {
-
-		return erepo.findByCourseKeyword(keyword);
-	}
-
 
 	@Override
-	public List<Enrolment> findByStudentKeyword(String keyword) {
+	public List<Enrolment> findByKeyword(String keyword) {
 		
-		return erepo.findByStudentKeyword(keyword);
+		return erepo.findByKeyword(keyword);
 	}
 
 }

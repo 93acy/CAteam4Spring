@@ -68,7 +68,7 @@ public class StudentController {
 		
 		List<Enrolment> enrollments = es.findEnrolmentsByStudentId(userDetails.getId());
 		model.addAttribute("enrolments", enrollments);
-		Integer GPA = ss.findGpaById(userDetails.getId());
+		Double GPA = ss.findGpaById(userDetails.getId());
 		model.addAttribute("GPA", GPA);
 		
 		return "student/GradeAndGPA";
@@ -124,7 +124,7 @@ public class StudentController {
 		List<Course> unattendedCourses = es.findCourseNotEnrolled(userDetails.getId());
 		model.addAttribute("unattendedCourses", unattendedCourses);
 			
-		return "student/EnrollCourse";
+		return "student/EnrolCourse";
 	}
 	
 	/*@RequestMapping("/student/enrollcourse")
@@ -149,7 +149,7 @@ public class StudentController {
 			cs.addOne(id,newNum);
 			List<Course> unattendedCourses = es.findCourseNotEnrolled(userDetails.getId());
 			model.addAttribute("unattendedCourses", unattendedCourses);
-			return "EnrollCourse";
+			return "student/EnrolCourse";
 		}
 		else
 			return "student/Message";

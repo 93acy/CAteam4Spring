@@ -34,7 +34,7 @@ public class StudentServiceImpl implements StudentService{
 		return sr.findStudentById(id);
 	}*/
 	
-	public Integer findGpaById(Integer id) {
+	public Double findGpaById(Integer id) {
 		return sr.findGpaById(id);
 	}
 	

@@ -2,17 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="BIG5">
+ <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{/css/style.css}" />
 <title>Enrol course</title>
 </head>
 <body>
 	<!--  <div th:text=" Hello + ${session.studentSession.firstName} + ${session.studentSession.lastName}"></div>  -->
-	<div th:replace="Layout.html :: menu"></div>
-	
-	<table>
+	 <div th:replace="fragments/layoutstudent :: topnav">
+  </div>
+  <div class="e"><img src="https://image.freepik.com/free-vector/happy-students-learning-math-college-school-isolated-flat-illustration_74855-10799.jpg"></div>
+  <h1>Course Enrolment</h1>
+	<table class="a">
 		<tr>
-			<th>CourseId</th>
-			<th>CourseName</th>
-			<th>Credit</th>
+			<th>Course Id</th>
+			<th>Course Name</th>
+			<th>Credits</th>
 			<th>Enrol</th>
 		</tr>
 		<tr th:each="course:${unattendedCourses}">
@@ -37,5 +41,8 @@
 			<td><a th:href="@{/student/enrolcourse/} + ${course.id}">Enroll</a></td>
 		</tr>
 	</table>  -->
+	  <br></br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
 </body>
 </html>
