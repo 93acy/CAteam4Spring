@@ -118,7 +118,7 @@ public class AdminEnrolmentController {
         List<Enrolment> enrolledStudents = eservice.findEnrolmentByCourseId(cId);
         model.addAttribute("course", course);
         model.addAttribute("enrolments", enrolledStudents);
-        return "Admin/course enrolments";
+        return "Admin/course_enrolments";
     }
 
 
