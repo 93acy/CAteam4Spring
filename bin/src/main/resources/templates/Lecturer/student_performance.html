@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+<title>Student Performance</title>
+</head>
+<body>
+<div th:replace="fragments/layoutlecturer :: topnav">
+</div>
+<div class="e"><img src="https://image.freepik.com/free-vector/college-students-university-education-concept-people-illustration_169479-534.jpg"></div>
+<h1> Student Performance</h1> 
+
+    <div class="search-container">
+    <form action="studentperformance">
+      <input type="text" placeholder="Search by course name/id" name="keyword1">
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+ 
+    <div class="search-container">
+    <form action="studentperformance">
+      <input type="text" placeholder="Search by student name/matriculation id" name="keyword2">
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+<br></br>  
+
+<table class="a" >
+ <tr>
+   <th>Course Id</th>
+   <th>Course Name</th>
+   <th>Student Name</th>
+   <th>Matriculation Id</th>
+   <th>Course Start Date</th>
+   <th>GPA</th>
+   <th>Course Status</th>
+ </tr>
+ 
+ <tr th:each="performance:${performances}">
+   <td th:text="${performance.course.id}"></td> 
+   <td th:text="${performance.course.name}"></td>
+   <td th:text="${performance.student.firstName} + ${performance.student.lastName}"></td>
+   <td th:text="${performance.student.id}"></td>
+   <td th:text="${performance.course.startDate}"></td>
+   <td th:text="${performance.student.GPA}"></td>
+   <td th:text="${performance.courseStatus}"></td>  
+ </tr>
+</table>
+
+<br></br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
+</body>
+</html>

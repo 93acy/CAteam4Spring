@@ -10,8 +10,12 @@ public interface StudentService {
 
 	Student findStudentById(Integer id);
 	
-	public Integer findGpaById(Integer id);
-
+	public Double findGpaById(Integer id);
+	
+	
+	public Double calculateGPA(Integer id);
+	
+//	void updateGpa(Double gpa, Integer id);
 
 
 }

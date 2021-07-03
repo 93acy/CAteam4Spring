@@ -17,5 +17,9 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 	@Query("SELECT s.GPA FROM Student s WHERE s.id = :id")
 	public Integer findGpaById(@Param("id") Integer id);
 
+	@Modifying
+	@Transactional
+	@Query(value = "UPDATE student SET gpa =:GPA WHERE user_id = :Id", nativeQuery=true)
+	public void updateGPA(@Param("Id") Integer Id, @Param("GPA") Double GPA);
 
 }

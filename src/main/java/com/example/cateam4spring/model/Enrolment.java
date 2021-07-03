@@ -12,9 +12,10 @@ public class Enrolment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private boolean courseStatus;		
+    private String courseStatus;		
     private String enrolmentDate;			
-    private Double grade;
+    private Double grade=0.0;
+    private Double point;
 
     @ManyToOne
     private Student student;
@@ -31,7 +32,7 @@ public class Enrolment {
         this.course = course;
     }
 	
-    public Enrolment(boolean courseStatus, String enrolmentDate, Double grade, Student student, Course course) {
+    public Enrolment(String courseStatus, String enrolmentDate, Double grade, Student student, Course course) {
         this.courseStatus = courseStatus;
         this.enrolmentDate = enrolmentDate;
         this.grade = grade;
@@ -39,7 +40,7 @@ public class Enrolment {
         this.course = course; }
 
 
-    public Enrolment(boolean courseStatus, String enrolmentDate, Double grade) {
+    public Enrolment(String courseStatus, String enrolmentDate, Double grade) {
         super();
         this.courseStatus = courseStatus;
         this.enrolmentDate = enrolmentDate;
@@ -54,11 +55,64 @@ public class Enrolment {
 		this.id = id;
 	}
 
-	public boolean isCourseStatus() {
+
+	//get course status
+		public String updateCourseStatus() {
+	        Double g = this.grade;
+	       
+	        if(g>=90 && g<=100) {           
+	            this.point = 5.0;
+	            return "A";
+	        }
+	           
+	       
+	        else if(g>=80 && g<=89) {           
+	            this.point = 4.0;
+	            return "B";
+	        }
+	           
+	       
+	        else if(g>=70 && g<=79) {           
+	            this.point = 3.0;
+	            return "C";
+	        }
+	           
+	       
+	        else if(g>=60 && g<=69) {           
+	            this.point = 2.0;
+	            return "D";
+	        }
+	       
+	        else {
+	            this.point = 1.0;
+	            return "F";
+	        }
+			
+
+	}
+	
+	public Double getPoint() {
+		return this.point;
+	}
+
+	public void setPoint(Double point) {
+		this.point = point;
+	}
+
+	//set course status
+	public void setCourseStatus() {
+		String status = updateCourseStatus();
+		this.courseStatus=status;
+		
+	}
+	
+	
+
+	public String getCourseStatus() {
 		return courseStatus;
 	}
 
-	public void setCourseStatus(boolean courseStatus) {
+	public void setCourseStatus(String courseStatus) {
 		this.courseStatus = courseStatus;
 	}
 
@@ -70,7 +124,7 @@ public class Enrolment {
 		this.enrolmentDate = enrolmentDate;
 	}
 
-	public double getGrade() {
+	public Double getGrade() {
 		return grade;
 	}
 
@@ -93,7 +147,11 @@ public class Enrolment {
 	public void setCourse(Course course) {
 		this.course = course;
 	}
-    
+
+	 
+	
+	
+
     
 
 

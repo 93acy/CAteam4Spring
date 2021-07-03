@@ -1,0 +1,21 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="lecturer_home (template, menu)">
+
+<head>
+  <title>Home</title>
+  <meta charset="ISO-8859-1">
+  <link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+</head>
+
+<body>
+<div th:replace="fragments/layoutlecturer :: topnav">
+</div>
+   <h1>Welcome, (name)</h1>
+<div class="e"><img src="https://img.freepik.com/free-vector/geography-teacher-class_74855-5512.jpg?size=626&ext=jpg"></div>
+  <br></br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="BIG5">
+ <link rel="stylesheet" type="text/css" media="all"
+          th:href="@{/css/style.css}" />
+<title>Message</title>
+</head>
+<body>
+<p>Sorry, the course is full</p>
+
+<a th:href="@{/student/enrolcourse}">Back</a>
+
+<br></br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
+
+</body>
+</html>

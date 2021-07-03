@@ -68,10 +68,10 @@ public class StudentController {
 		
 		List<Enrolment> enrollments = es.findEnrolmentsByStudentId(userDetails.getId());
 		model.addAttribute("enrolments", enrollments);
-		Integer GPA = ss.findGpaById(userDetails.getId());
+		Double GPA = ss.findGpaById(userDetails.getId());
 		model.addAttribute("GPA", GPA);
 		
-		return "GradeAndGPA";
+		return "student/GradeAndGPA";
 	}
 	/*
 	@RequestMapping("/student/gradeandgpa")
@@ -89,7 +89,7 @@ public class StudentController {
 		List<Course> allCourses = cs.findAll();
 		model.addAttribute("allCourses", allCourses);
 		
-		return "ViewCourse";
+		return "student/ViewCourse";
 		
 	}
 	
@@ -106,7 +106,7 @@ public class StudentController {
 	@RequestMapping("/student/student_home")
 	public String dashBoard(@AuthenticationPrincipal MyUserDetails userDetails) {
 		
-		return "student_home";
+		return "student/student_home";
 		
 	}
 	
@@ -124,7 +124,7 @@ public class StudentController {
 		List<Course> unattendedCourses = es.findCourseNotEnrolled(userDetails.getId());
 		model.addAttribute("unattendedCourses", unattendedCourses);
 			
-		return "EnrollCourse";
+		return "student/EnrolCourse";
 	}
 	
 	/*@RequestMapping("/student/enrollcourse")
@@ -149,10 +149,10 @@ public class StudentController {
 			cs.addOne(id,newNum);
 			List<Course> unattendedCourses = es.findCourseNotEnrolled(userDetails.getId());
 			model.addAttribute("unattendedCourses", unattendedCourses);
-			return "EnrollCourse";
+			return "student/EnrolCourse";
 		}
 		else
-			return "Message";
+			return "student/Message";
 					
 	}
 	
@@ -194,7 +194,7 @@ public class StudentController {
 		List<Course> enrolledCourses = es.findEnrolledCourseById(userDetails.getId());
 		model.addAttribute("enrolledCourses", enrolledCourses);
 		
-		return "ViewEnrolledCourse";
+		return "student/ViewEnrolledCourse";
 	}
 	
 	@RequestMapping("/student/cancelenrolment/{id}")
@@ -205,7 +205,7 @@ public class StudentController {
 		cs.minusOne(id,newNum);
 		List<Course> enrolledCourses = es.findEnrolledCourseById(userDetails.getId());
 		model.addAttribute("enrolledCourses", enrolledCourses);
-		return "ViewEnrolledCourse";	
+		return "student/ViewEnrolledCourse";	
 	}
 
 }
