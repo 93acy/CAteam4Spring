@@ -1,14 +1,14 @@
+--Insert Role
+
+INSERT INTO caps.role(id,name) VALUES (1,'STUDENT')
+INSERT INTO caps.role(id,name) VALUES (2,'LECTURER')
+INSERT INTO caps.role(id,name) VALUES (3,'ADMIN')
+
+
+
+
+
 -- --Insert Courses
-
-INSERT INTO caps.role (id, name) VALUES(1, "STUDENT")
-
-INSERT INTO caps.role (id, name) VALUES(2, "LECTURER")
-
-INSERT INTO caps.role (id, name) VALUES(3, "ADMIN")
-
-
-
-
 
 INSERT INTO caps.course (course_id,capacity,current_select_num,credit,description,name,start_date) VALUES (1,50,30,4,'CS1004S','Introduction to C#','2021-06-01')
 
@@ -56,8 +56,7 @@ INSERT INTO caps.course (course_id,capacity,current_select_num,credit,descriptio
 
 INSERT INTO caps.user (user_id,enabled,password,username) VALUES (1,1,'$2a$10$iEZOLIvL31bPEo6Ldod6ZeiIjhpcSZfR9rkDwXx5HGZn2yUewQ5Bi','joel')
 
-INSERT INTO caps.user (user_id,enabled,password,username) VALUES   (2,1,'$2a$10$iEZOLIvL31bPEo6Ldod6ZeiIjhpcSZfR9rkDwXx5HGZn2yUewQ5Bi','joel1')
-
+INSERT INTO caps.user (user_id,enabled,password,username) VALUES (2,1,'$2a$10$iEZOLIvL31bPEo6Ldod6ZeiIjhpcSZfR9rkDwXx5HGZn2yUewQ5Bi','joel1')
 
 INSERT INTO caps.user (user_id,enabled,password,username) VALUES (6,1,'$2a$10$iEZOLIvL31bPEo6Ldod6ZeiIjhpcSZfR9rkDwXx5HGZn2yUewQ5Bi','libbylaw')
 
@@ -135,23 +134,23 @@ INSERT INTO caps.user (user_id,enabled,password,username) VALUES (33,1, '$2a$10$
 
 INSERT INTO caps.user (user_id,enabled,password,username) VALUES (5,1,'$2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','admin')
 
-INSERT INTO caps.user (user_id,enabled,password,username) VALUES (34,1,' $2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','mitzipin')
+INSERT INTO caps.user (user_id,enabled,password,username) VALUES (34,1,'$2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','mitzipin')
 
-INSERT INTO caps.user (user_id,enabled,password,username) VALUES (35,1, ' $2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','marcmuc')
+INSERT INTO caps.user (user_id,enabled,password,username) VALUES (35,1, '$2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','marcmuc')
 
-INSERT INTO caps.user (user_id,enabled,password,username) VALUES (36,1, ' $2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','janenesle')
+INSERT INTO caps.user (user_id,enabled,password,username) VALUES (36,1, '$2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','janenesle')
 
-INSERT INTO caps.user (user_id,enabled,password,username) VALUES (37,1, ' $2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','celsamcf')
+INSERT INTO caps.user (user_id,enabled,password,username) VALUES (37,1, '$2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','celsamcf')
 
-INSERT INTO caps.user (user_id,enabled,password,username) VALUES (38,1, ' $2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','daltonbre')
+INSERT INTO caps.user (user_id,enabled,password,username) VALUES (38,1, '$2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','daltonbre')
 
-INSERT INTO caps.user (user_id,enabled,password,username) VALUES (39,1, ' $2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','temekaarm')
+INSERT INTO caps.user (user_id,enabled,password,username) VALUES (39,1, '$2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','temekaarm')
 
-INSERT INTO caps.user (user_id,enabled,password,username) VALUES (40,1, ' $2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','ellashe')
+INSERT INTO caps.user (user_id,enabled,password,username) VALUES (40,1, '$2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','ellashe')
 
-INSERT INTO caps.user (user_id,enabled,password,username) VALUES (41,1, ' $2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','karmache')
+INSERT INTO caps.user (user_id,enabled,password,username) VALUES (41,1, '$2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','karmache')
 
-INSERT INTO caps.user (user_id,enabled,password,username) VALUES (42,1, ' $2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','sumikoqui')
+INSERT INTO caps.user (user_id,enabled,password,username) VALUES (42,1, '$2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','sumikoqui')
 
 
 
@@ -363,6 +362,8 @@ INSERT INTO caps.course_allocation (lecturer_id,course_id) VALUES (4,5)
 
 
 
+
+
 INSERT INTO caps.course_allocation (lecturer_id,course_id) VALUES (4,7)
 
 INSERT INTO caps.course_allocation (lecturer_id,course_id) VALUES (4,11)
@@ -461,27 +462,27 @@ INSERT INTO caps.course_allocation (lecturer_id,course_id) VALUES (33,17)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (15,1,63)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (15,1,63,2)
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (5,1,66)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (5,1,66,2)
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (1,1,83)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (1,1,83,4)
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (7,1,60)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (7,1,60,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (5,2,60)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (15,2,60,2)
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (14,2,60)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (10,2,60,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (9,2,60)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (9,2,60,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (17,2,60)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (17,2,60,2)
 
 
 
@@ -493,51 +494,51 @@ INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (17,2
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (5,7,65)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (5,7,65,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (4,7,77)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (4,7,77,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (3,7,70)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (3,7,70,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (15,7,63)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (15,7,63,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (15,8,55)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (15,8,55,1)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (14,8,90)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (14,8,90,5)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (6,8,71)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (6,8,71,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (6,8,61)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (6,8,61,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (16,9,78)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (16,9,78,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (5,9,40)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (5,9,40,1)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (13,9,90)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (13,9,90,5)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (12,9,76)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (12,9,76,3)
 
 
 
@@ -545,19 +546,19 @@ INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (12,9
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (12,10,60)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (12,10,60,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (6,10,40)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (6,10,40,1)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (13,10,67)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (13,10,67,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (12,10,70)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (12,10,70,3)
 
 
 
@@ -565,19 +566,19 @@ INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (12,1
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (12,11,67)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (12,11,67,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (6,11,76)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (6,11,76,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (13,11,73)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (13,11,73,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (12,11,50)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (12,11,50,1)
 
 
 
@@ -589,37 +590,37 @@ INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (12,1
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (11,12,78)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (11,12,78,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (10,12,64)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (10,12,64,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (9,12,89)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (9,12,89,4)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (8,12,79)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (8,12,79,3)
 
 
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (11,13,69)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (11,13,69,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (7,13,46)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (7,13,46,1)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (19,13,55)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (19,13,55,1)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (18,13,66)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (18,13,66,2)
 
 
 
@@ -627,107 +628,109 @@ INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (18,1
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (2,14,70)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (2,14,70,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (16,14,60)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (16,14,60,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (3,14,65)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (3,14,65,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (1,14,78)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (1,14,78,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (16,15,89)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (16,15,89,4)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (5,15,90)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (5,15,90,5)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (7,15,69)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (7,15,69,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (9,15,59)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (9,15,59,1)
 
 
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (8,16,77)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (8,16,77,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (17,16,80)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (17,16,80,4)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (9,16,60)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (9,16,60,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (2,16,76)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (2,16,76,3)
 
 
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (11,17,54)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (11,17,54,1)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (15,17,82)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (15,17,82,4)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (7,17,67)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (7,17,67,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (12,17,48)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (12,17,48,1)
 
 
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (20,18,62)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (20,18,62,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (6,18,70)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (6,18,70,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (13,18,60)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (13,18,60,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (11,19,56)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (11,19,56,1)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (20,19,60)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (20,19,60,2)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (6,19,70)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (6,19,70,3)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (13,19,50)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (13,19,50,1)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (11,19,80)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (11,19,80,4)
 
 
 
-INSERT INTO caps.enrolment (course_course_id,student_user_id,grade) VALUES (11,43,40)
+INSERT INTO caps.enrolment (course_course_id,student_user_id,grade,point) VALUES (11,43,40,1)
+
+
 
