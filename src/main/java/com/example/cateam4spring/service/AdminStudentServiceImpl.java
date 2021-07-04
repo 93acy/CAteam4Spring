@@ -31,4 +31,9 @@ public class AdminStudentServiceImpl implements AdminStudentService{
     public void delete(Integer id) {
         srepo.deleteById(id);
     }
+
+	@Override
+	public List<Student> findByKeyword(String keyword) {
+		return srepo.findByKeyword(keyword);
+	}
 }

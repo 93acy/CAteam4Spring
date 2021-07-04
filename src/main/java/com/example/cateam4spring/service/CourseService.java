@@ -20,13 +20,15 @@ public interface CourseService {
     List<Course> findByKeyword(String keyword);
     public void saveCourse(Course course);
 
-    public void deleteCourseById(Integer id);
-
     public List<Course> findAllCourses();
     //
 //    ArrayList<Course> findCourseByEnrolmentId(Integer eid);
 //
     public Course findCourse(Integer cid);
+    
+    public void delete(Integer id);
+    
+    
 
 
 }

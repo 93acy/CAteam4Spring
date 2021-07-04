@@ -1,5 +1,6 @@
 package com.example.cateam4spring.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.cateam4spring.model.Course;
 import com.example.cateam4spring.model.Enrolment;
+import com.example.cateam4spring.model.Lecturer;
 import com.example.cateam4spring.repo.CourseRepository;
 
 @Service
@@ -73,7 +75,11 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
-	public void deleteCourseById(Integer id) {
-		crepo.deleteById(id);
+	public void delete(Integer cid) {
+//		Course course = crepo.getById(cid);
+//		Collection<Lecturer> lecturers = course.getLecturers();
+//		course.getLecturers().removeAll(lecturers);
+//		crepo.save(course);
+		crepo.deleteById(cid);
 	}
 }

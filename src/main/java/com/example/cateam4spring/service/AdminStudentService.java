@@ -18,6 +18,7 @@ public interface AdminStudentService
     Student get(Integer id);
 
     void delete(Integer id);
-
+    
+    public List<Student> findByKeyword(String keyword);
 
 }
