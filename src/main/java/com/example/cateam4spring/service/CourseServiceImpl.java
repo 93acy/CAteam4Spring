@@ -76,4 +76,10 @@ public class CourseServiceImpl implements CourseService {
 	public void deleteCourseById(Integer id) {
 		crepo.deleteById(id);
 	}
+	
+	@Override
+	public List<Course> findCourseByLecturerId(Integer Id) {
+
+		return crepo.findCourseByLecturerId(Id);
+	}
 }

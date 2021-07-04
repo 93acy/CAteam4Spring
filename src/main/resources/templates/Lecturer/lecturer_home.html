@@ -14,6 +14,7 @@ th:fragment="lecturer_home (template, menu)">
 <div th:replace="fragments/layoutlecturer :: topnav">
 </div>
    <h1>Welcome <span sec:authentication="principal.fullName">Fullname</span></h1>
+
 <div class="e"><img src="https://img.freepik.com/free-vector/geography-teacher-class_74855-5512.jpg?size=626&ext=jpg"></div>
   <br></br>
   <div th:replace="fragments/layoutadmin :: footer">

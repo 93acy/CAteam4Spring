@@ -30,7 +30,10 @@ public interface EnrolmentRepository extends JpaRepository<Enrolment, Integer> {
 
 	@Query("SELECT e from Enrolment e WHERE e.course.id=:Id")
 	List<Enrolment> findEnrolmentByCourseId(@Param("Id")Integer Id);
-
+	
+	@Query("select e from Enrolment e join e.course c join c.lecturers l where l.id =:lid")
+	List<Enrolment> findEnrolmentByLecturerId(@Param("lid")Integer lid);
+	
 	@Modifying
 	@Transactional
 	@Query(value = "INSERT INTO enrolment (course_status,enrolment_date, grade, student_user_id, course_course_id) VALUES ('Ongoing', :now, NULL, :SId, :CId)", nativeQuery=true)

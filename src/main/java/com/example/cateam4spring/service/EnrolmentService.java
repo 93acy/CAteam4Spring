@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.RequestParam;
 
 public interface EnrolmentService {
@@ -42,6 +43,8 @@ public interface EnrolmentService {
     Enrolment findEnrolmentById(Integer id);
 
     List<Enrolment> findByKeyword(String keyword);
+    
+    List<Enrolment> findEnrolmentByLecturerId(Integer lid);
 }
 
 

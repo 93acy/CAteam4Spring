@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.repository.query.Param;
+
 public interface CourseService {
 
 	List<Course> findAll();
@@ -27,6 +29,8 @@ public interface CourseService {
 //    ArrayList<Course> findCourseByEnrolmentId(Integer eid);
 //
     public Course findCourse(Integer cid);
+    
+    List<Course> findCourseByLecturerId(Integer Id);
 
 
 }

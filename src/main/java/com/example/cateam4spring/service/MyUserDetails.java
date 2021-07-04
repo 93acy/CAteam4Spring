@@ -87,7 +87,7 @@ public class MyUserDetails implements UserDetails {
     }
 	
 	public Integer getId() {
-		return this.user.getId();
+		return user.getId();
 	}
 	
 	public String getFullName() {

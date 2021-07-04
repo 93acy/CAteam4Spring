@@ -1,16 +1,15 @@
 package com.example.cateam4spring.repo;
 
+import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.example.cateam4spring.model.Course;
-import com.example.cateam4spring.model.Enrolment;
-
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import javax.transaction.Transactional;
-import java.util.List;
+import com.example.cateam4spring.model.Course;
 
 public interface CourseRepository extends JpaRepository<Course, Integer> {
     List<Course> findAll();
@@ -37,6 +36,11 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
             + "CONCAT(c.name,c.id)"
             + "LIKE %:keyword%")
     List<Course> findByKeyword(@Param("keyword") String keyword);
+    
+   
+    @Query("select c from Course c join c.lecturers l "
+    		+ "where l.id =:lid")
+    List<Course> findCourseByLecturerId( @Param("lid") Integer lid);
 
 
 

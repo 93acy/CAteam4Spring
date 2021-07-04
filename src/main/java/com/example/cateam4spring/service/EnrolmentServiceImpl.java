@@ -125,4 +125,10 @@ public class EnrolmentServiceImpl implements EnrolmentService{
        return erepo.findStudentByEnrolment(eId);
     }
 
+
+	@Override
+	public List<Enrolment> findEnrolmentByLecturerId(Integer lid) {
+		return erepo.findEnrolmentByLecturerId(lid);
+	}
+
 }
