@@ -21,6 +21,9 @@ public class Student extends User {
 	private Double GPA;
 	private Date enrollmentDate;
 	
+	@OneToMany(mappedBy="student")
+	 private Collection<Enrolment> enrolments;
+	
 	public Student() {
 		super();
 	}
@@ -31,15 +34,32 @@ public class Student extends User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
+	
+	
 
-	@OneToMany(mappedBy="student")
-	 private Collection<Enrolment> enrolments;
+	public Student(String firstName, String lastName, Double gPA, Date enrollmentDate) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		GPA = gPA;
+		this.enrollmentDate = enrollmentDate;
+	}
 
 	public Student(String username, String password, boolean enabled, String firstName, String lastName, Double GPA, Date enrollmentDate) {
 		super(username, password, enabled);
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.GPA = GPA;
+		this.enrollmentDate = enrollmentDate;
+	}
+	
+
+	public Student(Integer id, String firstName, String lastName, Double gPA, Date enrollmentDate) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		GPA = gPA;
 		this.enrollmentDate = enrollmentDate;
 	}
 

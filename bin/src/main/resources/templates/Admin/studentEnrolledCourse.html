@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="admin_home (template, menu)">
+
+<head>
+	<title>Admin Student View</title>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" type="text/css" media="all"
+		  th:href="@{/css/style.css}" />
+</head>
+<body>
+ <div th:replace="fragments/layoutadmin :: topnav">
+  </div>
+	<h1>View Enrolled Classes</h1>
+
+	<table class="a">
+		<tr>
+			<th>CourseId</th>
+			<th>CourseName</th>
+			<th>Credit</th>
+			<th>Current Enrolments</th>
+			<th>Course Capacity</th>
+			<th>CancelEnrolment</th>
+		</tr>
+		<tr th:each="course: ${enrolledCourses}">
+			<td th:text="${course.id}"></td>
+			<td th:text="${course.name}"></td>
+			<td th:text="${course.credit}"></td>
+			<td th:text="${course.currentSelectNum}"></td>
+			<td th:text="${course.capacity}"></td>
+			<td><a th:href="@{'/admin_enrolment/deleteEnrolment2/'+ ${student.id} + '/' + ${course.id}}">Cancel</a></td>
+		</tr>
+	</table>
+	<br>/<br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
+</body>
+</html>

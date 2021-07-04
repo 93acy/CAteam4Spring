@@ -23,7 +23,7 @@
 			<td th:text="${course.id}"></td>
 			<td th:text="${course.name}"></td>
 			<td th:text="${course.credit}"></td>
-			<td><a th:href="@{'/student/enrolcourse/' + ${course.id}}">Enrol</a></td>
+			<td><a th:href="@{/student/enrolcourse/} + ${course.id}">Enrol</a></td>
 		</tr>
 	</table>
 	

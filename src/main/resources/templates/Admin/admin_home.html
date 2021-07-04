@@ -1,5 +1,7 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" th:fragment="admin_home (template, menu)">
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+th:fragment="admin_home (template, menu)">
 
 <head>
     <title>Admin Home</title>
@@ -13,7 +15,7 @@
   </div>
 
 
-<h1>Welcome</h1>
+<h1>Welcome <span sec:authentication="principal.fullName">Fullname</span></h1>
 <div class="e">
 <img src="https://img.freepik.com/free-vector/system-administrators-sysadmins-are-servicing-server-racks-system-administration-upkeeping-configuration-computer-systems-networks-concept-pinkish-coral-blue-palette-vector-illustration_335657-1642.jpg?size=626&ext=jpg">
   </div>

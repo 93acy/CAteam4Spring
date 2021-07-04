@@ -89,16 +89,16 @@ public class CAteam4SpringApplication {
 //			urepo.save(student);
 //			urepo.save(lecturer);
 
-			rrepo.save(new Role("STUDENT"));
+			/*rrepo.save(new Role("STUDENT"));
 			rrepo.save(new Role("LECTURER"));
 			rrepo.save(new Role("ADMIN"));
 
 			Role student = rrepo.findRoleByName("STUDENT");
 			Role lecturer = rrepo.findRoleByName("LECTURER");
-			Role admin= rrepo.findRoleByName("ADMIN");
+			Role admin= rrepo.findRoleByName("ADMIN");*/
 			
 //1
-			String rawPassword1 ="admin";
+			/*String rawPassword1 ="admin";
 			String encodedPassword1 = encoder.encode(rawPassword1);
 			Admin admin1 = new Admin("Admin", encodedPassword1, true, "forever", "Admin");
 			arepo.save(admin1);
@@ -145,7 +145,7 @@ public class CAteam4SpringApplication {
 			lecturers.add(lecturer1);
 			lrepo.save(lecturer2);
 			lecturer1.getRoles().add(lecturer);
-			lrepo.save(lecturer2);
+			lrepo.save(lecturer2);*/
 
 //			User a = urepo.getById(1);
 //			a.setRoles(Set.of(lecturer, admin));
