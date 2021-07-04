@@ -58,6 +58,16 @@ public class StudentServiceImpl implements StudentService{
         return GPA;
     }
 
+	@Override
+	public List<Student> findByKeyword(String keyword) {
+		return sr.findByKeyword(keyword);
+	}
+
+	@Override
+	public List<Student> findAllStudents() {
+		return sr.findAll();
+	}
+
 //	public void updateGpa(Double gpa, Integer id) {
 //		sr.updateGpa( gpa,id);
 //	}; fw

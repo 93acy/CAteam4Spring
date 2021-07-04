@@ -15,6 +15,7 @@ import com.example.cateam4spring.model.Course;
 import com.example.cateam4spring.model.Lecturer;
 import com.example.cateam4spring.service.AdminLecturerService;
 import com.example.cateam4spring.service.CourseService;
+import com.example.cateam4spring.service.StudentService;
 
 @Controller
 @RequestMapping(value="/admin_home")
@@ -28,6 +29,9 @@ public class AdminController {
 
     @Autowired
     private AdminStudentService asservice;
+    
+    @Autowired
+    private StudentService sservice;
 
     @GetMapping("/home")
     public String returnHome() {
@@ -35,9 +39,13 @@ public class AdminController {
     }
 
     @GetMapping("/student")
-    public String AdminStudent(Model model) {
-        List<Student> listStudents = asservice.listAll();
-        model.addAttribute("listStudents", listStudents);
+    public String AdminStudent(Model model, String keyword) {
+    	if(keyword !=null) {
+			model.addAttribute("listStudents", sservice.findByKeyword(keyword));
+		}		
+		else {
+			model.addAttribute("listStudents", sservice.findAllStudents());	
+		}
         return "Admin/admin_student"; //return view from templates
     }
 
