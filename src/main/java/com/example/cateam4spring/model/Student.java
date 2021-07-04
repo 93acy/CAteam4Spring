@@ -32,7 +32,7 @@ public class Student extends User {
 		this.lastName = lastName;
 	}
 
-	@OneToMany(mappedBy="student")
+	@OneToMany(mappedBy="student",cascade=CascadeType.REMOVE)
 	 private Collection<Enrolment> enrolments;
 
 	public Student(String username, String password, boolean enabled, String firstName, String lastName, Double GPA, Date enrollmentDate) {

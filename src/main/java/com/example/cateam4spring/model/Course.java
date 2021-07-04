@@ -76,7 +76,6 @@ public class Course {
 	}
 
 
-
 	public Integer getId() {
 		return id;
 	}

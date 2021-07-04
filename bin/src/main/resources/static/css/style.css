@@ -73,7 +73,7 @@ h5{
  
 .index{
 	width:100%;
-	height:100 px;
+	height:100px;
   background-color: #4d4d4d;
   overflow: hidden;
 }
@@ -81,7 +81,7 @@ h5{
 /* Add a black background color to the top navigation */
 .topnav {
   width: 100%;
-  height:150 px;
+  height:150px;
   background-color: #4d4d4d;
   overflow: hidden;
 }
@@ -208,7 +208,16 @@ li{
 a.button {
     -webkit-appearance: button;
     -moz-appearance: button;
-    appearance: button;
+    appearance: auto;
+    text-decoration: none;
+    color: initial;
+}
+
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: auto;
     text-decoration: none;
     color: initial;
 }
