@@ -6,6 +6,8 @@
     <meta charset="ISO-8859-1">
     <link rel="stylesheet" type="text/css" media="all"
           th:href="@{/css/style.css}" />
+              <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+ 
 </head>
 
 <body>
@@ -14,6 +16,7 @@
   <div class="e">
   <img src="https://image.freepik.com/free-vector/preparing-test-together-learning-studying-with-friends-effective-revision-revision-timetables-planning-how-revise-exams-concept-pinkish-coral-bluevector-isolated-illustration_335657-1258.jpg">
    </div> 
+   <br></br>
    <h1>Student List</h1>
     <table class="a">
         <thead>
@@ -33,7 +36,7 @@
             <td>
                 <a th:href="@{'/admin_enrolment/enrolStudent/' + ${student.id}}">Enrol</a>
 
-                <a th:href="@{'/admin_enrolment/deleteEnrolment/' + ${student.id}}">DeleteEnrolment</a>
+                <a th:href="@{'/admin_enrolment/deleteEnrolment/' + ${student.id}}">Delete Enrolment</a>
             </td>
         </tr>
         </tbody>

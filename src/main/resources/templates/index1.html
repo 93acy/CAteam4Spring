@@ -1,12 +1,10 @@
 <!doctype html>
-<html xmlns:th="https://www.thymeleaf.org" th:fragment="layoutadmin (template, menu)">
+<html xmlns:th="https://www.thymeleaf.org">
 
-<head th:fragment="head" class="stylesheet">
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" media="all" 
           th:href="@{/css/style.css}" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 
 <body>
@@ -24,13 +22,12 @@
   <div id="footer-navigation" class="container">
 	<h4>CAPS</h4>
 		<div>
-	  		<ul style="list-style-type:none; text-align:center; ">
+	  		<ul>
 	  			<li>
 	  			<i class="fas fa-route"></i>
 	  			234 Newton Rd, Singapore 312104
 	  			</li>
-	  			<li></li>
-	  			<li style="text-align=center; margin-top:10px;">
+	  			<li>
 	  			<i class="fa">&#xf095;</i>
 	  			+65 6369 1124
 		  		</li>
