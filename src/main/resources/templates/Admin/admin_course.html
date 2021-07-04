@@ -19,6 +19,12 @@
     <a href="/admin_course/new">Create New Course</a>
     </div>
     <br/><br/>
+    <div class="search-container">
+	    <form action="course">
+	      <input type="text" placeholder="Search by course name/course ID" name="keyword">
+	      <button type="submit">Submit</button>
+	    </form>
+	</div>
     <table class="a">
         <thead>
             <tr>
@@ -32,7 +38,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="course : ${listcourses}">
+            <tr th:each="course : ${listCourses}">
                 <td th:text="${course.id}">Course ID</td>
                	<td th:text="${course.name}">Course Name</td>
                	<td th:text="${course.description}">Course Description</td>

@@ -14,8 +14,6 @@ import com.example.cateam4spring.model.Lecturer;
 import com.example.cateam4spring.model.Role;
 import com.example.cateam4spring.service.CourseService;
 
-import java.util.List;
-
 @Controller
 @RequestMapping(value="/admin_course")
 public class AdminCourseController {
@@ -45,10 +43,8 @@ public class AdminCourseController {
 	}
 	
 	@RequestMapping("/delete/{id}")
-	public String deleteCourse(@PathVariable(name = "id") int id, Model model) {
-	    cservice.deleteCourseById(id);
-		List<Course> listCourses = cservice.findAllCourses();
-		model.addAttribute("listcourses", listCourses);
-		return "Admin/admin_course";
+	public String deleteCourse(@PathVariable(name = "id") int id) {
+	    cservice.delete(id);
+	    return "redirect:/admin_home/course";
 	}
 }
