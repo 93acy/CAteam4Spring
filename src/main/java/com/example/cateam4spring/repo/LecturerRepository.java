@@ -2,6 +2,7 @@ package com.example.cateam4spring.repo;
 
 import java.util.List;
 
+import com.example.cateam4spring.model.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -21,4 +22,13 @@ public interface LecturerRepository extends JpaRepository<Lecturer, Integer> {
 //	
 //	@Query("DELETE FROM course_allocation ca WHERE ca.course_id = :Cid AND ca.lecturer_id = :Lid")
 //	public void deleteLecturerInCourse(@Param("Cid") Integer Cid, @Param("Lid") Integer Lid);
+
+	@Query("SELECT l FROM Lecturer l WHERE "
+			+ "CONCAT(l.firstName,l.lastName,l.id)"
+			+ "LIKE %:keyword%")
+	List<Lecturer> findByKeyword(@Param("keyword") String keyword);
+
+
+
+
 }

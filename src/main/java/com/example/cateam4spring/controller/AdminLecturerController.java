@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(value="/admin_lecturer")
 public class AdminLecturerController {
@@ -64,7 +66,20 @@ public class AdminLecturerController {
 	    alservice.delete(id);
 	    return "redirect:/admin_home/lecturer";       
 	}
-	
+
+	@RequestMapping("/viewLecturers")
+	public String listLecturers(Model model, String keyword) {
+		List<Lecturer> listLecturers = alservice.listAll();
+
+		if(keyword !=null) {
+			model.addAttribute("listLecturers", alservice.lecturerFindByKeyword(keyword));
+		}
+		else {
+			model.addAttribute("listLecturers", listLecturers);
+		}
+		return "Admin/admin_lecturer";
+	}
+
 	
 }
 

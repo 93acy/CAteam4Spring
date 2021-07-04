@@ -2,6 +2,7 @@ package com.example.cateam4spring.service;
 
 import java.util.List;
 
+import com.example.cateam4spring.model.Course;
 import com.example.cateam4spring.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,12 @@ public class AdminLecturerServiceImpl implements AdminLecturerService {
 	@Override
 	public void delete(Integer id) {
 		lrepo.deleteById(id);
+	}
+
+	@Override
+	public List<Lecturer> lecturerFindByKeyword(String keyword){
+
+		return lrepo.findByKeyword(keyword);
 	}
 
 }
