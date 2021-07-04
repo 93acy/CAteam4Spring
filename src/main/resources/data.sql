@@ -133,7 +133,7 @@ INSERT INTO caps.user (user_id,enabled,password,username) VALUES (33,1, '$2a$10$
 
 -- --Insert User for Admin
 
-INSERT INTO caps.user (user_id,enabled,password,username) VALUES (5,1,' $2a$10$gkxcnC.ofDg7SZyYOvr5telmE.wgkafW.wCGXGVOG3uLG6/7Wr49','admin')
+INSERT INTO caps.user (user_id,enabled,password,username) VALUES (5,1,'$2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','admin')
 
 INSERT INTO caps.user (user_id,enabled,password,username) VALUES (34,1,' $2a$10$pDwBGu9.3CT5RIpBpkqlFuVan8mjljxy0FS5qwZJiAoscsCuiHD5S','mitzipin')
 
