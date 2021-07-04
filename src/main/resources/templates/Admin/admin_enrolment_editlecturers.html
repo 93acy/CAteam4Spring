@@ -36,7 +36,7 @@
 					<td th:text="${lecturerInCourse.id}"></td>
 					<td th:text="${lecturerInCourse.firstName}"></td>
 					<td th:text="${lecturerInCourse.lastName}"></td>
-					<td><a th:href="@{'/admin_enrolment/remove/' + ${course.id} + ${lecturerInCourse.id}}">Remove</a></td>		
+					<td><a th:href="@{'/admin_enrolment/remove/' + ${course.id} + '/' + ${lecturerInCourse.id}}">Remove</a></td>
 				</tr>
 			</tbody>
 		</table>
