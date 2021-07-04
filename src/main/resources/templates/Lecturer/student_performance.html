@@ -30,7 +30,7 @@
    <th>Student Name</th>
    <th>Matriculation Id</th>
    <th>Course Start Date</th>
-   <th>GPA</th>
+   
    <th>Course Status</th>
  </tr>
  
@@ -40,7 +40,7 @@
    <td th:text="${performance.student.firstName} + ${performance.student.lastName}"></td>
    <td th:text="${performance.student.id}"></td>
    <td th:text="${performance.course.startDate}"></td>
-   <td th:text="${performance.student.GPA}"></td>
+   <!--  <td th:text="${performance.student.GPA}"></td>-->
    <td th:text="${performance.courseStatus}"></td>  
  </tr>
 </table>

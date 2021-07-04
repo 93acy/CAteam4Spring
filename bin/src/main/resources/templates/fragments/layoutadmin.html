@@ -1,7 +1,7 @@
 <!doctype html>
 <html xmlns:th="https://www.thymeleaf.org" th:fragment="layoutadmin (template, menu)">
 
-<head>
+<head th:fragment="head" class="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" media="all" 
           th:href="@{/css/style.css}" />
@@ -15,7 +15,7 @@
     	<a href="/logout">Log out</a>
         <a href="/admin_home/course">Manage Courses</a>
         <a href="/admin_home/lecturer">Manage Lecturers</a>
-        <a href="/admin_home/enrolment">Manage Enrolment</a>
+        <a href="/admin_home/enrolment">Manage Course Enrolments and Allocations</a>
         <a href="/admin_home/student">Manage Students</a>
         <a href="/admin_home">Home</a>
         </div>
@@ -24,13 +24,14 @@
   <div id="footer-navigation" class="container">
 	<h4>CAPS</h4>
 		<div>
-	  		<ul>
+	  		<ul style="list-style-type:none; text-align:center; ">
 	  			<li>
-	  			<i style="font-size:24px;color:white;" class="fa">&#xf041;</i>
+	  			<i class="fas fa-route"></i>
 	  			234 Newton Rd, Singapore 312104
 	  			</li>
-	  			<li>
-	  			<i style="font-size:24px;color:white;" class="fa">&#xf095;</i>
+	  			<li></li>
+	  			<li style="text-align:center; margin-top:10px;">
+	  			<i class="fa">&#xf095;</i>
 	  			+65 6369 1124
 		  		</li>
 		  	</ul>

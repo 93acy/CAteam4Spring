@@ -1,6 +1,7 @@
 package com.example.cateam4spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import com.example.cateam4spring.repo.CourseRepository;
 import com.example.cateam4spring.repo.EnrolmentRepository;
 import com.example.cateam4spring.service.CourseService;
 import com.example.cateam4spring.service.EnrolmentService;
+import com.example.cateam4spring.service.MyUserDetails;
 import com.example.cateam4spring.service.StudentService;
 
 @Controller
@@ -45,26 +47,28 @@ public class LecturerController {
 	}
 	
 	@RequestMapping("/viewcourses")
-	public String listCourse(Model model, String keyword) {
+	public String listCourse(Model model, String keyword, @AuthenticationPrincipal MyUserDetails userDetails ) {
 		
 		if(keyword !=null) {
 			model.addAttribute("courses", cs.findByKeyword(keyword));
 		}		
 		else {
-			model.addAttribute("courses", crepo.findAll());	
+			model.addAttribute("courses", cs.findCourseByLecturerId(userDetails.getId()));	
 		}
 		return "lecturer/viewcourses";	
+		
+		
 	}
 	
 	
 	@GetMapping("/enrolment")
-	public String listEnrolment(Model model, String keyword) {
+	public String listEnrolment(Model model, String keyword, @AuthenticationPrincipal MyUserDetails userDetails) {
 		
 		if(keyword !=null) {
 			model.addAttribute("enrolments", es.findByKeyword(keyword));
 		}		
 		else {
-			model.addAttribute("enrolments", erepo.findAll());	
+			model.addAttribute("enrolments", es.findEnrolmentByLecturerId(userDetails.getId()));	
 		}
 		
 		return "lecturer/enrolment";
@@ -73,13 +77,13 @@ public class LecturerController {
 	}
 	
 	@GetMapping("/studentperformance")
-	public String listPerformance(Model model, String keyword) {
+	public String listPerformance(Model model, String keyword, @AuthenticationPrincipal MyUserDetails userDetails) {
 		
 		if(keyword !=null) {
 			model.addAttribute("performances", es.findByKeyword(keyword));
 		}		
 		else {
-			model.addAttribute("performances", erepo.findAll());	
+			model.addAttribute("performances", es.findEnrolmentByLecturerId(userDetails.getId()));	
 		}
 
 	
@@ -88,13 +92,13 @@ public class LecturerController {
 	
 	
 	@RequestMapping("/inputgrades")
-	public String showGrades(Model model, String keyword) {
+	public String showGrades(Model model, String keyword, @AuthenticationPrincipal MyUserDetails userDetails) {
 		
 		if(keyword !=null) {
 			model.addAttribute("enrolment", es.findByKeyword(keyword));
 		}		
 		else {
-			model.addAttribute("enrolment", erepo.findAll());	
+			model.addAttribute("enrolment", es.findEnrolmentByLecturerId(userDetails.getId()));	
 		}
 
 		
@@ -139,37 +143,7 @@ public class LecturerController {
 			return mav;
 		}
 		
-	}
-	
-//	@RequestMapping(value = "/save/{id}")
-//    public ModelAndView saveGrade(@RequestParam Double grade, @PathVariable("id") Integer id) {
-//
-// 
-//
-//        try {
-//            Enrolment enrolment = es.findEnrolmentById(id);
-//            enrolment.setGrade(grade);
-//            
-//            if (grade <0 || grade>100) {
-//                throw new InvalidGradeException("Grade should be within 0 to 100 :)");
-//            }
-//            
-//            enrolment.updateCourseStatus();
-//            es.updateGrade(grade, id);
-//            es.updateCourseStatus();
-//            Double gpa = ss.calculateGPA(enrolment.getStudent().getId());
-//            ModelAndView mav = new ModelAndView("forward:/lecturer/inputgrades");
-//            return mav;
-//        }
-//        
-//        catch (InvalidGradeException e){
-//            ModelAndView mav = new ModelAndView("redirect:/lecturer/edit/{id}");
-//            mav.addObject("errMsg", e.getMessage());
-//            return mav;
-//        }
-//        
-//    }
-//	
+	}	
 
 	
 	@RequestMapping("/logout")

@@ -42,6 +42,8 @@ public interface EnrolmentService {
     Enrolment findEnrolmentById(Integer id);
 
     List<Enrolment> findByKeyword(String keyword);
+    
+    List<Enrolment> findEnrolmentByLecturerId(Integer lid);
 }
 
 

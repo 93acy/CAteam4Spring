@@ -1,0 +1,56 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" media="all" 
+          th:href="@{/css/style.css}" />
+</head>
+
+<body>
+<div th:fragment="topnav" class="topnav">
+    <div class="container">
+    	<a href="/logout">Log out</a>
+        <a href="/admin_home/course">Manage Courses</a>
+        <a href="/admin_home/lecturer">Manage Lecturers</a>
+        <a href="/admin_home/enrolment">Manage Enrolment</a>
+        <a href="/admin_home/student">Manage Students</a>
+        <a href="/admin_home">Home</a>
+        </div>
+        </div>
+  <div th:fragment="footer" class="footer">
+  <div id="footer-navigation" class="container">
+	<h4>CAPS</h4>
+		<div>
+	  		<ul>
+	  			<li>
+	  			<i class="fas fa-route"></i>
+	  			234 Newton Rd, Singapore 312104
+	  			</li>
+	  			<li>
+	  			<i class="fa">&#xf095;</i>
+	  			+65 6369 1124
+		  		</li>
+		  	</ul>
+		 </div>
+	</div>
+
+<div class="images-container">
+		<img src="https://www.nus.edu.sg/images/default-source/base/facebook.png" width=32 height=32>
+		<img src="https://www.nus.edu.sg/images/default-source/base/twitter.png" width=32 height=32>
+		<img src="https://www.nus.edu.sg/images/default-source/base/instagram.png" width=32 height=32>
+		<img src="https://www.nus.edu.sg/images/default-source/base/linkedin.png" width=32 height=32>	
+	</div>
+	<br></br>
+	<div>
+	  <div id="copyright" class="container">
+	  		<div>
+	  			&copy;CAPS. All Rights Reserved.
+	  	</div>
+	  </div>
+	  </div>
+ </div>
+
+</body>
+
+</html>

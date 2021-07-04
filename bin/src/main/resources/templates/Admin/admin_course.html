@@ -6,28 +6,60 @@
     <meta charset="ISO-8859-1">
     <link rel="stylesheet" type="text/css" media="all"
           th:href="@{/css/style.css}" />
+              <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+ 
 </head>
 
 <body>
-<div class="container" align="center">
-    <a href="/admin_home">Home</a>
-    <a href="/admin_home/student">Student</a>
-    <a href="/admin_home/enrolment">Enrolment</a>
-    <a href="/admin_home/lecturer">Lecturer</a>
-    <a href="/admin_home/course">Courses</a>
-    <a href="/admin/logout">Log out</a>
-</div>
-</div>
-<div th:fragment="topnav" class="topnav">
-    <div class="container" align="center">
-        <a href="/admin_course/viewCourse">ViewAllCourses</a>
-        <a href="/admin_course/add">Add Course</a>
-        <a href="/admin_course/edit">Edit Course Details</a>
+ <div th:replace="fragments/layoutadmin :: topnav">
+  </div>
+  <div class="e">
+  <img src="https://image.freepik.com/free-vector/students-with-magnifier-reading-stack-e-books-smartphone-education-app_335657-3300.jpg">
     </div>
-</div>
-
-<p>Hello</p>
-
+    <br></br>
+    <h1>Course List</h1>
+    <div class="b">
+    <a href="/admin_course/new" class="button">Create New Course</a>
+    </div>
+    <br/><br/>
+    <div class="search-container">
+	    <form action="course">
+	      <input type="text" placeholder="Search by course name/course ID" name="keyword">
+	      <button type="submit">Submit</button>
+	    </form>
+	</div>
+    <table class="a">
+        <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Course Description</th>
+                <th>Capacity</th>
+                <th>Credit</th>
+                <th>Start Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="course : ${listCourses}">
+                <td th:text="${course.id}">Course ID</td>
+               	<td th:text="${course.name}">Course Name</td>
+               	<td th:text="${course.description}">Course Description</td>
+               	<td th:text="${course.capacity}">Capacity</td>
+               	<td th:text="${course.credit}">Credit</td>
+               	<td th:text="${course.startDate}">Start Date</td>
+                <td>
+                    <a th:href="@{'/admin_course/edit/' + ${course.id}}">Edit</a>
+                     
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/admin_course/delete/' + ${course.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br></br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
 </body>
 
 </html>

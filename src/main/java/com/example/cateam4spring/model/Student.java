@@ -42,6 +42,15 @@ public class Student extends User {
 		this.GPA = GPA;
 		this.enrollmentDate = enrollmentDate;
 	}
+	
+	public Student(Integer id, String firstName, String lastName, Double gPA, Date enrollmentDate) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		GPA = gPA;
+		this.enrollmentDate = enrollmentDate;
+	}
 
 	public Integer getId() {
 		return id;

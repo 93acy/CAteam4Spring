@@ -2,36 +2,95 @@
 <html xmlns:th="http://www.thymeleaf.org" th:fragment="admin_home (template, menu)">
 
 <head>
-    <title>Student View</title>
+    <title>Admin Enrolment</title>
     <meta charset="ISO-8859-1">
     <link rel="stylesheet" type="text/css" media="all"
           th:href="@{/css/style.css}" />
 </head>
 
 <body>
+ <div th:replace="fragments/layoutadmin :: topnav">
+  </div>
+  <div class="e">
+  <img src="https://image.freepik.com/free-vector/preparing-test-together-learning-studying-with-friends-effective-revision-revision-timetables-planning-how-revise-exams-concept-pinkish-coral-bluevector-isolated-illustration_335657-1258.jpg">
+   </div> 
+<br></br>
+ <div align="center">
+     <div style="float: left; width:50%; padding:10px; box-sizing: border-box;">
+        <table class="a">
+        <thead>
+        <tr>
+            <tr>
+                <th colspan ="4">Student List</th>
+            </tr>
+        <tr>
+            <div class="search-container">
+                <form action="/admin_enrolment/viewStudentSearch">
+                    <input type="text" placeholder="Search by student name/student ID" name="keyword">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </tr>
+            </tr>
+                <th>Student ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="student : ${listStudents}">
+                <td th:text="${student.id}">Student ID</td>
+                <td th:text="${student.firstName}">firstName</td>
+                <td th:text="${student.lastName}">lastName</td>
 
-<div class="container" align="center">
-    <a href="/admin_home">Home</a>
-    <a href="/admin_home/student">Student</a>
-    <a href="/admin_home/enrolment">Enrolment</a>
-    <a href="/admin_home/lecturer">Lecturer</a>
-    <a href="/admin_home/course">Courses</a>
-    <a href="/admin/logout">Log out</a>
-</div>
-</div>
+                <td>
+                <a th:href="@{'/admin_enrolment/enrolStudent/' + ${student.id}}">Enrol</a>
 
-
-<div th:fragment="topnav" class="topnav">
-    <div class="container" align="center">
-
-        <a href="/admin_enrolment/enrol">Enrol</a>
-        <a href="/admin_enrolment/edit">Edit Enrolment Details</a>
-        <a href="/admin_course/delete">Delete Course Details</a>
-
-    </div>
-</div>
-
-<p>Hello</p>
+                <a th:href="@{'/admin_enrolment/deleteEnrolment/' + ${student.id}}">DeleteEnrolment</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+     </div></div></div>
+ <div align="center">
+     <div style="float: left; width:50%; padding:10px; box-sizing: border-box;">
+     <div>
+    <table class ="a">
+        <thead>
+        <tr>
+            <th colspan = "4">Course List</th>
+        </tr>
+        <tr>
+            <div class="search-container">
+                <form action="/admin_enrolment/viewCourseSearch">
+                    <input type="text" placeholder="Search by course name/course ID" name="keyword">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </tr>
+        <tr>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${listcourses}">
+            <td th:text="${course.id}">Course ID</td>
+            <td th:text="${course.name}">Course Name</td>
+            <td>
+                <a th:href="@{'/admin_enrolment/edit_lecturersincourse/' + ${course.id}}">Lecturers</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/admin_enrolment/viewCourseEnrolments/' + ${course.id}}">Students</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+         </div></div>
+ </div>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
 
 </body>
 
