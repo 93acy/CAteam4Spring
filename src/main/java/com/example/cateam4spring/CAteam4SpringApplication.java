@@ -48,47 +48,16 @@ public class CAteam4SpringApplication {
 		SpringApplication.run(CAteam4SpringApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner() {
-		return args -> {
-
-//			Student s1 = new Student("HA","HA", 4.0 ,null);
-//			srepo.save(s1);
+//	@Bean
+//	CommandLineRunner runner() {
+//		return args -> {
 //
-//			Lecturer l1 = new Lecturer("K","K");
-//			lrepo.save(l1);
-//
-//			Collection<Course> courses = new ArrayList<>();
-//			courses.add(c1);courses.add(c2);
-//
-//			s1.setCourses(courses);
-//			l1.setCourses(courses);
-
 //			Role ADMIN = new Role("ADMIN");
 //			Role STUDENT = new Role("STUDENT");
 //			Role LECTURER = new Role("LECTURER");
 //
-		    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-//			String rawPassword1 = "admin";
-//			String encodedPassword1 = encoder.encode(rawPassword1);
-//			Admin admin = new Admin("admin", encodedPassword1, true);
-//			admin.getRoles().add(ADMIN);
-//			arepo.save(admin);
+//		    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 //
-//			String rawPassword2 = "student";
-//			String encodedPassword2 = encoder.encode(rawPassword2);
-//			User student = new User("student", encodedPassword2, true);
-//			student.getRoles().add(STUDENT);
-//
-//			String rawPassword3 = "lecturer";
-//			String encodedPassword3 = encoder.encode(rawPassword3);
-//			User lecturer = new User("lecturer", encodedPassword3,true);
-//			lecturer.getRoles().add(LECTURER);
-//
-//			urepo.save(admin);
-//			urepo.save(student);
-//			urepo.save(lecturer);
-
 //			rrepo.save(new Role("STUDENT"));
 //			rrepo.save(new Role("LECTURER"));
 //			rrepo.save(new Role("ADMIN"));
@@ -96,8 +65,7 @@ public class CAteam4SpringApplication {
 //			Role student = rrepo.findRoleByName("STUDENT");
 //			Role lecturer = rrepo.findRoleByName("LECTURER");
 //			Role admin= rrepo.findRoleByName("ADMIN");
-//			
-////1
+//
 //			String rawPassword1 ="admin";
 //			String encodedPassword1 = encoder.encode(rawPassword1);
 //			Admin admin1 = new Admin("Admin", encodedPassword1, true, "forever", "Admin");
@@ -119,13 +87,13 @@ public class CAteam4SpringApplication {
 //			student2.getRoles().add(student);
 //			srepo.save(student2);
 //
-////			Course c1 = new Course("Intro to C#","this is a math course", 50, 6, null);
-////			Course c2 = new Course("Science","this is a science course", 45, 8, null);
-////			crepo.save(c1); crepo.save(c2);
-////			Collection<Course> courses1 = new ArrayList<>();
-////			Collection<Course> courses2 = new ArrayList<>();
-////			courses1.add(c1);courses1.add(c2);
-////			courses2.add(c1);
+//			Course c1 = new Course("Intro to C#","this is a math course", 50, 6, null);
+//			Course c2 = new Course("Science","this is a science course", 45, 8, null);
+//			crepo.save(c1); crepo.save(c2);
+//			Collection<Course> courses1 = new ArrayList<>();
+//			Collection<Course> courses2 = new ArrayList<>();
+//			courses1.add(c1);courses1.add(c2);
+//			courses2.add(c1);
 //
 //			String rawPassword6 = "lecturer";
 //			String encodedPassword6 = encoder.encode(rawPassword6);
@@ -147,11 +115,8 @@ public class CAteam4SpringApplication {
 //			lecturer1.getRoles().add(lecturer);
 //			lrepo.save(lecturer2);
 
-//			User a = urepo.getById(1);
-//			a.setRoles(Set.of(lecturer, admin));
-//			urepo.save(a);*/
-			
-		};
-	}
+
+//		};
+//	}
 
 }
