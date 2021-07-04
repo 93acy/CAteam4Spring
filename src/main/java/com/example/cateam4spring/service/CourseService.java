@@ -28,6 +28,8 @@ public interface CourseService {
     
     public void delete(Integer id);
     
+    List<Course> findCourseByLecturerId(Integer Id);
+    
     
 
 

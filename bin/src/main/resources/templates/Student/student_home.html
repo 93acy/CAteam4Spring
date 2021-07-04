@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="BIG5">
  <link rel="stylesheet" type="text/css" media="all"
           th:href="@{/css/style.css}" />
+              <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+ 
 <title>Home</title>
 </head>
 <body>
-	<!--  <div th:text=" Hello + ${session.studentSession.firstName} + ${session.studentSession.lastName}"></div>  -->
+
 	 <div th:replace="fragments/layoutstudent :: topnav">
   </div>
 	
-	<h1>Welcome</h1>
+	<h1>Welcome <span sec:authentication="principal.fullName">Fullname</span></h1>
+
 	<div class="e"><img src="https://image.freepik.com/free-vector/happy-diverse-students-celebrating-graduation-from-school_74855-5853.jpg"></div>
 <br></br>
   <div th:replace="fragments/layoutadmin :: footer">

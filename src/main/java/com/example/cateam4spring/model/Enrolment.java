@@ -46,6 +46,15 @@ public class Enrolment {
         this.enrolmentDate = enrolmentDate;
         this.grade = grade;
     }
+    
+    public Enrolment(Integer id, String courseStatus, String enrolmentDate, Double grade, Double point) {
+		super();
+		this.id = id;
+		this.courseStatus = courseStatus;
+		this.enrolmentDate = enrolmentDate;
+		this.grade = grade;
+		this.point = point;
+	}
 
 	public Integer getId() {
 		return id;

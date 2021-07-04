@@ -2,9 +2,102 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+<style>
+/* Add a black background color to the top navigation */
+.topnav {
+  width: 100%;
+  height:150px;
+  background-color: #4d4d4d;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: white;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: rgb(181, 172, 172);
+  color: white;
+}
+
+table
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	border-collapse: collapse;
+	width:80%;
+	text-align: center;
+	padding: 30px;
+	margin:auto;
+}
+
+.footer{
+	font-family: "Muli", sans-serif;
+	font-weight:normal;
+	font-size:15px;
+	  background-color: #4d4d4d;
+	   color: white;
+	   padding: 20px 0px;
+	   text-align: center;
+	   display: inline-block; 
+	   margin-bottom: 0px; 
+	   width:100%;
+	   bottom:0px;
+	position:absolute;
+}
+h4{
+	font-size: 28px;
+	font-weight:normal;
+	color: #ffffff;
+	font-family: "Muli", sans-serif;
+	margin:0;
+}
+
+body{
+margin:0;
+}
+
+ul{
+	display:inline-block; 
+	text-align: center; 
+	list-style: none;
+}
+
+li{
+	text-align:left;
+}
+
+</style>
+<title>Login Page</title>
+
 </head>
 <body>
+	 <div th:replace="fragments/layoutindex :: topnav">
+  </div>
+  <br></br>
+<table>
+<tr>
+<td>
+<img src="https://img.freepik.com/free-vector/group-college-university-students-hanging-out_74855-5251.jpg?size=626&ext=jpg&ga=GA1.2.2144664964.1624924800">
+</td>
+<td>
 	<form name="f" th:action="@{/login}" method="post">               
             <fieldset>
                 <legend>Please Login</legend>
@@ -16,13 +109,22 @@
                 </div>
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username"/>        
+                <br></br>
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password"/>    
+                <input type="password" id="password" name="password"/>   
+                <br></br> 
                 <div class="form-actions">
                     <button type="submit" class="btn">Log in</button>
                 </div>
             </fieldset>
         </form>
+        </td>
+        </tr>
+</table>
+
+  <br></br>
+  <div th:replace="fragments/layoutadmin :: footer">
+  </div>
 
 </body>
 </html>

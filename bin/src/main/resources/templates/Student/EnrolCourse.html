@@ -4,6 +4,8 @@
 <meta charset="BIG5">
  <link rel="stylesheet" type="text/css" media="all"
           th:href="@{/css/style.css}" />
+              <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+ 
 <title>Enrol course</title>
 </head>
 <body>
@@ -23,7 +25,7 @@
 			<td th:text="${course.id}"></td>
 			<td th:text="${course.name}"></td>
 			<td th:text="${course.credit}"></td>
-			<td><a th:href="@{'/student/enrolcourse/' + ${course.id}}">Enrol</a></td>
+			<td><a th:href="@{/student/enrolcourse/} + ${course.id}">Enrol</a></td>
 		</tr>
 	</table>
 	

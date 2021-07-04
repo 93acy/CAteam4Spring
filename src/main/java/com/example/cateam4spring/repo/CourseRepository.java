@@ -37,6 +37,10 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
             + "CONCAT(c.name,c.id)"
             + "LIKE %:keyword%")
     List<Course> findByKeyword(@Param("keyword") String keyword);
+    
+    @Query("select c from Course c join c.lecturers l "
+    		+ "where l.id =:lid")
+    List<Course> findCourseByLecturerId( @Param("lid") Integer lid);
 
 
 }

@@ -51,6 +51,29 @@ public class Course {
 		this.lecturers = lecturers;
 		Enrolments = enrolments;
 	}
+	
+
+	public Course(String name, String description, int capacity, int credit, Date startDate, Integer currentSelectNum) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.capacity = capacity;
+		this.credit = credit;
+		this.startDate = startDate;
+		this.currentSelectNum = currentSelectNum;
+	}
+	
+	public Course(Integer id, String name, String description, int capacity, int credit, Date startDate,
+			Integer currentSelectNum) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.capacity = capacity;
+		this.credit = credit;
+		this.startDate = startDate;
+		this.currentSelectNum = currentSelectNum;
+	}
 
 
 
