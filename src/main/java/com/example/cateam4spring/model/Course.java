@@ -23,7 +23,7 @@ public class Course {
 	private Date startDate;
 	private Integer currentSelectNum=0;
 
-	  @ManyToMany(mappedBy = "courses")
+	  @ManyToMany(mappedBy = "courses", cascade=CascadeType.REMOVE)
 	  private Collection<Lecturer> lecturers;
 	  
 	  @OneToMany(mappedBy = "course")

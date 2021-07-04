@@ -39,5 +39,4 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
     List<Course> findByKeyword(@Param("keyword") String keyword);
 
 
-
 }
