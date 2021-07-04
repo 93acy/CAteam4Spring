@@ -23,6 +23,14 @@
             <tr>
                 <th colspan ="4">Student List</th>
             </tr>
+        <tr>
+            <div class="search-container">
+                <form action="/admin_enrolment/viewStudentSearch">
+                    <input type="text" placeholder="Search by student name/student ID" name="keyword">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </tr>
             </tr>
                 <th>Student ID</th>
                 <th>First Name</th>
@@ -52,6 +60,14 @@
         <thead>
         <tr>
             <th colspan = "4">Course List</th>
+        </tr>
+        <tr>
+            <div class="search-container">
+                <form action="/admin_enrolment/viewCourseSearch">
+                    <input type="text" placeholder="Search by course name/course ID" name="keyword">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </tr>
         <tr>
             <th>Course ID</th>

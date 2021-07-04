@@ -1,10 +1,7 @@
 package com.example.cateam4spring.controller;
 
 import com.example.cateam4spring.model.*;
-import com.example.cateam4spring.service.AdminStudentService;
-import com.example.cateam4spring.service.CourseService;
-import com.example.cateam4spring.service.EnrolmentService;
-import com.example.cateam4spring.service.StudentService;
+import com.example.cateam4spring.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Array;
@@ -24,7 +21,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.cateam4spring.model.Course;
-import com.example.cateam4spring.service.AdminEnrolmentLecturerCourseService;
 import com.example.cateam4spring.service.CourseService;
 
 @Controller
@@ -32,6 +28,9 @@ import com.example.cateam4spring.service.CourseService;
 public class AdminEnrolmentController {
     @Autowired
     private CourseService cservice;
+
+    @Autowired
+    private AdminLecturerService alservice;
 
     @Autowired
     private AdminCourseController acservice;
@@ -142,5 +141,35 @@ public class AdminEnrolmentController {
         aelcservice.addLecturerToCourse(lid, cid);
         return "redirect:/admin_enrolment/edit_lecturersincourse/{cid}";
     }
+
+    @RequestMapping("/viewCourseSearch")
+    public String listCourses(Model model, String keyword) {
+        List<Student> listStudents = asservice.listAll();
+        if (keyword !=null) {
+            model.addAttribute("listcourses", cservice.findByKeyword(keyword));
+        }
+        else {
+            model.addAttribute("listcourses", cservice.findAllCourses());
+        }
+        model.addAttribute("listStudents", listStudents);
+        return "Admin/admin_enrolment";
+    }
+
+    @RequestMapping("/viewStudentSearch")
+    public String listStudents(Model model, String keyword) {
+        List<Course> listCourses = cservice.findAllCourses();
+        if(keyword !=null) {
+            model.addAttribute("listStudents", sservice.findByKeyword(keyword));
+        }
+        else {
+            model.addAttribute("listStudents", sservice.findAllStudents());
+        }
+        model.addAttribute("listcourses", listCourses);
+        return "Admin/admin_enrolment";
+    }
+
 }
+
+
+
 
