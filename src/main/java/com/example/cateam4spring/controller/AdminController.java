@@ -66,9 +66,13 @@ public class AdminController {
     }
 
     @GetMapping("/course")
-    public String AdminCourse(Model model) {
-        List<Course> listCourses = cservice.findAllCourses();
-        model.addAttribute("listcourses", listCourses);
+    public String AdminCourse(Model model, String keyword) {
+    	if (keyword !=null) {
+			model.addAttribute("listCourses", cservice.findByKeyword(keyword));
+		}		
+		else {
+			model.addAttribute("listCourses", cservice.findAllCourses());	
+		}
         return "Admin/admin_course";
     }
 

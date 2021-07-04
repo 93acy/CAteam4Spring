@@ -43,8 +43,8 @@ public class AdminCourseController {
 	}
 	
 	@RequestMapping("/delete/{id}")
-	public String deleteProduct(@PathVariable(name = "id") int id) {
-	    cservice.deleteCourseById(id);
+	public String deleteCourse1(@PathVariable(name = "id") int id) {
+	    cservice.delete(id);
 	    return "redirect:/admin_home/course";       
 	}
 }

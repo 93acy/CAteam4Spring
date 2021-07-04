@@ -73,7 +73,7 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
-	public void deleteCourseById(Integer id) {
+	public void delete(Integer id) {
 		crepo.deleteById(id);
 	}
 }
