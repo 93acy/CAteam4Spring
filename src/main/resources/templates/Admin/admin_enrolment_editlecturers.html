@@ -6,6 +6,8 @@
     <meta charset="ISO-8859-1">
     <link rel="stylesheet" type="text/css" media="all"
           th:href="@{/css/style.css}" />
+              <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+ 
 </head>
 
 <body>
@@ -34,7 +36,7 @@
 					<td th:text="${lecturerInCourse.id}"></td>
 					<td th:text="${lecturerInCourse.firstName}"></td>
 					<td th:text="${lecturerInCourse.lastName}"></td>
-					<td><a th:href="@{'/admin_enrolment/remove/' + ${course.id} + '/' + ${lecturerInCourse.id}}">Remove</a></td>		
+					<td><a th:href="@{'/admin_enrolment/remove/' + ${course.id} + ${lecturerInCourse.id}}">Remove</a></td>		
 				</tr>
 			</tbody>
 		</table>
